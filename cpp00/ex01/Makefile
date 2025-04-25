@@ -1,10 +1,13 @@
 NAME := PhoneBook
 
-SRC := PhoneBook.cpp \
+SRC := Main.cpp
+
 OBJ_DIR := .obj
 OBJ := $(SRC:.cpp=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(notdir $(OBJ)))
 DEPS := $(OBJ:.o=.d)
+
+HEADERS := Contact.hpp PhoneBook.hpp
 
 CC := c++
 CFLAGS := -Wall -Wextra -Werror -std=c++98
@@ -13,20 +16,20 @@ CPPFLAGS := -MMD -MP
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@echo "Compilation complete: $@"
+	$(CC) $(CFLAGS) $(OBJ) -o $@
+	@echo "\033[32mCompilation complete: $@\033[0m"
 
-$(OBJ_DIR)/%.o: %.cpp
+$(OBJ_DIR)/%.o: %.cpp $(HEADERS)
 	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
 clean:
 	@rm -rf $(OBJ_DIR)
-	@echo "Cleaned up object and dependency files"
+	@echo "\033[33mCleaned object files\033[0m"
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "Cleaned up executable"
+	@echo "\033[33mRemoved executable\033[0m"
 
 re: fclean all
 

@@ -6,11 +6,9 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 12:23:39 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/04/25 12:25:03 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/04/25 14:03:02 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "PhoneBook.hpp"
 
 class Contact {
 	private: 
