@@ -6,36 +6,52 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 07:52:07 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/04/25 09:41:30 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/04/29 11:41:51 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+	#include <iostream>
+	#include <cstring>
 
 int main()
 {
 	PhoneBook PhoneBook;
-
-	return (0);
+	std::string command;
+	
+	while (1) {
+		std::cout << "Enter a CMD (ADD/SEARCH/EXIT): ";
+		std::getline(std::cin, command);
+	
+		if (std::cin.eof()) {
+			break;
+		}
+		if (command.compare("ADD") == 0) {
+			PhoneBook.addContact();
+		} 
+		// else if (std::strcmp(command, "SEARCH") == 0) {
+		// 	PhoneBook.searchContact();
+		// } 
+		else if (command.compare("EXIT") == 0) {
+			break;
+		} 
+		else {
+			std::cout << "Commande invalide.\n";
+		}
+	}
+	return 0;
 }
+
 
 PhoneBook::PhoneBook()
 {
+	_index = 0;
 	std::cout << "PhoneBook constructor called" << std::endl;
-	this->foo = 42;
-	this->i = 5;
-	std::cout << "Foo = " << this->foo << " i = " << this->i << std::endl;
-	this->test();
 	return ;
 }
 
 PhoneBook::~PhoneBook()
 {
-	std::cout << "PhoneBook destructeur called" << std::endl;
+	std::cout << std::endl <<"PhoneBook destructeur called" << std::endl;
 	return ;
-}
-
-void PhoneBook::test()
-{
-	std::cout << "Test function" << std::endl;
 }

@@ -1,13 +1,16 @@
 NAME := PhoneBook
 
-SRC := Main.cpp
+SRC := Main.cpp \
+	   Contact.cpp\
+	   PhoneBook.cpp\
 
 OBJ_DIR := .obj
 OBJ := $(SRC:.cpp=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(notdir $(OBJ)))
 DEPS := $(OBJ:.o=.d)
 
-HEADERS := Contact.hpp PhoneBook.hpp
+HEADERS := Contact.hpp\
+		   PhoneBook.hpp\
 
 CC := c++
 CFLAGS := -Wall -Wextra -Werror -std=c++98
