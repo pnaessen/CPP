@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 10:53:55 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/04/29 16:28:02 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/04/30 16:25:19 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,26 @@ bool Contact::setContact() {
 		return(false);
 	if(!setField(_phoneNumber, "Phone number : "))
 		return(false);
-	if(setField(_darkestSecret, "Darkest secret : "))
+	if(!setField(_darkestSecret, "Darkest secret : "))
 		return(false);
 	return(true);
 }
 
+std::string Contact::getFirstName() const { 
+	
+	return(_firstName);
+}
+
+std::string Contact::getLastName() const { 
+	
+	return(_lastName);
+}
+
+std::string Contact::getNickname() const { 
+	
+	return(_nickName);
+}
+
+// bool isEmpty() { 
+	
+// }

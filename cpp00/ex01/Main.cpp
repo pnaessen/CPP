@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 07:52:07 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/04/29 11:41:51 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/04/30 09:45:21 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int main()
 		if (command.compare("ADD") == 0) {
 			PhoneBook.addContact();
 		} 
-		// else if (std::strcmp(command, "SEARCH") == 0) {
-		// 	PhoneBook.searchContact();
-		// } 
+		 else if (command.compare("SEARCH") == 0) {
+		 	PhoneBook.searchContact();
+		 } 
 		else if (command.compare("EXIT") == 0) {
 			break;
 		} 
