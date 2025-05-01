@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 12:23:39 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/04/30 16:21:14 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/01 17:18:00 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,5 @@ class Contact {
 	std::string getNickname()const ;
 	bool isEmpty();
 	bool setContact();
+	void displayDetails() const;
 };

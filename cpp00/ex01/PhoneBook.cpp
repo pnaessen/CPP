@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 12:34:10 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/04/30 16:29:36 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/01 17:30:39 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <iomanip>
+#include <sstream>
 
 void PhoneBook::addContact()  {
 	_contact[_index].setContact();
@@ -26,7 +27,7 @@ void PhoneBook::searchContact() {
 	std::cout << "+----------+----------+----------+----------+" << std::endl;
 	
 	for (int i = 0; i < 8; i++) {
-		//if (!_contact[i].isEmpty()) {
+		if (!_contact[i].isEmpty()) {
 			std::cout << "|" << std::setw(10) << i + 1 << "|";
 			std::string firstName = _contact[i].getFirstName();
 			if (firstName.length() > 10)
@@ -45,7 +46,23 @@ void PhoneBook::searchContact() {
 				std::cout << std::setw(10) << nickname << "|";
 			
 			std::cout << std::endl;
-		//}
+		}
 	}
 	std::cout << "+----------+----------+----------+----------+" << std::endl;
+	
+	std::cout << "Select an index : ";
+	std::string input;
+	std::getline(std::cin, input);
+	if (std::cin.eof()) {
+		std::cout << std::endl;
+		return;
+	}
+	std::stringstream ss(input);
+	int index;
+	if (!(ss >> index) || index < 1 || index > 8 || _contact[index - 1].isEmpty()) {
+		std::cout << "Invalid index." << std::endl;
+		return;
+	}
+	
+	_contact[index - 1].displayDetails();
 }
