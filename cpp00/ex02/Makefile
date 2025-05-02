@@ -1,6 +1,7 @@
 NAME := Account
 
 SRC := tests.cpp \
+		Account.cpp \
 	  
 
 OBJ_DIR := .obj

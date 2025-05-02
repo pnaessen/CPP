@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 12:34:10 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/01 17:30:39 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/05/02 09:38:59 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ void PhoneBook::addContact()  {
 }
 
 void PhoneBook::searchContact() {
+	if(_contact[0].isEmpty()) {
+		std::cout << "ADD a user first" << std::endl;
+		return ;
+	}
 	std::cout << "+----------+----------+----------+----------+" << std::endl;
 	std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
 	std::cout << "+----------+----------+----------+----------+" << std::endl;
@@ -52,17 +56,21 @@ void PhoneBook::searchContact() {
 	
 	std::cout << "Select an index : ";
 	std::string input;
-	std::getline(std::cin, input);
-	if (std::cin.eof()) {
-		std::cout << std::endl;
-		return;
+	while(std::getline(std::cin, input))
+	{
+		if (std::cin.eof()) {
+			std::cout << std::endl;
+			return;
+		}
+		std::stringstream ss(input);
+		int index;
+		if (!(ss >> index) || index < 1 || index > 8 || _contact[index - 1].isEmpty()) {
+			std::cout << "Invalid index." << std::endl;
+			std::cout << "Select an index : ";
+		}
+		else {
+			_contact[index - 1].displayDetails();
+			return;
+		}
 	}
-	std::stringstream ss(input);
-	int index;
-	if (!(ss >> index) || index < 1 || index > 8 || _contact[index - 1].isEmpty()) {
-		std::cout << "Invalid index." << std::endl;
-		return;
-	}
-	
-	_contact[index - 1].displayDetails();
 }

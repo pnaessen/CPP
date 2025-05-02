@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 07:52:07 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/04/30 09:45:21 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/02 09:40:46 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ int main()
 			break;
 		} 
 		else {
-			std::cout << "Commande invalide.\n";
+			std::cout << "BAD CMD.\n";
+		}
+		if (std::cin.eof()) {
+			break;
 		}
 	}
 	return 0;
