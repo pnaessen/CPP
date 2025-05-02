@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 12:23:39 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/01 17:18:00 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/05/02 16:49:03 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,6 @@ class Contact {
 	bool isEmpty();
 	bool setContact();
 	void displayDetails() const;
+	Contact();
+	~Contact();
 };

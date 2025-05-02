@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 10:53:55 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/01 17:30:52 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/05/02 16:48:15 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,14 @@ void Contact::displayDetails() const {
 	std::cout << "Nickname: " << _nickName << std::endl;
 	std::cout << "Phone number: " << _phoneNumber << std::endl;
 	std::cout << "Darkest secret: " << _darkestSecret << std::endl;
+}
+
+Contact::Contact() {
+	std::cout << "Contact constructor called" << std::endl;
+	return ;
+}
+
+Contact::~Contact() {
+	std::cout << "Contact destructeur called" << std::endl;
+	return ;
 }
