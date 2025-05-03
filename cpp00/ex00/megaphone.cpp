@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:07:30 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/01/29 12:31:18 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/03 13:25:51 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ int main(int argc, char **argv)
 		for (int x = 0; argv[i][x]; x++)
 			std::cout << (char) toupper(argv[i][x]);
 	}
+	std::cout << std::endl;
 	return (0);
 }
