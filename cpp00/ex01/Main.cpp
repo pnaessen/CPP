@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 07:52:07 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/02 09:40:46 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/05 08:36:46 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,3 @@ int main()
 }
 
 
-PhoneBook::PhoneBook()
-{
-	_index = 0;
-	std::cout << "PhoneBook constructor called" << std::endl;
-	return ;
-}
-
-PhoneBook::~PhoneBook()
-{
-	std::cout << std::endl <<"PhoneBook destructeur called" << std::endl;
-	return ;
-}

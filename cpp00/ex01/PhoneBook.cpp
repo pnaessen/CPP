@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 12:34:10 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/02 09:38:59 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/05 08:36:56 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,19 @@ void PhoneBook::addContact()  {
 	_index++;
 	if(_index % 8 == 0)
 		_index = 0;	
+}
+
+PhoneBook::PhoneBook()
+{
+	_index = 0;
+	std::cout << "PhoneBook constructor called" << std::endl;
+	return ;
+}
+
+PhoneBook::~PhoneBook()
+{
+	std::cout <<"PhoneBook destructeur called" << std::endl;
+	return ;
 }
 
 void PhoneBook::searchContact() {
