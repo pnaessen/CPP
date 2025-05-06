@@ -1,4 +1,4 @@
-NAME := BraiiiiiiinnnzzzZ
+NAME := Moar_brainz!
 
 SRC := randomChump.cpp \
 		main.cpp \

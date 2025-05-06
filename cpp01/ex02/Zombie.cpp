@@ -17,3 +17,7 @@ Zombie::~Zombie() {
 	std::cout << _name << " deconstructor call" << std::endl;
 
 }
+
+void Zombie::setName(std::string name) {
+	_name = name;
+}
