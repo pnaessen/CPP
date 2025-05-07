@@ -5,25 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 14:32:00 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/06 16:10:24 by pnaessen         ###   ########lyon.fr   */
+/*   Created: 2025/05/07 08:36:48 by pnaessen          #+#    #+#             */
+/*   Updated: 2025/05/07 09:17:07 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
+#include <string>
 
-int main() {
-	Zombie *newZ;
-	Zombie *newZ2;
-	Zombie *hordeZ;
+int main() { 
+	std::string str = "HI THIS IS BRAIN";
+	std::string *stringPTR = &str;
+	std::string& stringREF = str;
+	
+	std::cout << "The memory address of the string variable: " << &str << std::endl;
+	std::cout << "The memory address held by stringPTR: " << stringPTR << std::endl;
+	std::cout << "The memory address held by stringREF: " << &stringREF << std::endl;	
 
-	newZ = newZombie("BOB");
-	newZ->announce();
-	newZ2 = newZombie("YOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
-	newZ2->announce();
-	randomChump("BOBINIO");
-	hordeZ = zombieHorde(50, "Gruik");
-	delete newZ2;
-	delete newZ;
-	delete[] hordeZ;
+	std::cout << "The value of the string variable.: " << str << std::endl;
+	std::cout << "The value pointed to by stringPTR: " << *stringPTR << std::endl;
+	std::cout << "The value pointed to by stringREF: " << stringREF << std::endl;
+	str = "Yoooooooooooooooooooooo";
+	std::cout << "The value of the string variable.: " << str << std::endl;
+	std::cout << "The value pointed to by stringPTR: " << *stringPTR << std::endl;
+	std::cout << "The value pointed to by stringREF: " << stringREF << std::endl;
 }

@@ -1,13 +1,19 @@
-NAME := HI_THIS_IS_BRAIN
+NAME := Unnecessary_violence
 
-SRC := 	main.cpp \
- 
+SRC :=  HumanA.cpp \
+		main.cpp \
+		HumanB.cpp \
+		Weapon.cpp \
+	  
 
 OBJ_DIR := .obj
 OBJ := $(SRC:.cpp=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(notdir $(OBJ)))
 DEPS := $(OBJ:.o=.d)
 
+HEADERS := HumanA.hpp\
+		   HumanB.hpp\
+		   Weapon.hpp \
 
 CC := c++
 CFLAGS := -Wall -Wextra -Werror -std=c++98
