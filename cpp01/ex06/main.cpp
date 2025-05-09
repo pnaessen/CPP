@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 12:50:03 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/08 14:54:44 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/09 09:42:26 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@ int main(int argc, char **argv) {
 	
 	if(argc != 2) {
 		std::cout << "Error Bad arg" << std::endl;
+		return 1;
 	}
-	
-	switch 
-		case
-
+	harl.complain(argv[1]);
 	return 0;
 }

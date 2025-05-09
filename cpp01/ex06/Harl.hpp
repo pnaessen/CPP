@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 13:07:42 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/08 13:21:53 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/09 09:37:21 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,5 @@ class Harl {
 	public:
 	void complain( std::string level );
 };
+
+int stringToLevel(std::string level);
