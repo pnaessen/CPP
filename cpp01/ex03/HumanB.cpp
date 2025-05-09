@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 13:48:00 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/07 14:43:56 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/09 09:47:25 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void HumanB::setWeapon(Weapon& Weapon) {
 
 void HumanB::attack() const { 
 	if(_weapon)
-		std::cout << _name << "attacks with their " << _weapon->getType() << std::endl;
+		std::cout << _name << " attacks with their " << _weapon->getType() << std::endl;
 	else
 		std::cout << "Weapon not set ..." << std::endl;
 }

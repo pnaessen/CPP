@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 09:22:58 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/07 13:42:20 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/09 09:47:43 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 #include <string>
 #include <iostream>
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+
 
 class Weapon {
 private:
