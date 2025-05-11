@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 13:10:47 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/08 14:47:29 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/11 12:12:05 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void Harl::debug() {
 
 void Harl::complain(std::string level) {
 	
-	Harl harl;
 	
 	void (Harl::*ptr[])() = {
 		&Harl::debug,
@@ -38,10 +37,10 @@ void Harl::complain(std::string level) {
 		&Harl::warning,
 		&Harl::error
 	};
-	std::string event[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	std::string mood[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	for(int i = 0; i < 4; i++) {
-		if(level == event[i])	{
-			(harl.*ptr[i])();
+		if(level == mood[i])	{
+			(this->*ptr[i])();
 		break;;
 		}
 	}
