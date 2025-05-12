@@ -5,8 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/12 17:08:17 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/12 17:08:18 by pnaessen         ###   ########lyon.fr   */
+/*   Created: 2025/05/11 12:23:29 by pnaessen          #+#    #+#             */
+/*   Updated: 2025/05/12 17:42:45 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string>
+#include <iostream>
+
+class Fixed {
+	private :
+	int _val;
+	static const int _frac;
+	
+	public:
+	Fixed();
+	Fixed(const int bit);
+	Fixed(const float bit);
+	Fixed(const Fixed& );
+	Fixed& operator=(const Fixed& bit);
+	~Fixed();
+
+	 int getRawBits( void ) const;
+	 void setRawBits( int const raw );
+	 float toFloat(void) const;
+	 int toInt(void) const;
+	
+};
