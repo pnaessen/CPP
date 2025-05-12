@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 13:10:47 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/09 09:41:21 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/05/12 09:14:00 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,12 @@ void Harl::complain(std::string level) {
 }
 
 int stringToLevel(std::string level) {
-	int i ;
 	
-	if (level == "DEBUG")
-		i = 0;
-	else if (level == "INFO")
-		i = 1;
-	else if (level == "WARNING")
-		i = 2;
-	else if (level == "ERROR")
-		i = 3;
-	else 
-		i = 4;
-	return i;
+	std::string mood[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+
+	for(int i = 0; i < 4; i++) {
+		if(level == mood[i])
+			return i;
+	}
+	return -1;
 }
