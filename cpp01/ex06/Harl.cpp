@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 13:10:47 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/12 09:14:00 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/12 12:55:45 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,10 @@ void Harl::complain(std::string level) {
 	switch (i) {
 		case 0:
 			harl.debug();	
-			break;
 		case 1:
 			harl.info();
-			break;
 		case 2:
 			harl.warning();
-			break;
 		case 3:
 			harl.error();
 			break;
