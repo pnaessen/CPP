@@ -6,11 +6,12 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 12:23:05 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/12 17:41:03 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/13 16:40:26 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
 
 int main( void ) {
 	Fixed a;
