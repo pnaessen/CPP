@@ -6,13 +6,12 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 12:26:47 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/14 12:54:15 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/14 08:52:47 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-//std::ofstream& operator<<(std::ostream& os, const Fixed Fixed);
 
 const int Fixed::_frac = 8;
 
