@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 12:26:47 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/14 08:52:47 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/14 20:49:19 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 const int Fixed::_frac = 8;
 
 Fixed::Fixed() {
-	//_val = 0;
 	std::cout << "Default constructor called" <<std::endl;
 }
 
@@ -68,3 +67,51 @@ std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
 	os << fixed.toFloat();
 	return os;
 }
+
+bool Fixed::operator>(const Fixed& bit) const {
+	return this->_val > bit.getRawBits();
+}
+
+bool Fixed::operator<(const Fixed& bit) const {
+	return this->_val < bit.getRawBits();
+}
+
+bool Fixed::operator>=(const Fixed& bit) const {
+	return this->_val >= bit.getRawBits();
+}
+
+bool Fixed::operator<=(const Fixed& bit) const {
+	return this->_val <= bit.getRawBits();
+}
+bool Fixed::operator==(const Fixed& bit) const {
+	return this->_val == bit.getRawBits();
+}
+
+bool Fixed::operator!=(const Fixed& bit) const {
+	return this->_val != bit.getRawBits();
+}
+
+Fixed Fixed::operator+(const Fixed& bit) const {
+	Fixed add;
+	add.setRawBits(_val + bit.getRawBits());
+	return add;
+}
+
+Fixed Fixed::operator-(const Fixed& bit) const {
+	Fixed sub;
+	sub.setRawBits(_val - bit.getRawBits());
+	return sub;
+}
+
+Fixed Fixed::operator*(const Fixed& bit) const {
+	Fixed mul;
+	mul.setRawBits(_val * bit.getRawBits() >> _frac);
+	return mul;
+}
+
+Fixed Fixed::operator/(const Fixed& bit) const {
+	Fixed div;
+	div.setRawBits(_val / bit.getRawBits() << _frac);
+	return div;
+}
+

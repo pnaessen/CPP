@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 13:10:47 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/11 12:12:05 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/14 20:41:18 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void Harl::complain(std::string level) {
 	for(int i = 0; i < 4; i++) {
 		if(level == mood[i])	{
 			(this->*ptr[i])();
-		break;;
+		break;
 		}
 	}
 }

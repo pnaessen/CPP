@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 12:23:29 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/13 16:46:27 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/14 20:39:28 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 #include <string>
 #include <iostream>
@@ -35,3 +38,5 @@ class Fixed {
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed& Fixed);
+
+#endif

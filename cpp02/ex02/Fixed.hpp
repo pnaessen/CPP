@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 12:23:29 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/14 15:41:41 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/14 21:24:20 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 #include <string>
 #include <iostream>
@@ -24,6 +27,7 @@ class Fixed {
 	Fixed(const int bit);
 	Fixed(const float bit);
 	Fixed(const Fixed& );
+	
 	Fixed& operator=(const Fixed& bit);
 	bool operator>(const Fixed& bit) const;
 	bool operator<(const Fixed& bit) const;
@@ -31,6 +35,7 @@ class Fixed {
 	bool operator<=(const Fixed& bit) const;
 	bool operator==(const Fixed& bit) const;
 	bool operator!=(const Fixed& bit) const;
+	
 	Fixed operator+(const Fixed& bit) const;
 	Fixed operator-(const Fixed& bit) const;
 	Fixed operator*(const Fixed& bit) const;
@@ -43,14 +48,14 @@ class Fixed {
 	 void setRawBits( int const raw );
 	 float toFloat(void) const;
 	 int toInt(void) const;
-	static float min(float& nb, float& bit);
-	 float min(const float& nb,const float& bit);
-	 static float max(float& nb, float& bit);
-	 float max(const float& nb,const float& bit);
-
-
+	static Fixed& min(Fixed& nb, Fixed& bit);
+	static const Fixed& min(const Fixed& nb,const Fixed& bit);
+	static Fixed& max(Fixed& nb, Fixed& bit);
+	static const Fixed& max(const Fixed& nb,const Fixed& bit);
 
 	
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed& Fixed);
+
+#endif
