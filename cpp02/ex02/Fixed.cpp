@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 12:26:47 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/15 08:40:16 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/15 09:35:58 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,3 +139,24 @@ static const Fixed& max(const Fixed& obj,const Fixed& obj2) {
 	return obj2;
 }
 
+Fixed Fixed::operator++() {
+	return _val++;
+}
+
+Fixed Fixed::operator++(int) {
+	int tmp;
+	tmp = _val;
+	_val++;
+	return tmp;
+}
+
+Fixed Fixed::operator--() {
+	return _val--;
+}
+
+Fixed Fixed::operator--(int) {
+	int tmp;
+	tmp = _val;
+	_val--;
+	return tmp;
+}

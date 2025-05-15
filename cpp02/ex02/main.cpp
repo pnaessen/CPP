@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 12:23:05 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/14 08:53:56 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/15 09:37:23 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ int main( void ) {
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
-	return 0
+	std::cout << Fixed::min(a, b) << std::endl;
+	return 0;
 }
