@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 12:26:47 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/15 09:35:58 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/15 09:57:59 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,33 @@
 const int Fixed::_frac = 8;
 
 Fixed::Fixed() {
-	std::cout << "Default constructor called" <<std::endl;
+	//std::cout << "Default constructor called" <<std::endl;
+	_val = 0;
 }
 
 Fixed::Fixed(const int bit) {
-	std::cout << "Int constructor called" << std::endl;
+	//std::cout << "Int constructor called" << std::endl;
 	_val = bit << _frac;
 }
 
 Fixed::Fixed(const float bit) {
-	std::cout << "Float constructor called" << std::endl;
+	//std::cout << "Float constructor called" << std::endl;
 	_val = roundf(bit * ( 1 << _frac));
 }
 
 Fixed::Fixed(const Fixed& bit) {
-	std::cout << "Copy constructor called" <<std::endl;
+	//std::cout << "Copy constructor called" <<std::endl;
 	*this = bit;
 }
 
 Fixed& Fixed::operator=(const Fixed& bit) {
-	std::cout << "Copy assignment operator called" << std::endl;
+	//std::cout << "Copy assignment operator called" << std::endl;
 	this->_val = bit.getRawBits();
 	return *this;
 }
 
 Fixed::~Fixed() {
-	std::cout << "Destructor called" << std::endl;
+	//std::cout << "Destructor called" << std::endl;
 }
 
 int Fixed::getRawBits() const {
@@ -115,48 +116,48 @@ Fixed Fixed::operator/(const Fixed& bit) const {
 	return div;
 }
 
-static Fixed& min(Fixed& obj, Fixed& obj2) {
+Fixed& Fixed::min(Fixed& obj, Fixed& obj2) {
 	if (obj.getRawBits() > obj2.getRawBits())
 		return obj2;
 	return obj;
 }
 
-static const Fixed& min(const Fixed& obj,const Fixed& obj2) {
+const Fixed& Fixed::min(const Fixed& obj, const Fixed& obj2) {
 	if (obj.getRawBits() > obj2.getRawBits())
 		return obj2;
 	return obj;
 }
 
-static Fixed& max(Fixed& obj, Fixed& obj2) {
+Fixed& Fixed::max(Fixed& obj, Fixed& obj2) {
 	if (obj.getRawBits() > obj2.getRawBits())
 		return obj;
 	return obj2;
 }
 
-static const Fixed& max(const Fixed& obj,const Fixed& obj2) {
+const Fixed& Fixed::max(const Fixed& obj, const Fixed& obj2) {
 	if (obj.getRawBits() > obj2.getRawBits())
 		return obj;
 	return obj2;
 }
 
 Fixed Fixed::operator++() {
-	return _val++;
+	_val++;
+	return *this;
 }
 
 Fixed Fixed::operator++(int) {
-	int tmp;
-	tmp = _val;
+	Fixed tmp = *this; 
 	_val++;
 	return tmp;
 }
 
 Fixed Fixed::operator--() {
-	return _val--;
+	_val--;
+	return *this;
 }
 
 Fixed Fixed::operator--(int) {
-	int tmp;
-	tmp = _val;
+	Fixed tmp = *this; 
 	_val--;
 	return tmp;
 }
