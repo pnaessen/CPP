@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 12:23:29 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/14 21:24:20 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/05/15 08:39:20 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ class Fixed {
 	 void setRawBits( int const raw );
 	 float toFloat(void) const;
 	 int toInt(void) const;
-	static Fixed& min(Fixed& nb, Fixed& bit);
-	static const Fixed& min(const Fixed& nb,const Fixed& bit);
-	static Fixed& max(Fixed& nb, Fixed& bit);
-	static const Fixed& max(const Fixed& nb,const Fixed& bit);
+	static Fixed& min(Fixed& obj, Fixed& obj2);
+	static const Fixed& min(const Fixed& obj,const Fixed& obj2);
+	static Fixed& max(Fixed& obj, Fixed& obj2);
+	static const Fixed& max(const Fixed& obj,const Fixed& obj2);
 
 	
 };

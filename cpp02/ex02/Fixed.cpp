@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 12:26:47 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/14 20:49:19 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/05/15 08:40:16 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,26 +69,26 @@ std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
 }
 
 bool Fixed::operator>(const Fixed& bit) const {
-	return this->_val > bit.getRawBits();
+	return _val > bit.getRawBits();
 }
 
 bool Fixed::operator<(const Fixed& bit) const {
-	return this->_val < bit.getRawBits();
+	return _val < bit.getRawBits();
 }
 
 bool Fixed::operator>=(const Fixed& bit) const {
-	return this->_val >= bit.getRawBits();
+	return _val >= bit.getRawBits();
 }
 
 bool Fixed::operator<=(const Fixed& bit) const {
-	return this->_val <= bit.getRawBits();
+	return _val <= bit.getRawBits();
 }
 bool Fixed::operator==(const Fixed& bit) const {
-	return this->_val == bit.getRawBits();
+	return _val == bit.getRawBits();
 }
 
 bool Fixed::operator!=(const Fixed& bit) const {
-	return this->_val != bit.getRawBits();
+	return _val != bit.getRawBits();
 }
 
 Fixed Fixed::operator+(const Fixed& bit) const {
@@ -113,5 +113,29 @@ Fixed Fixed::operator/(const Fixed& bit) const {
 	Fixed div;
 	div.setRawBits(_val / bit.getRawBits() << _frac);
 	return div;
+}
+
+static Fixed& min(Fixed& obj, Fixed& obj2) {
+	if (obj.getRawBits() > obj2.getRawBits())
+		return obj2;
+	return obj;
+}
+
+static const Fixed& min(const Fixed& obj,const Fixed& obj2) {
+	if (obj.getRawBits() > obj2.getRawBits())
+		return obj2;
+	return obj;
+}
+
+static Fixed& max(Fixed& obj, Fixed& obj2) {
+	if (obj.getRawBits() > obj2.getRawBits())
+		return obj;
+	return obj2;
+}
+
+static const Fixed& max(const Fixed& obj,const Fixed& obj2) {
+	if (obj.getRawBits() > obj2.getRawBits())
+		return obj;
+	return obj2;
 }
 
