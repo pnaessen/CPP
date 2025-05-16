@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 15:14:05 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/16 15:33:34 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/16 15:36:16 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 	#define CLAPTRAP_HPP
 	
 	#include <string>
-	#include <str
+	#include <iostream>
 	
 	class ClapTrap {
 		

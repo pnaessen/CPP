@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 15:24:42 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/16 15:33:14 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/16 15:36:41 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ ClapTrap::ClapTrap(std::string& name) {
 	_HitPoint = 10;
 	_EnergyPoints = 10;
 	_AttackDamage = 0;
+	std::cout << "Constructor with name" << std::endl;
 }
 
