@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 14:06:16 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/15 15:57:33 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/16 09:34:18 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,21 @@
 
 	class Point {
 		private:
-			const Fixed x;
-			const Fixed y;
+			const Fixed _x;
+			const Fixed _y;
 
 		public:
 			Point(void);
 			Point(const float x, const float y);
-			Point(const Point&);
+			Point(const Point& obj);
 			~Point(void);
 			Point& operator=(const Point& obj);
+
+			Fixed getX() const;
+			Fixed getY() const;
 	};
 
 #endif
+
+std::ostream& operator<<(std::ostream&os, const Point& Point);
+bool bsp(Point const a, Point const b, Point const c, Point const point);

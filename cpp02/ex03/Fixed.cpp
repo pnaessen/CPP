@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 12:26:47 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/15 15:29:15 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/16 11:15:10 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,7 @@ int Fixed::toInt() const {
 	return this->_val >> _frac;
 }
 
-std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
-{
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
 	os << fixed.toFloat();
 	return os;
 }
