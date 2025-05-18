@@ -6,13 +6,13 @@
 /*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 13:43:11 by pn                #+#    #+#             */
-/*   Updated: 2025/05/18 14:45:03 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/05/18 18:28:24 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 #include <iostream>
 
 int main()
@@ -20,25 +20,25 @@ int main()
 	std::cout << "\n----- CONSTRUCTEURS -----\n" << std::endl;
 	
 	ClapTrap clap("C1");
-	ScavTrap scav("S1");
+	FragTrap frag("S1");
 	
-	ScavTrap scav_copy(scav);
+	FragTrap frag_copy(frag);
 	
 	std::cout << "\n----- TEST FONCTIONS -----\n" << std::endl;
 	
 	clap.attack("Target"); 
-	scav.attack("Target");
+	frag.attack("Target");
 	
 	clap.takeDamage(5);
-	scav.takeDamage(20);
-	scav_copy.takeDamage(5);
+	frag.takeDamage(20);
+	frag_copy.takeDamage(5);
 	
 	clap.beRepaired(3);
-	scav.beRepaired(10);
+	frag.beRepaired(10);
 	
 	std::cout << "\n----- FONCTION GUARD -----\n" << std::endl;
 	
-	scav.guardGate();
+	frag.highFivesGuys();
 	
 	std::cout << "\n----- TEST LIMITS -----\n" << std::endl;
 	
@@ -46,10 +46,10 @@ int main()
 	clap.attack("Target");
 	
 	for (int i = 0; i < 10; i++) {
-		scav.attack("Dummy");
+		frag.attack("Dummy");
 	}
 	
-	scav.attack("Target");
+	frag.attack("Target");
 	
 	std::cout << "\n----- DESTRUCTEURS -----\n" << std::endl;
 	
