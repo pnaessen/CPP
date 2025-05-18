@@ -6,7 +6,7 @@
 /*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 14:12:58 by pn                #+#    #+#             */
-/*   Updated: 2025/05/18 14:42:52 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/05/18 22:41:58 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ScavTrap::ScavTrap() : ClapTrap() {
 }
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
-	_name = name;
+	//_name = name;
 	_HitPoints = 100;
 	_EnergyPoints = 50;
 	_AttackDamage = 20;
@@ -43,7 +43,7 @@ ScavTrap::~ScavTrap() {
 	std::cout << "Scav Destructor" << std::endl;
 }
 
-void ScavTrap::attack(const std::string& target) {
+void ScavTrap::attack(const std::string& target)  {
 	
 	if (_EnergyPoints <= 0 || _HitPoints <= 0) {
 		std::cout << "ScavTrap " << _name << " has no energy / life points left!" << std::endl;

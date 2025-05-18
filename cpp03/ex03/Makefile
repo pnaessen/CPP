@@ -3,7 +3,8 @@ NAME := Program
 SRC := main.cpp\
 	   ClapTrap.cpp\
 	   ScavTrap.cpp\
-	   FragTrap.cpp
+	   FragTrap.cpp\
+	   DiamondTrap.cpp
 
 OBJ_DIR := .obj
 OBJ := $(SRC:.cpp=.o)
@@ -12,7 +13,8 @@ DEPS := $(OBJ:.o=.d)
 
 HEADERS := ClapTrap.hpp\
 	   ScavTrap.hpp\
-	   FragTrap.hpp
+	   FragTrap.hpp\
+	   DiamondTrap.hpp
 
 CC := c++
 CFLAGS := -Wall -Wextra -Werror -std=c++98

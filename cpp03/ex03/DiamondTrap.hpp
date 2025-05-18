@@ -6,7 +6,7 @@
 /*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 18:31:35 by pn                #+#    #+#             */
-/*   Updated: 2025/05/18 18:32:40 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/05/18 22:42:07 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
 
-class DiamondTrap : public {
+class DiamondTrap :  public FragTrap,  public ScavTrap { 
 	
 	private:
 		std::string _name;
