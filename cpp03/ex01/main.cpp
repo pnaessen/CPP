@@ -6,39 +6,52 @@
 /*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 13:43:11 by pn                #+#    #+#             */
-/*   Updated: 2025/05/18 14:30:04 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/05/18 14:45:03 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
 
-int main(void)
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include <iostream>
+
+int main()
 {
 	std::cout << "\n----- CONSTRUCTEURS -----\n" << std::endl;
-
-	std::string name = "RIKO";
-	ClapTrap claptrap1(name);
-	ClapTrap claptrap2;
-	ClapTrap claptrap3(claptrap1);
-	ClapTrap claptrap4;
+	
+	ClapTrap clap("C1");
+	ScavTrap scav("S1");
+	
+	ScavTrap scav_copy(scav);
 	
 	std::cout << "\n----- TEST FONCTIONS -----\n" << std::endl;
-
-	claptrap1.attack("Bandit");
-	claptrap1.takeDamage(3);
-	claptrap1.beRepaired(2);
-	claptrap4 = claptrap1;
-	claptrap4.beRepaired(2);
+	
+	clap.attack("Target"); 
+	scav.attack("Target");
+	
+	clap.takeDamage(5);
+	scav.takeDamage(20);
+	scav_copy.takeDamage(5);
+	
+	clap.beRepaired(3);
+	scav.beRepaired(10);
+	
+	std::cout << "\n----- FONCTION GUARD -----\n" << std::endl;
+	
+	scav.guardGate();
 	
 	std::cout << "\n----- TEST LIMITS -----\n" << std::endl;
-
+	
+	clap.takeDamage(15); 
+	clap.attack("Target");
+	
 	for (int i = 0; i < 10; i++) {
-		claptrap2.attack("Target");
+		scav.attack("Dummy");
 	}
-	claptrap2.attack("Target");
 	
-	claptrap3.takeDamage(15); 
-	claptrap3.attack("Target");
+	scav.attack("Target");
 	
-	return (0);
+	std::cout << "\n----- DESTRUCTEURS -----\n" << std::endl;
+	
+	return 0;
 }
