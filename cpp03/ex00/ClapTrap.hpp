@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 15:14:05 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/16 15:36:16 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/18 14:02:17 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@
 		
 		private:
 			std::string _name;
-			unsigned int _HitPoint;
+			unsigned int _HitPoints;
 			unsigned int _EnergyPoints;
 			unsigned int _AttackDamage;
 		
 		public:
 			ClapTrap();
-			ClapTrap(std::string& name);
+			ClapTrap(const std::string& name);
 			ClapTrap(ClapTrap& obj);
 			~ClapTrap();
 			
