@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 18:32:54 by pn                #+#    #+#             */
-/*   Updated: 2025/05/19 07:31:26 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/19 22:15:54 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ DiamondTrap::DiamondTrap(const DiamondTrap& obj) : ClapTrap(obj), FragTrap(obj),
 
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap& obj) {
 	ClapTrap::operator=(obj);
-	//FragTrap::operator=(obj);
-	//ScavTrap::operator=(obj);
 	std::cout << "Diamond copy assignment operator" << std::endl;
 	return *this;
 }
