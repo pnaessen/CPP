@@ -6,7 +6,7 @@
 /*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 15:14:05 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/18 14:35:00 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/05/19 22:06:39 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@
 			ClapTrap();
 			ClapTrap(const std::string& name);
 			ClapTrap(const ClapTrap& obj);
-			~ClapTrap();
+			virtual ~ClapTrap();
 			
 			ClapTrap& operator=(const ClapTrap& obj);
 
-			void attack(const std::string& target);
+			virtual void attack(const std::string& target);
 			void takeDamage(unsigned int amount);
 			void beRepaired(unsigned int amount);
 	};

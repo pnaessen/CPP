@@ -6,7 +6,7 @@
 /*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 13:43:11 by pn                #+#    #+#             */
-/*   Updated: 2025/05/18 18:28:24 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/05/19 22:07:30 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,9 @@ int main()
 	}
 	
 	frag.attack("Target");
-	
+	ClapTrap* ptr = new FragTrap("S2");
+	ptr->attack("Target");
+	delete ptr;
 	std::cout << "\n----- DESTRUCTEURS -----\n" << std::endl;
 	
 	return 0;

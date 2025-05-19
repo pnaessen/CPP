@@ -6,7 +6,7 @@
 /*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 13:43:11 by pn                #+#    #+#             */
-/*   Updated: 2025/05/18 14:45:03 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/05/19 22:05:37 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,11 @@ int main()
 	}
 	
 	scav.attack("Target");
-	
+	ClapTrap* ptr = new ScavTrap("D2");
+	ptr->attack("Target");
+	delete ptr;
+	std::cout << std::endl;
 	std::cout << "\n----- DESTRUCTEURS -----\n" << std::endl;
-	
+
 	return 0;
 }
