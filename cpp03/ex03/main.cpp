@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 13:43:11 by pn                #+#    #+#             */
-/*   Updated: 2025/05/18 22:39:41 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/05/19 08:20:19 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,25 @@ int main()
 	std::cout << "\n========== CONSTRUCTEURS ==========\n" << std::endl;
 	
 	ClapTrap clap("C1");
+	std::cout << std::endl;
+	
 	ScavTrap scav("S1");
+	std::cout << std::endl;
+
 	FragTrap frag("F1");
+	std::cout << std::endl;
+
 	DiamondTrap diamond("D1");
+	std::cout << std::endl;
+
 	
 	DiamondTrap diamond_copy(diamond);
+	std::cout << std::endl;
+
 	
 	DiamondTrap diamond_assign;
+	std::cout << std::endl;
+
 	diamond_assign = diamond;
 	
 	std::cout << "\n========== HERITAGE ==========\n" << std::endl;
@@ -54,7 +66,7 @@ int main()
 	diamond.highFivesGuys(); 
 	
 	
-	diamond.whoAmI();  
+	diamond.whoAmI();
 	
 	std::cout << "\n========== LIMITS TEST ==========\n" << std::endl;
 	

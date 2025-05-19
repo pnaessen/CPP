@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 13:43:11 by pn                #+#    #+#             */
-/*   Updated: 2025/05/18 14:30:04 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/05/19 07:34:59 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main(void)
 
 	claptrap1.attack("Bandit");
 	claptrap1.takeDamage(3);
-	claptrap1.beRepaired(2);
+	claptrap1.beRepaired(-2);
 	claptrap4 = claptrap1;
 	claptrap4.beRepaired(2);
 	

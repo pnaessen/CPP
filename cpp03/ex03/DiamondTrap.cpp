@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 18:32:54 by pn                #+#    #+#             */
-/*   Updated: 2025/05/18 22:13:09 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/05/19 07:31:26 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ DiamondTrap::DiamondTrap() : ClapTrap(), FragTrap(), ScavTrap() {
 
 DiamondTrap::DiamondTrap(const std::string& name) :ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name) {
 	_name = name;
-	// ClapTrap::_name = name + "_clap_name"; /
 	_HitPoints = 100;
 	_EnergyPoints = 50;
 	_AttackDamage = 30;
@@ -35,8 +34,8 @@ DiamondTrap::DiamondTrap(const DiamondTrap& obj) : ClapTrap(obj), FragTrap(obj),
 
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap& obj) {
 	ClapTrap::operator=(obj);
-	FragTrap::operator=(obj);
-	ScavTrap::operator=(obj);
+	//FragTrap::operator=(obj);
+	//ScavTrap::operator=(obj);
 	std::cout << "Diamond copy assignment operator" << std::endl;
 	return *this;
 }
@@ -52,5 +51,5 @@ void DiamondTrap::whoAmI() {
 
 void DiamondTrap::attack(const std::string& target) {
 	
-    ScavTrap::attack(target);
+	ScavTrap::attack(target);
 }
