@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 13:43:11 by pn                #+#    #+#             */
-/*   Updated: 2025/05/19 07:34:59 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/20 14:10:36 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int main(void)
 		claptrap2.attack("Target");
 	}
 	claptrap2.attack("Target");
-	
-	claptrap3.takeDamage(15); 
+	claptrap2.beRepaired(4);
+	claptrap3.takeDamage(-15); 
 	claptrap3.attack("Target");
 	
 	return (0);

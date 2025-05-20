@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 13:43:11 by pn                #+#    #+#             */
-/*   Updated: 2025/05/20 10:13:11 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/20 14:16:03 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int main()
 	clap.takeDamage(15); 
 	clap.attack("Target");
 	
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < 101; i++) {
 		frag.attack("Dummy");
 	}
 	

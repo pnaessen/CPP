@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 16:45:28 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/20 11:50:21 by pnaessen         ###   ########lyon.fr   */
+/*   Created: 2025/05/19 18:40:22 by pnaessen          #+#    #+#             */
+/*   Updated: 2025/05/20 07:44:36 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
 
-#include <string>
-#include <iostream>
+	#include <string>
+	#include <iostream>
 
-class Brain {
-	protected :
-		std::string ideas[100];
+	class WrongAnimal {
+		protected :	
+			std::string type;
+		public :
+			WrongAnimal();
+			WrongAnimal(WrongAnimal& obj);
+			virtual ~WrongAnimal();
+			WrongAnimal& operator=(WrongAnimal& obj);
+		
+			std::string getType() const;
+			void makeSound() const;
+	};
 
-	public :
-		Brain();
-		Brain(Brain& obj);
-		~Brain();
-		Brain& operator=(Brain& obj);
-
-		std::string getIdeas(int index);
-		void setIdeas(int idx, std::string idea);
-};
 
 #endif

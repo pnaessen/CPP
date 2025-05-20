@@ -4,6 +4,9 @@ SRC := main.cpp\
 	   Animal.cpp\
 	   Cat.cpp\
 	   Dog.cpp\
+	   WrongCat.cpp\
+	   WrongAnimal.cpp\
+	   Brain.cpp\
 
 OBJ_DIR := .obj
 OBJ := $(SRC:.cpp=.o)
@@ -13,6 +16,9 @@ DEPS := $(OBJ:.o=.d)
 HEADERS := Animal.hpp\
 	   Cat.hpp\
 	   Dog.hpp\
+	   WrongAnimal.hpp\
+	   WrongCat.hpp\
+	   Brain.hpp\
 
 CC := c++
 CFLAGS := -Wall -Wextra -Werror -std=c++98

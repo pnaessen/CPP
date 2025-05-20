@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:35:34 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/19 17:11:31 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/19 11:53:47 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 	#include <string>
 	#include <iostream>
-	#include "Brain.hpp"
 	
 	class Animal {
 		protected :	

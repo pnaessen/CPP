@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 13:43:11 by pn                #+#    #+#             */
-/*   Updated: 2025/05/19 22:05:37 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/05/20 14:14:17 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int main()
 	clap.takeDamage(15); 
 	clap.attack("Target");
 	
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < 51; i++) {
 		scav.attack("Dummy");
 	}
 	
