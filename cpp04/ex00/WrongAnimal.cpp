@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 18:40:10 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/19 18:42:47 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/20 07:38:44 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ WrongAnimal& WrongAnimal::operator=(WrongAnimal& obj) {
 }
 
 void WrongAnimal::makeSound() const{
-	std::cout << "WrongAnimal goes ZBRRRRRR" << std::endl;
+	std::cout << "WrongAnimal goes Moooooooooooooooooooooooooooow" << std::endl;
 }
 
 std::string WrongAnimal::getType() const {
