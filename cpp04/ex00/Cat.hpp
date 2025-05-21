@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:25:36 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/19 11:52:53 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/21 15:43:01 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ class Cat : public Animal {
 
 	public :
 	Cat();
-	Cat(Cat& obj);
+	Cat(const Cat& obj);
 	~Cat();
-	Cat& operator=(Cat& obj);
+	Cat& operator=(const Cat& obj);
 	
 	void  makeSound() const;
 };

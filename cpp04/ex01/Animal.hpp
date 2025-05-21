@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:35:34 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/19 11:53:47 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/21 15:47:05 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 			std::string type;
 		public :
 			Animal();
-			Animal(Animal& obj);
+			Animal(const Animal& obj);
 			virtual ~Animal();
-			Animal& operator=(Animal& obj);
+			Animal& operator=(const Animal& obj);
 			
 			std::string getType() const;
 			virtual void makeSound() const;

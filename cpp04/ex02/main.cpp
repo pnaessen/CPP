@@ -6,7 +6,7 @@
 /*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:24:02 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/21 16:14:44 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/05/21 20:20:30 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,16 @@
 
 int main()
 {
+	std::cout << "\n========== TEST CLASSE ABSTRAITE ==========\n" << std::endl;
+
+	#define TEST_ABSTRACT 0
+	#if TEST_ABSTRACT
+		Animal test;
+		Animal* meta = new Animal();
+	#endif
+	
 	std::cout << "\n========== CONSTRUCTEURS ==========\n" << std::endl;
 
-	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 	const WrongAnimal  *wrong = new WrongCat();
@@ -78,7 +85,6 @@ int main()
 	std::cout << i->getType() << " " << std::endl;
 	i->makeSound();
 	j->makeSound();
-	meta->makeSound();
 	
 	std::cout << "\n========== TEST WRONG FUNCTION ==========\n" << std::endl;
 	std::cout<<wrong->getType()<< " " << std::endl;
@@ -88,7 +94,6 @@ int main()
 	delete wrong;
 	delete i;
 	delete j;
-	delete meta;
 	
 	std::cout << "\n========== DESTRUCTEURS TAB ==========\n" << std::endl;
 

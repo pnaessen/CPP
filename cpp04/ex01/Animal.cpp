@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:25:25 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/19 17:29:59 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/21 15:47:14 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Animal::Animal() {
 	type = "GRUIK";
 }
 
-Animal::Animal(Animal& obj) {
+Animal::Animal(const Animal& obj) {
 	std::cout << "Animal copy constructor operator" << std::endl;
 	*this = obj;
 }
@@ -26,7 +26,7 @@ Animal::~Animal() {
 	std::cout << "Animal destructor call" <<std::endl;
 }
 
-Animal& Animal::operator=(Animal& obj) {
+Animal& Animal::operator=(const Animal& obj) {
 	
 	std::cout << "Animal copy assignment operator" << std::endl;
 	if(this != &obj)

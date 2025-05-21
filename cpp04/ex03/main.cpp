@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/19 10:35:34 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/21 15:40:45 by pn               ###   ########lyon.fr   */
+/*   Created: 2025/05/21 20:27:00 by pn                #+#    #+#             */
+/*   Updated: 2025/05/21 20:27:46 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#include <iostream>
 
-	#include <string>
-	#include <iostream>
-	
-	class Animal {
-		protected :	
-			std::string type;
-		public :
-			Animal();
-			Animal(const Animal& obj);
-			virtual ~Animal();
-			Animal& operator=(const Animal& obj);
-			
-			std::string getType() const;
-			virtual void makeSound() const;
-	};
-
-#endif
+int main()
+{
+	std::cout << "------------------" << std::endl;
+	return 0;
+}

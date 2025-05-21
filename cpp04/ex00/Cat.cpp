@@ -6,7 +6,7 @@
 /*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:39:37 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/19 22:28:22 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/05/21 15:43:10 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ Cat::Cat() : Animal() {
 	type = "Cat";
 }
 
-Cat::Cat(Cat& obj) : Animal(obj) {
+Cat::Cat(const Cat& obj) : Animal(obj) {
 	std::cout << "Cat copy constructor" << std::endl;
 }
 
-Cat& Cat::operator=(Cat& obj) {
+Cat& Cat::operator=(const Cat& obj) {
 	std::cout << "Cat copy assignment operator" << std::endl;
 	if(this != &obj)
 		Animal::operator=(obj);
