@@ -6,15 +6,14 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 15:57:35 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/22 15:58:13 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/22 17:47:00 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice() : AMateria() {
+Ice::Ice() : AMateria("ice") {
 	std::cout << "Ice constructor call" << std::endl;
-	_type = "Ice";
 }
 
 Ice::Ice(std::string name) : AMateria(name) {
@@ -33,15 +32,14 @@ Ice& Ice::operator=(const Ice&obj) {
 	std::cout << "Ice operator  call" << std::endl;
 	if(this != &obj) {
 		AMateria::operator=(obj);
-		_type = obj._type;
 	}
 	return *this;
 }
 
 void Ice::use(ICharacter& target) {
-	
+	std::cout << "heals " << target.getName() << "'s wounds" << std::endl;
 }
 
 AMateria *Ice::clone() const {
-	
+	return new Ice(*this);
 }
