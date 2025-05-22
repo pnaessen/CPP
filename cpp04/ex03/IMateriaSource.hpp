@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.hpp                                      :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/22 12:27:03 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/22 15:59:24 by pnaessen         ###   ########lyon.fr   */
+/*   Created: 2025/05/22 16:00:05 by pnaessen          #+#    #+#             */
+/*   Updated: 2025/05/22 16:01:23 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHARACTER_CPP
-#define CHARACTER_CPP
-
-	#include "ICharacter.hpp"
+#ifndef IMATERIASOURCE_HPP
+#define IMATERIASOURCE_HPP
 	
-	class Character : public ICharacter {
-		private:
-			std::string _name;
-			
+	#include "AMateria.hpp"
+	
+	class IMateriaSource {
 		public:
-			Character();
-			Character(const Character& obj);
-			~Character();
-
-			Character& operator=(const Character& obj);
-			std::string  const & getName();
-			void equip(AMateria* m);
-			void unequip(int idx);
-			void use(int idx, ICharacter& target);
-	};
+			virtual ~IMateriaSource() {}
+			virtual void learnMateria(AMateria*) = 0;
+			virtual AMateria* createMateria(std::string const & type) = 0;
+};
 
 #endif

@@ -4,7 +4,7 @@ SRC := main.cpp\
 	Character.cpp\
 	Cure.cpp\
 	Ice.cpp\
-	Materia.cpp\
+	AMateria.cpp\
 	MateriaSource.cpp\
 
 OBJ_DIR := .obj
@@ -12,11 +12,12 @@ OBJ := $(SRC:.cpp=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(notdir $(OBJ)))
 DEPS := $(OBJ:.o=.d)
 
-HEADERS := Character.hpp\
+HEADERS := ICharacter.hpp\
 	Cure.hpp\
 	Ice.hpp\
-	Materia.hpp\
+	AMateria.hpp\
 	MateriaSource.hpp\
+	Character.hpp
 
 
 CC := c++

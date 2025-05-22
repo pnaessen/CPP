@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:24:02 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/21 20:20:30 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/05/22 11:15:39 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int main()
 
 	dog2 = dog1;
 	std::cout << "Idea de dog2 : " << dog2.getBrain()->getIdeas(0) << std::endl;
-	
+
 	dog1.getBrain()->setIdeas(0, "dog1 Woof new idea woof");
 	std::cout << "Idea de dog1 : " << dog1.getBrain()->getIdeas(0) << std::endl;
 	std::cout << "Idea de dog2 : " << dog2.getBrain()->getIdeas(0) << std::endl;

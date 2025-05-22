@@ -1,0 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/22 16:04:19 by pnaessen          #+#    #+#             */
+/*   Updated: 2025/05/22 17:34:39 by pnaessen         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "MateriaSource.hpp"
+
+MateriaSource::MateriaSource() : IMateriaSource() {
+		std::cout << " MateriaSource constructor call" << std::endl;	
+}
+
+MateriaSource::MateriaSource(const MateriaSource& obj) : IMateriaSource(obj) {
+	std::cout << " MateriaSource copy constructor call" << std::endl;	
+
+}
+
+MateriaSource::~MateriaSource() {
+	std::cout << " MateriaSource destructor call" << std::endl;	
+
+}
+
+MateriaSource& MateriaSource::operator=(MateriaSource& obj) {
+	if(this != &obj) {
+		
+	}
+	return *this;
+}
+
+void MateriaSource::learnMateria(AMateria*) {
+	
+}
+
+AMateria* MateriaSource::createMateria(std::string const& type) {
+	
+}
