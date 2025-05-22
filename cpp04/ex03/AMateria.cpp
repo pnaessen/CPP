@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 06:59:21 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/22 15:42:45 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/22 23:06:10 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
-#include "ICharacter.hpp"
 
 AMateria::AMateria() {
 	std::cout << "AMateria default constructeur" << std::endl;	

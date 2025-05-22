@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 15:57:35 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/22 17:47:00 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/22 23:06:31 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Ice& Ice::operator=(const Ice&obj) {
 }
 
 void Ice::use(ICharacter& target) {
-	std::cout << "heals " << target.getName() << "'s wounds" << std::endl;
+		std::cout << "* shoots an ice bolt at " << target.getName() << std::endl;
 }
 
 AMateria *Ice::clone() const {

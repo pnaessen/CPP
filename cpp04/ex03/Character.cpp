@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 12:25:31 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/22 15:49:53 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/22 23:09:34 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 Character::Character() : ICharacter() {
 	std::cout << "Character constructeur call" << std::endl;
+}
+
+Character::Character(const std::string& name) : _name(name) {
+	std::cout << "Character surcharge constructeur" << std::endl;
 }
 
 Character::Character(const Character& obj) : ICharacter(obj) {
@@ -40,6 +44,8 @@ std::string const& Character::getName() {
 }
 
 void Character::equip(AMateria *m) {
+	if(!m)
+		return;
 	
 }
 

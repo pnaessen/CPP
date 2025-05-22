@@ -3,24 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 12:27:03 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/22 15:59:24 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/22 23:08:47 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHARACTER_CPP
-#define CHARACTER_CPP
+#ifndef CHARACTER_HPP
+#define CHARACTER_HPP
 
 	#include "ICharacter.hpp"
 	
 	class Character : public ICharacter {
 		private:
 			std::string _name;
+			AMateria* _inventory[4];
 			
 		public:
 			Character();
+			Character(const std::string& name);
 			Character(const Character& obj);
 			~Character();
 

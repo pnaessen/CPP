@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:24:02 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/22 11:15:39 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/22 23:22:39 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int main()
 		else 
 			tab[i] = new Cat();
 	}
+	
 	std::cout << std::endl;
 	
 	std::cout << "===== TEST COPIE CONSTRUCTEUR =====" << std::endl; 
@@ -50,7 +51,7 @@ int main()
 	first->getBrain()->setIdeas(0, "Woof first");
 	Dog *copy = new Dog(*(first));
 	std::cout << "Idea de first : " << first->getBrain()->getIdeas(0) << std::endl;
-	std::cout << "Idea de copy : " << first->getBrain()->getIdeas(0) << std::endl; 
+	std::cout << "Idea de copy : " << copy->getBrain()->getIdeas(0) << std::endl; 
 
 	first->getBrain()->setIdeas(0, "Woof first got a new idea");
 	std::cout << "Idea de first : " << first->getBrain()->getIdeas(0) << std::endl;
