@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 06:59:38 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/22 23:06:06 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 12:33:52 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 
 	#include <string>
 	#include <iostream>
-	#include "ICharacter.hpp"
 
+	class ICharacter;
+	
 	class AMateria {
 		protected:
 			std::string _type;

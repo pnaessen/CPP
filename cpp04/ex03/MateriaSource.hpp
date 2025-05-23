@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 15:58:32 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/22 18:03:53 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 13:12:45 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define MATERIASOURCE_HPP
 
 	#include "IMateriaSource.hpp"
+	#include "AMateria.hpp"
 
 	class MateriaSource : public IMateriaSource {
 			private:

@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 13:43:11 by pn                #+#    #+#             */
-/*   Updated: 2025/05/19 08:20:19 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/22 15:13:14 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int main()
 	scav.attack("Target");
 	
 	std::cout << "\n--- FragTrap ---" << std::endl;
-	frag.attack("Target");       
+	frag.attack("Target");
 	
 	std::cout << "\n--- DiamondTrap ---" << std::endl;
 	diamond.attack("Target");
