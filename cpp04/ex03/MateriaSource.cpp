@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 16:04:19 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/23 13:52:43 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/24 21:57:07 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,7 @@ MateriaSource::~MateriaSource() {
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& obj) {
 	
-	std::cout << "Character operator  call" << std::endl;
-
+	std::cout << "MateriaSource operator call" << std::endl;
 	if(this != &obj) {
 		for (int i = 0; i < 4; i++) {
 			delete _materia[i];
@@ -68,8 +67,8 @@ void MateriaSource::learnMateria(AMateria* m) {
 	if(!m)
 		return;
 	for(int i = 0; i < 4; i++) {
-		if(_materia[i]) {
-			_materia[i] = m;
+		if(!_materia[i]) {
+			_materia[i] = m->clone();
 			break;
 		}
 	}
