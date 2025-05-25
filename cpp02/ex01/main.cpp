@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 12:23:05 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/14 08:57:58 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/23 14:24:32 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int main( void ) {
 	Fixed a;
-	Fixed const b( 10 );
+	Fixed const b( 8388607);
 	Fixed const c( 42.42f );
 	Fixed const d( b );
 	

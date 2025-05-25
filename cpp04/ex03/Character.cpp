@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 12:25:31 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/23 13:07:30 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/25 16:23:32 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void Character::equip(AMateria *m) {
 			break;
 		}
 	}
+	std::cout << _name << " equip a materia" << std::endl;
 }
 
 void Character::unequip(int idx) {

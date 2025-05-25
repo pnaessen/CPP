@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 16:04:19 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/24 21:57:07 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/05/25 17:40:57 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void MateriaSource::learnMateria(AMateria* m) {
 			break;
 		}
 	}
+	delete m;
 }
 
 AMateria* MateriaSource::createMateria(std::string const& type) {
