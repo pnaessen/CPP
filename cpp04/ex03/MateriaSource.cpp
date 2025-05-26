@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 16:04:19 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/25 17:40:57 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/26 12:30:01 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& obj) {
 	
 		for(int i = 0; i < 4; i++) {
 			if(obj._materia[i] != NULL) {
-				_materia[i] = obj._materia[i]->clone();
+				_materia[i] = obj._materia[i];
 			}
 		}
 	}
@@ -68,19 +68,18 @@ void MateriaSource::learnMateria(AMateria* m) {
 		return;
 	for(int i = 0; i < 4; i++) {
 		if(!_materia[i]) {
-			_materia[i] = m->clone();
+			_materia[i] = m;
 			break;
 		}
 	}
-	delete m;
 }
 
 AMateria* MateriaSource::createMateria(std::string const& type) {
 
 	for (int i = 0; i < 4; i++) {
-		if (_materia[i] != 0 && _materia[i]->getType() == type) {
+		if (_materia[i] != NULL && _materia[i]->getType() == type) {
 			return _materia[i]->clone();
 		}
 	}
-	return 0;
+	return NULL;
 }

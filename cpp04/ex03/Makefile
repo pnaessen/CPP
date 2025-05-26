@@ -21,7 +21,7 @@ HEADERS := ICharacter.hpp\
 
 
 CC := c++
-CFLAGS := -Wall -Wextra -Werror -std=c++98
+CFLAGS := -Wall -Wextra -Werror -std=c++98 -g3
 CPPFLAGS := -MMD -MP
 
 all: $(NAME)

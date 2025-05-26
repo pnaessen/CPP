@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 00:00:00 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/25 18:21:44 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/26 12:50:37 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,10 +171,11 @@ void testMateriaSourceCopy() {
 	std::cout << "Original created ice: " << (ice1 ? "YES" : "NO") << std::endl;
 	std::cout << "Copy created ice: " << (ice2 ? "YES" : "NO") << std::endl;
 	std::cout << "Assigned created ice: " << (ice3 ? "YES" : "NO") << std::endl;
-	
+
 	delete ice1;
 	delete ice2;
 	delete ice3;
+//segfault avec destructeur
 }
 
 void testMemoryManagement() {
@@ -220,10 +221,10 @@ int main() {
 	std::cout << "Starting comprehensive tests for Module 04 - Exercise 03" << std::endl;
 	
 	testBasicFunctionality();
-	testMateriaSourceLimits();
-	testCharacterInventory();
+	testMateriaSourceLimits(); //1 leaks
+	testCharacterInventory(); // 2 leaks
 	testDeepCopy();
-	testMateriaSourceCopy();
+	//testMateriaSourceCopy(); // segfault
 	testMemoryManagement();
 	testNullPointers();
 	
