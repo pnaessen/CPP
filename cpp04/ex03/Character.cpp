@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 12:25:31 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/25 16:23:32 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/27 09:17:46 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,14 @@ Character::Character(const Character& obj) {
 }
 
 Character::~Character() {
-	std::cout << "Character destructeur call" << std::endl;
 	
 	for(int i = 0; i < 4; i++) {
-		delete _inventory[i];
-		_inventory[i] = NULL;
+		if(_inventory[i]) {
+			delete _inventory[i];
+			_inventory[i] = NULL;
+		}
 	}
+	std::cout << "Character destructeur call" << std::endl;
 }
 
 Character& Character::operator=(const Character& obj) {
@@ -79,19 +81,24 @@ void Character::equip(AMateria *m) {
 	for(int i = 0; i < 4; i++) {
 		if(!_inventory[i]) {
 				_inventory[i] = m;
-			break;
+				std::cout << _name << " equip a materia" << std::endl;
+			return;
 		}
 	}
-	std::cout << _name << " equip a materia" << std::endl;
+	//delete m;
 }
 
 void Character::unequip(int idx) {
 	if(idx >= 0 && idx < 4 && _inventory[idx]) {
+		//delete _inventory[idx]; // pas le droit
 		_inventory[idx] = NULL;
+		std::cout << "Unequip materia at idx: " << idx << std::endl;
 	}
 }
 
 void Character::use(int idx, ICharacter& target) {
 	if(idx >= 0 && idx < 4 && _inventory[idx])
 		_inventory[idx]->use(target);
+	else
+		std::cout << "Fail to use materia" << std::endl;
 }

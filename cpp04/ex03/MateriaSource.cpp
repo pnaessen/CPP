@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 16:04:19 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/26 12:30:01 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/27 09:28:50 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,13 @@ MateriaSource::MateriaSource(const MateriaSource& obj)  {
 }
 
 MateriaSource::~MateriaSource() {
-	std::cout << " MateriaSource destructor call" << std::endl;
 	for(int i = 0; i < 4; i++) {
-		delete _materia[i];
-		_materia[i] = NULL;
+		if(_materia[i]) {
+			delete _materia[i];
+			_materia[i] = NULL;
 	}
+	}
+	std::cout << "MateriaSource destructor call" << std::endl;
 
 }
 
@@ -69,9 +71,10 @@ void MateriaSource::learnMateria(AMateria* m) {
 	for(int i = 0; i < 4; i++) {
 		if(!_materia[i]) {
 			_materia[i] = m;
-			break;
+			return ;
 		}
 	}
+	delete m;
 }
 
 AMateria* MateriaSource::createMateria(std::string const& type) {

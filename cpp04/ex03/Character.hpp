@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 12:27:03 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/23 12:30:05 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/27 09:14:46 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 			Character();
 			Character(const std::string& name);
 			Character(const Character& obj);
-			~Character();
+			virtual ~Character();
 
 			Character& operator=(const Character& obj);
 			std::string  const & getName() const ;

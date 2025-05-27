@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 06:59:21 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/23 12:53:44 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/27 09:08:50 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ AMateria::~AMateria() {
 
 AMateria& AMateria::operator=(const AMateria& obj) {
 	std::cout << "AMateria operator  call" << std::endl;
-	_type = obj._type;
+	if(this != &obj)
+		_type = obj._type;
 	return *this;	
 
 }

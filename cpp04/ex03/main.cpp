@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 00:00:00 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/26 12:50:37 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/27 09:16:39 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void testMateriaSourceLimits() {
 	src->learnMateria(new Cure());
 	
 	std::cout << "\n--- Trying to learn 5th materia (should be ignored) ---" << std::endl;
-	src->learnMateria(new Ice());
+	src->learnMateria(new Ice());//leak
 	
 	std::cout << "\n--- Creating materias ---" << std::endl;
 	AMateria* ice1 = src->createMateria("ice");
@@ -92,7 +92,7 @@ void testCharacterInventory() {
 	hero->equip(src->createMateria("cure"));
 	
 	std::cout << "\n--- Trying to equip 5th materia (should be ignored) ---" << std::endl;
-	hero->equip(src->createMateria("ice"));
+	hero->equip(src->createMateria("ice")); // leaks
 	
 	std::cout << "\n--- Using all equipped materias ---" << std::endl;
 	hero->use(0, *target);
@@ -101,16 +101,18 @@ void testCharacterInventory() {
 	hero->use(3, *target);
 	
 	std::cout << "\n--- Invalid index tests ---" << std::endl;
-	hero->use(-1, *target);  // Index négatif
-	hero->use(4, *target);   // Index big
+	hero->use(-1, *target);
+	hero->use(4, *target);
 	
 	std::cout << "\n--- Unequip tests ---" << std::endl;
-	hero->unequip(1);
+	hero->unequip(1); //leaks
 	hero->use(1, *target);
 	
+	std::cout << "\n---  tests ---" << std::endl;
+
 	hero->unequip(-1);
 	hero->unequip(42);
-	hero->unequip(1);
+	hero->unequip(1); // leaks
 	
 	delete target;
 	delete hero;
@@ -192,7 +194,7 @@ void testMemoryManagement() {
 	hero->unequip(0);
 	
 	ICharacter* target = new Character("Target");
-	ice->use(*target);  // work
+	ice->use(*target);
 	
 	delete ice;
 	delete target;
@@ -221,7 +223,7 @@ int main() {
 	std::cout << "Starting comprehensive tests for Module 04 - Exercise 03" << std::endl;
 	
 	testBasicFunctionality();
-	testMateriaSourceLimits(); //1 leaks
+	testMateriaSourceLimits();
 	testCharacterInventory(); // 2 leaks
 	testDeepCopy();
 	//testMateriaSourceCopy(); // segfault
