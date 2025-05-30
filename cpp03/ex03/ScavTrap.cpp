@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 14:12:58 by pn                #+#    #+#             */
-/*   Updated: 2025/05/19 07:33:19 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/27 08:22:02 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ ScavTrap::ScavTrap(const ScavTrap& obj) : ClapTrap(obj) {
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& obj) {
 	
-    ClapTrap::operator=(obj);
+	ClapTrap::operator=(obj);
 	std::cout << "Scav copy assignment operator" << std::endl;
 	return *this;
 }

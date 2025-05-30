@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 12:25:31 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/27 09:17:46 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 15:50:39 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,12 @@
 Character::Character() {
 	std::cout << "Character constructeur call" << std::endl;
 	_name = "Another random";
+	_groundCount = 0;
 	for(int i = 0; i < 4; i++) {
 		_inventory[i] = NULL;
+	}
+	for(int i = 0; i < 10; i++) {
+		_ground[i] = NULL;
 	}
 }
 
@@ -25,11 +29,16 @@ Character::Character(const std::string& name) : _name(name) {
 	for(int i = 0; i < 4; i++) {
 		_inventory[i] = NULL;
 	}
+	_groundCount = 0;
+	for(int i = 0; i < 10; i++) {
+		_ground[i] = NULL;
+	}
 }
 
 Character::Character(const Character& obj) {
 	std::cout << "Character copy constructeur" << std::endl;
 	_name = obj._name;
+	_groundCount = obj._groundCount;
 	for(int i = 0; i < 4; i++) {
 		_inventory[i] =  NULL;
 	}
@@ -38,6 +47,9 @@ Character::Character(const Character& obj) {
 		if(obj._inventory[i] != NULL) {
 			_inventory[i] = obj._inventory[i]->clone();
 		}
+	}
+	for(int i = 0; i < 10; i++) {
+		_ground[i] = NULL;
 	}
 }
 
@@ -49,6 +61,12 @@ Character::~Character() {
 			_inventory[i] = NULL;
 		}
 	}
+	for(int i = 0; i < 10; i++) {
+		if(_ground[i]) {
+			delete _ground[i];
+			_ground[i] = NULL;
+		}
+	}
 	std::cout << "Character destructeur call" << std::endl;
 }
 
@@ -57,11 +75,18 @@ Character& Character::operator=(const Character& obj) {
 
 	if(this != &obj) {
 		for (int i = 0; i < 4; i++) {
-			delete _inventory[i];
+			if(_inventory[i]) 
+				delete _inventory[i];
 			_inventory[i] = NULL;
 		}
 		_name = obj._name;
-	
+		_groundCount = obj._groundCount;
+		for(int i = 0; i < 10; i++) {
+			if(_ground[i]) {
+				delete _ground[i];
+			}
+			_ground[i] = NULL;
+		}
 		for(int i = 0; i < 4; i++) {
 			if(obj._inventory[i] != NULL) {
 				_inventory[i] = obj._inventory[i]->clone();
@@ -85,12 +110,17 @@ void Character::equip(AMateria *m) {
 			return;
 		}
 	}
-	//delete m;
+	delete m;
 }
 
 void Character::unequip(int idx) {
 	if(idx >= 0 && idx < 4 && _inventory[idx]) {
-		//delete _inventory[idx]; // pas le droit
+		if(_groundCount < 10) {
+			_ground[_groundCount++] = _inventory[idx];
+		}
+		else {
+			delete _inventory[idx];
+		}
 		_inventory[idx] = NULL;
 		std::cout << "Unequip materia at idx: " << idx << std::endl;
 	}

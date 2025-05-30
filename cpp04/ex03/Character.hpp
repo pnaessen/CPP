@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 12:27:03 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/27 09:14:46 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 15:35:11 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 		private:
 			std::string _name;
 			AMateria* _inventory[4];
+			AMateria* _ground[10];
+			int _groundCount;
 			
 		public:
 			Character();
