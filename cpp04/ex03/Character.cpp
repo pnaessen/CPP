@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 12:25:31 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/30 15:50:39 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 16:36:31 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ Character::~Character() {
 		}
 	}
 	for(int i = 0; i < 10; i++) {
-		if(_ground[i]) {
+		if(_ground[i] != NULL) {
 			delete _ground[i];
 			_ground[i] = NULL;
 		}

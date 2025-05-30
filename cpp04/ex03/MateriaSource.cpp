@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 16:04:19 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/27 09:28:50 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 16:19:25 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& obj) {
 	
 		for(int i = 0; i < 4; i++) {
 			if(obj._materia[i] != NULL) {
-				_materia[i] = obj._materia[i];
+				_materia[i] = obj._materia[i]->clone();
 			}
 		}
 	}

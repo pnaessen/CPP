@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 00:00:00 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/30 16:12:15 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/30 17:06:44 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,21 +160,21 @@ void testMateriaSourceCopy() {
 	MateriaSource copy(original);
 	
 	std::cout << "\n--- Assignment operator ---" << std::endl;
-	// MateriaSource assigned;
-	// assigned = original; // segfault operator
+	MateriaSource assigned;
+	assigned = original;
 	
 	std::cout << "\n--- Testing all copies can create materias ---" << std::endl;
 	AMateria* ice1 = original.createMateria("ice");
 	AMateria* ice2 = copy.createMateria("ice");
-	//AMateria* ice3 = assigned.createMateria("ice");
+	AMateria* ice3 = assigned.createMateria("ice");
 	
 	std::cout << "Original created ice: " << (ice1 ? "YES" : "NO") << std::endl;
 	std::cout << "Copy created ice: " << (ice2 ? "YES" : "NO") << std::endl;
-	//std::cout << "Assigned created ice: " << (ice3 ? "YES" : "NO") << std::endl;
+	std::cout << "Assigned created ice: " << (ice3 ? "YES" : "NO") << std::endl;
 
 	delete ice1;
 	delete ice2;
-	//delete ice3;
+	delete ice3;
 }
 
 void testMemoryManagement() {
@@ -187,14 +187,16 @@ void testMemoryManagement() {
 	Character* hero = new Character("Hero");
 	AMateria* ice = src->createMateria("ice");
 	
-	//hero->equip(ice); //segfault
+	
+	//hero->equip(src->createMateria("ice"));
+	hero->equip(ice); //segfault qunad delete hero cause delete _ground
 	hero->unequip(0);
 	
 	ICharacter* target = new Character("Target");
 	ice->use(*target);
 	
-	delete ice;
 	delete target;
+	delete ice;
 	delete hero;
 	delete src;
 }
@@ -222,7 +224,7 @@ int main() {
 	testMateriaSourceLimits();
 	testCharacterInventory();
 	testDeepCopy();
-	testMateriaSourceCopy(); // segfault
+	testMateriaSourceCopy();
 	testMemoryManagement(); // segfault
 	testNullPointers();
 	
