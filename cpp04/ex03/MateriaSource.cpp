@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 16:04:19 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/30 16:19:25 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/31 23:37:55 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 MateriaSource::MateriaSource()  {
 		std::cout << " MateriaSource constructor call" << std::endl;
-		_count = 0;
 		for(int i = 0; i < 4; i++) {
 			_materia[i] = NULL;
 		}
@@ -32,7 +31,6 @@ MateriaSource::MateriaSource(const MateriaSource& obj)  {
 			_materia[i] = obj._materia[i]->clone();
 		}
 	}
-	_count = obj._count;
 }
 
 MateriaSource::~MateriaSource() {
@@ -54,7 +52,6 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& obj) {
 			delete _materia[i];
 			_materia[i] = NULL;
 		}
-		_count = obj._count;
 	
 		for(int i = 0; i < 4; i++) {
 			if(obj._materia[i] != NULL) {

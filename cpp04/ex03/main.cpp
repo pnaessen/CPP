@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 00:00:00 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/30 17:06:44 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/31 23:43:16 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,15 +188,13 @@ void testMemoryManagement() {
 	AMateria* ice = src->createMateria("ice");
 	
 	
-	//hero->equip(src->createMateria("ice"));
-	hero->equip(ice); //segfault qunad delete hero cause delete _ground
+	hero->equip(ice); 
 	hero->unequip(0);
 	
 	ICharacter* target = new Character("Target");
 	ice->use(*target);
 	
 	delete target;
-	delete ice;
 	delete hero;
 	delete src;
 }
@@ -225,7 +223,7 @@ int main() {
 	testCharacterInventory();
 	testDeepCopy();
 	testMateriaSourceCopy();
-	testMemoryManagement(); // segfault
+	testMemoryManagement();
 	testNullPointers();
 	
 	return 0;

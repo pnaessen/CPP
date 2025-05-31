@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 12:25:31 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/30 16:36:31 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/31 23:41:46 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,13 @@ Character::Character(const Character& obj) {
 			_inventory[i] = obj._inventory[i]->clone();
 		}
 	}
+	
 	for(int i = 0; i < 10; i++) {
-		_ground[i] = NULL;
+		if(obj._ground[i] != NULL) {
+			_ground[i] = obj._ground[i]->clone();
+		} else {
+			_ground[i] = NULL;
+		}
 	}
 }
 
@@ -79,17 +84,26 @@ Character& Character::operator=(const Character& obj) {
 				delete _inventory[i];
 			_inventory[i] = NULL;
 		}
-		_name = obj._name;
-		_groundCount = obj._groundCount;
+		
 		for(int i = 0; i < 10; i++) {
 			if(_ground[i]) {
 				delete _ground[i];
 			}
 			_ground[i] = NULL;
 		}
+		
+		_name = obj._name;
+		_groundCount = obj._groundCount;
+		
 		for(int i = 0; i < 4; i++) {
 			if(obj._inventory[i] != NULL) {
 				_inventory[i] = obj._inventory[i]->clone();
+			}
+		}
+		
+		for(int i = 0; i < 10; i++) {
+			if(obj._ground[i] != NULL) {
+				_ground[i] = obj._ground[i]->clone();
 			}
 		}
 	}

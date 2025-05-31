@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 15:58:32 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/27 09:14:33 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/05/31 23:37:45 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 	class MateriaSource : public IMateriaSource {
 			private:
 				AMateria* _materia[4];
-				int _count;
 			public:
 				MateriaSource();
 				MateriaSource(const MateriaSource& obj);
