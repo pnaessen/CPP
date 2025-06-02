@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 00:00:00 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/02 15:35:51 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/02 17:16:04 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,6 +215,29 @@ void testNullPointers() {
 	delete src;
 }
 
+void testLimit() {
+	
+	printSeparator("LIMIT TESTS");
+	
+	Character hero("Hero");
+	AMateria* ice = new Ice();
+	
+	for (int i = 0; i < 6; i++) {
+		hero.equip(ice);
+	}
+	std::cout << "============== Finished spam equip! ====================" << std::endl;
+
+	Character loot("Loot");
+
+	for (int i = 0; i < 11; ++i) {
+		loot.equip(new Ice());
+		loot.unequip(0);
+		if (i == 9) std::cout << "=== Ground full, testing overflow ===" << std::endl;
+	}
+
+	std::cout << "============== Finished limit tests! ====================" << std::endl;
+}
+
 int main() {
 	std::cout << "Starting tests" << std::endl;
 	
@@ -225,6 +248,6 @@ int main() {
 	testMateriaSourceCopy();
 	testMemoryManagement();
 	testNullPointers();
-	
+	testLimit();
 	return 0;
 }

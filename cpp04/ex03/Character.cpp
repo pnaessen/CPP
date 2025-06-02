@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 12:25:31 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/02 15:56:29 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/02 17:11:43 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,12 @@ void Character::equip(AMateria *m) {
 	if(!m)
 		return;
 	for(int i = 0; i < 4; i++) {
+		
+		if(_inventory[i] == m) {
+			std::cout << "Materia already equipped" << std::endl;
+			return;
+		}
+		
 		if(!_inventory[i]) {
 				_inventory[i] = m;
 				std::cout << _name << " equip a materia" << std::endl;
@@ -127,7 +133,7 @@ void Character::equip(AMateria *m) {
 	delete m;
 }
 
-void Character::handle_groundFull() {
+void Character::handle_groundFull(int idx) {
 	
 	std::cout << "Ground is full, materia destroy the ground" << std::endl;
 	for (int i = 0; i < 10; i++) {
@@ -136,9 +142,9 @@ void Character::handle_groundFull() {
 			_ground[i] = NULL;
 			_groundCount--;
 			std::cout << "Ground slot " << i << " cleared" << std::endl;
-			break;
 		}
 	}
+	delete _inventory[idx];
 }
 void Character::unequip(int idx) {
 	if(idx >= 0 && idx < 4 && _inventory[idx]) {
@@ -146,7 +152,7 @@ void Character::unequip(int idx) {
 			_ground[_groundCount++] = _inventory[idx];
 		}
 		else {
-			handle_groundFull();
+			handle_groundFull(idx);
 		}
 		_inventory[idx] = NULL;
 		std::cout << "Unequip materia at idx: " << idx << std::endl;
