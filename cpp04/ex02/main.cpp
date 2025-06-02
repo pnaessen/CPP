@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:24:02 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/22 23:22:39 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/06/02 15:33:58 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,73 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
+
+
+void testDeepCopy() {
+	
+	std::cout << "===== TEST COPIE CONSTRUCTEUR =====" << std::endl; 
+	
+	Dog first;
+	first.getBrain()->setIdeas(0, "Woof first");
+	Dog copy(first);
+	std::cout << "Idea de first : " << first.getBrain()->getIdeas(0) << std::endl;
+	std::cout << "Idea de copy : " << copy.getBrain()->getIdeas(0) << std::endl; 
+
+	first.getBrain()->setIdeas(0, "Woof first got a new idea");
+	std::cout << "Idea de first : " << first.getBrain()->getIdeas(0) << std::endl;
+	std::cout << "Idea de copy : " << copy.getBrain()->getIdeas(0) << std::endl;
+	std::cout << std::endl;
+}
+
+void testOP() {
+
+	std::cout << "===== TEST OP  =====" << std::endl;
+	
+	Dog dog1;
+	Dog dog2;
+	
+	dog1.getBrain()->setIdeas(0, "dog1 Woof");
+	dog2.getBrain()->setIdeas(0, "dog2 Woof");
+	
+	std::cout << "Idea de dog1 : " << dog1.getBrain()->getIdeas(0) << std::endl;
+	std::cout << "Idea de dog2 : " << dog2.getBrain()->getIdeas(0) << std::endl;
+
+	dog2 = dog1;
+	std::cout << "Idea de dog2 : " << dog2.getBrain()->getIdeas(0) << std::endl;
+	
+	dog1.getBrain()->setIdeas(0, "dog1 Woof new idea woof");
+	std::cout << "Idea de dog1 : " << dog1.getBrain()->getIdeas(0) << std::endl;
+	std::cout << "Idea de dog2 : " << dog2.getBrain()->getIdeas(0) << std::endl;
+	
+}
+
+void testFunction() {
+	
+	std::cout << "\n========== TEST FUNCTION ==========\n" << std::endl;
+
+	Dog woaf;
+	Cat mepris;
+	const WrongAnimal  *pig = new WrongCat();
+	
+	
+	std::cout << woaf.getType() << " " << std::endl;
+	std::cout << mepris.getType() << " " << std::endl;
+	woaf.makeSound();
+	mepris.makeSound();
+	
+	std::cout << "\n========== TEST WRONG FUNCTION ==========\n" << std::endl;
+	std::cout << pig->getType()<< " " << std::endl;
+	pig->makeSound();
+	
+	std::cout << "\n========== DESTRUCTEURS ==========\n" << std::endl;
+
+	delete pig;
+}
+
+
 int main()
 {
+
 	std::cout << "\n========== TEST CLASSE ABSTRAITE ==========\n" << std::endl;
 
 	#define TEST_ABSTRACT 0
@@ -42,56 +107,19 @@ int main()
 		else 
 			tab[i] = new Cat();
 	}
-	
-	std::cout << std::endl;
-	
-	std::cout << "===== TEST COPIE CONSTRUCTEUR =====" << std::endl; 
-	
-	Dog *first = new Dog();
-	first->getBrain()->setIdeas(0, "Woof first");
-	Dog *copy = new Dog(*(first));
-	std::cout << "Idea de first : " << first->getBrain()->getIdeas(0) << std::endl;
-	std::cout << "Idea de copy : " << copy->getBrain()->getIdeas(0) << std::endl; 
-
-	first->getBrain()->setIdeas(0, "Woof first got a new idea");
-	std::cout << "Idea de first : " << first->getBrain()->getIdeas(0) << std::endl;
-	std::cout << "Idea de copy : " << copy->getBrain()->getIdeas(0) << std::endl;
-	delete first;
-	delete copy;
 	std::cout << std::endl;
 
-
-	std::cout << "===== TEST OP  =====" << std::endl;
+	testDeepCopy();
+	testOP();
+	testFunction();
 	
-	Dog dog1;
-	Dog dog2;
-	
-	dog1.getBrain()->setIdeas(0, "dog1 Woof");
-	dog2.getBrain()->setIdeas(0, "dog2 Woof");
-	
-	std::cout << "Idea de dog1 : " << dog1.getBrain()->getIdeas(0) << std::endl;
-	std::cout << "Idea de dog2 : " << dog2.getBrain()->getIdeas(0) << std::endl;
-
-	dog2 = dog1;
-	std::cout << "Idea de dog2 : " << dog2.getBrain()->getIdeas(0) << std::endl;
-
-	dog1.getBrain()->setIdeas(0, "dog1 Woof new idea woof");
-	std::cout << "Idea de dog1 : " << dog1.getBrain()->getIdeas(0) << std::endl;
-	std::cout << "Idea de dog2 : " << dog2.getBrain()->getIdeas(0) << std::endl;
-	
-	
-	std::cout << "\n========== TEST FUNCTION ==========\n" << std::endl;
-
+	std::cout << "\n========== TEST FUNSTION MAIN ==========\n" << std::endl;
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
 	i->makeSound();
 	j->makeSound();
 	
-	std::cout << "\n========== TEST WRONG FUNCTION ==========\n" << std::endl;
-	std::cout<<wrong->getType()<< " " << std::endl;
-	wrong->makeSound();
-
-	std::cout << "\n========== DESTRUCTEURS ==========\n" << std::endl;
+	std::cout << "\n========== DESTRUCTEURS MAIN ==========\n" << std::endl;
 	delete wrong;
 	delete i;
 	delete j;

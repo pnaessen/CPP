@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 00:00:00 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/31 23:43:16 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/06/02 15:35:51 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -216,7 +216,7 @@ void testNullPointers() {
 }
 
 int main() {
-	std::cout << "Starting comprehensive tests for Module 04 - Exercise 03" << std::endl;
+	std::cout << "Starting tests" << std::endl;
 	
 	testBasicFunctionality();
 	testMateriaSourceLimits();

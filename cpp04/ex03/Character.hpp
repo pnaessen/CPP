@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 12:27:03 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/30 15:35:11 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/02 15:56:40 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 			void equip(AMateria* m);
 			void unequip(int idx);
 			void use(int idx, ICharacter& target);
+			void handle_groundFull();
 	};
 
 #endif

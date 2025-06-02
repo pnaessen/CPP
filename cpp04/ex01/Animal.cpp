@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:25:25 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/21 15:47:14 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/06/02 14:25:33 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@ Animal::Animal() {
 	type = "GRUIK";
 }
 
-Animal::Animal(const Animal& obj) {
+Animal::Animal(const Animal& obj) : type(obj.type) {
 	std::cout << "Animal copy constructor operator" << std::endl;
-	*this = obj;
 }
 
 Animal::~Animal() {

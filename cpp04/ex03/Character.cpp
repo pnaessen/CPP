@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 12:25:31 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/31 23:41:46 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/06/02 15:56:29 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,13 +127,26 @@ void Character::equip(AMateria *m) {
 	delete m;
 }
 
+void Character::handle_groundFull() {
+	
+	std::cout << "Ground is full, materia destroy the ground" << std::endl;
+	for (int i = 0; i < 10; i++) {
+		if(_ground[i]) {
+			delete _ground[i];
+			_ground[i] = NULL;
+			_groundCount--;
+			std::cout << "Ground slot " << i << " cleared" << std::endl;
+			break;
+		}
+	}
+}
 void Character::unequip(int idx) {
 	if(idx >= 0 && idx < 4 && _inventory[idx]) {
 		if(_groundCount < 10) {
 			_ground[_groundCount++] = _inventory[idx];
 		}
 		else {
-			delete _inventory[idx];
+			handle_groundFull();
 		}
 		_inventory[idx] = NULL;
 		std::cout << "Unequip materia at idx: " << idx << std::endl;
