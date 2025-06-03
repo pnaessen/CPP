@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 00:00:00 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/02 17:16:04 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/03 08:09:11 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void testMateriaSourceLimits() {
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 	
-	std::cout << "\n--- Trying to learn 5th materia (should be ignored) ---" << std::endl;
+	std::cout << "\n--- Trying to learn 5th materia ---" << std::endl;
 	src->learnMateria(new Ice());
 	
 	std::cout << "\n--- Creating materias ---" << std::endl;
@@ -91,7 +91,7 @@ void testCharacterInventory() {
 	hero->equip(src->createMateria("ice"));
 	hero->equip(src->createMateria("cure"));
 	
-	std::cout << "\n--- Trying to equip 5th materia (should be ignored) ---" << std::endl;
+	std::cout << "\n--- Trying to equip 5th materia ---" << std::endl;
 	hero->equip(src->createMateria("ice"));
 	
 	std::cout << "\n--- Using all equipped materias ---" << std::endl;
@@ -99,6 +99,7 @@ void testCharacterInventory() {
 	hero->use(1, *target);
 	hero->use(2, *target);
 	hero->use(3, *target);
+	hero->use(0, *target);
 	
 	std::cout << "\n--- Invalid index tests ---" << std::endl;
 	hero->use(-1, *target);
@@ -141,6 +142,7 @@ void testDeepCopy() {
 	ICharacter* dummy = new Character("Dummy");
 	std::cout << "\n--- Testing independence of copies ---" << std::endl;
 	original.use(0, *dummy);
+	original.unequip(0);
 	copy.use(0, *dummy);
 	assigned.use(0, *dummy);
 	
@@ -180,7 +182,6 @@ void testMateriaSourceCopy() {
 void testMemoryManagement() {
 	printSeparator("MEMORY MANAGEMENT TESTS");
 	
-	std::cout << "\n--- Testing unequip doesn't delete materia ---" << std::endl;
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	

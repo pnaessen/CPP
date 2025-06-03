@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 12:25:31 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/02 17:11:43 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/02 17:24:36 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,11 +150,11 @@ void Character::unequip(int idx) {
 	if(idx >= 0 && idx < 4 && _inventory[idx]) {
 		if(_groundCount < 10) {
 			_ground[_groundCount++] = _inventory[idx];
+			_inventory[idx] = NULL;
 		}
 		else {
 			handle_groundFull(idx);
 		}
-		_inventory[idx] = NULL;
 		std::cout << "Unequip materia at idx: " << idx << std::endl;
 	}
 }
