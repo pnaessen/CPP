@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 00:00:00 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/03 08:09:11 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/04 07:05:45 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -230,7 +230,7 @@ void testLimit() {
 
 	Character loot("Loot");
 
-	for (int i = 0; i < 11; ++i) {
+	for (int i = 0; i < 13; ++i) {
 		loot.equip(new Ice());
 		loot.unequip(0);
 		if (i == 9) std::cout << "=== Ground full, testing overflow ===" << std::endl;
