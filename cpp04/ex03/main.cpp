@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 00:00:00 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/04 07:05:45 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/05 10:14:49 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -226,6 +226,7 @@ void testLimit() {
 	for (int i = 0; i < 6; i++) {
 		hero.equip(ice);
 	}
+	
 	std::cout << "============== Finished spam equip! ====================" << std::endl;
 
 	Character loot("Loot");
@@ -236,7 +237,15 @@ void testLimit() {
 		if (i == 9) std::cout << "=== Ground full, testing overflow ===" << std::endl;
 	}
 
+	IMateriaSource* src = new MateriaSource();
+	AMateria* ice1 = new Ice();
+	for(int i = 0; i < 4; i++) {
+		src->learnMateria(ice1);
+	}
+	
+	delete src;
 	std::cout << "============== Finished limit tests! ====================" << std::endl;
+	
 }
 
 int main() {

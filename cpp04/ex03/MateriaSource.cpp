@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 16:04:19 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/31 23:37:55 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/06/05 09:19:49 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,13 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& obj) {
 void MateriaSource::learnMateria(AMateria* m) {
 	if(!m)
 		return;
+	for(int i = 0; i< 4; i++) {
+		if(_materia[i] == m) {
+			std::cout << "Materia already learned" << std::endl;
+			return ;
+		}
+	}
+	
 	for(int i = 0; i < 4; i++) {
 		if(!_materia[i]) {
 			_materia[i] = m;
