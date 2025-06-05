@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 13:29:05 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/05 17:42:09 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/05 17:50:07 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void testFormCreationAndSigning() {
 	try {
 		Form taxForm("Tax Return", 50, 25);
 		Bureaucrat alice("Alice", 30);
-		Bureaucrat bob("Bob", 75);
+		Bureaucrat bob("Bob", 70);
 		
 		std::cout << taxForm << std::endl;
 		std::cout << alice << std::endl;
@@ -97,9 +97,16 @@ void testFormCreationAndSigning() {
 		
 		alice.signForm(taxForm); 
 		bob.signForm(taxForm); 
-		
+		std::cout << taxForm << std::endl;
+
 		Form secretForm("Secret", 1, 1);
 		bob.signForm(secretForm);
+	}
+	catch (const Bureaucrat::GradeTooLowE &e) {
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
+	catch (const Bureaucrat::GradeTooHighE &e) {
+		std::cout << "Exception: " << e.what() << std::endl;
 	}
 	catch (const std::exception &e) {
 		std::cout << "Exception: " << e.what() << std::endl;
