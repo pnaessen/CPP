@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 13:29:29 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/05 15:17:39 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/05 15:58:25 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@
 					}
 			};
 };
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& Fixed);
 
 
 #endif
