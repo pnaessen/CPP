@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 15:37:46 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/05 16:11:25 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/05 17:35:01 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,3 +44,26 @@ void Form::beSigned(Bureaucrat &bureaucrat) {
 }
 
 
+const std::string Form::getName() const {
+	return _name;
+}
+
+bool Form::getIsSigned() const {
+	return _isSigned;
+}
+
+int Form::getSignGrade() const {
+	return _signGrade;
+}
+
+int Form::getExecuteGrade() const {
+	return _executeGrade;
+}
+
+std::ostream& operator<<(std::ostream &os, const Form &form) {
+	os << "Form " << form.getName() 
+	   << " (signed: " << (form.getIsSigned() ? "yes" : "no")
+	   << ", sign grade: " << form.getSignGrade()
+	   << ", exec grade: " << form.getExecuteGrade() << ")";
+	return os;
+}

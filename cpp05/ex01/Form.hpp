@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 15:33:50 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/05 16:15:25 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/05 17:30:23 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@
 			Form &operator=(const Form &obj);
 			~Form();
 			
+			const std::string getName() const;
+			bool getIsSigned() const;
+			int getSignGrade() const;
+			int getExecuteGrade() const;
+			
 			void beSigned(Bureaucrat &bureaucrat);
 		
 			
@@ -47,4 +52,5 @@
 			}; 
 };
 
+std::ostream& operator<<(std::ostream& o,const  Form& Form);
 #endif

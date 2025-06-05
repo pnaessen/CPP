@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 13:29:05 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/05 15:30:55 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/05 17:42:09 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,29 @@ void basicTest() {
 	}
 }
 
+void testFormCreationAndSigning() {
+	printSeparator("Form Creation and Signing Test");
+	
+	try {
+		Form taxForm("Tax Return", 50, 25);
+		Bureaucrat alice("Alice", 30);
+		Bureaucrat bob("Bob", 75);
+		
+		std::cout << taxForm << std::endl;
+		std::cout << alice << std::endl;
+		std::cout << bob << std::endl;
+		
+		alice.signForm(taxForm); 
+		bob.signForm(taxForm); 
+		
+		Form secretForm("Secret", 1, 1);
+		bob.signForm(secretForm);
+	}
+	catch (const std::exception &e) {
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
+}
+
 int main () {
 	
 
@@ -94,7 +117,8 @@ int main () {
 			std::cout << std::endl << BOLD_RED << "PLEASE CHOOSE BETWEEN THESE TEST :" << std::endl
 				<< "	1 - Basic test" << std::endl
 				<< "	2 - Test Catch Too Hight" << std::endl
-				<< "	3 - testCatchTooLow()" << std::endl
+				<< "	3 - Test Catch Too Low" << std::endl
+				<< "	4 - Test Form Creation And Signing" << std::endl
 				<< "	X - exit" << RESET << std::endl << std::endl;
 		}
 		if (!(std::cin >> input))
@@ -108,6 +132,8 @@ int main () {
 			testCatchTooHight();
 		else if (input == "3")
 			testCatchTooLow();
+		else if (input == "4")
+			testFormCreationAndSigning();
 		else if (input == "X" || input == "x")
 			return (0);
 		else
