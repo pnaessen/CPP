@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 00:00:00 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/05 10:14:49 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/05 18:06:13 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -251,13 +251,47 @@ void testLimit() {
 int main() {
 	std::cout << "Starting tests" << std::endl;
 	
-	testBasicFunctionality();
-	testMateriaSourceLimits();
-	testCharacterInventory();
-	testDeepCopy();
-	testMateriaSourceCopy();
-	testMemoryManagement();
-	testNullPointers();
-	testLimit();
+	std::string input;
+	while (1)
+	{
+		if (!std::cin.eof())
+		{
+			std::cout << std::endl << BOLD_RED << "PLEASE CHOOSE BETWEEN THESE TEST :" << std::endl
+				<< "	1 - Basic test" << std::endl
+				<< "	2 - Test Materia Source Limits" << std::endl
+				<< "	3 - Test Character Inventory" << std::endl
+				<< "	4 - Test Deep Copy" << std::endl
+				<< "	5 - Test Materia Source Copy" << std::endl
+				<< "	6 - Test Memory Management" << std::endl
+				<< "	7 - Test Null Pointers" << std::endl
+				<< "	8 - Test Limit" << std::endl
+				<< "	X - exit" << RESET << std::endl << std::endl;
+		}
+		if (!(std::cin >> input))
+		{
+			std::cout << "Error, exit program" << std::endl;
+			return (1);
+		}
+		if (input == "1")
+			testBasicFunctionality();
+		else if (input == "2")
+			testMateriaSourceLimits();
+		else if (input == "3")
+			testCharacterInventory();
+		else if (input == "4")
+			testDeepCopy();
+		else if (input == "5")
+			testMateriaSourceCopy();
+		else if (input == "6")
+			testMemoryManagement();
+		else if (input == "7")
+			testNullPointers();
+		else if  (input == "8")
+			testLimit();
+		else if (input == "X" || input == "x")
+			return (0);
+		else
+			std::cout << "Please choose a valid test" << std::endl;
+	}
 	return 0;
 }
