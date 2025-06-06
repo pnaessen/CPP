@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 13:29:05 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/05 15:50:18 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/06 08:46:05 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void basicTest() {
 	
 	try {
 		Bureaucrat bob("Bob", 42);
-		std::cout << "Bureaucrat: " << bob.getName() << ", Grade: " << bob.getGrade() << std::endl;
+		std::cout << bob << std::endl;
 		bob.incrementGrade();
 		std::cout << "After incrementing, Grade: " << bob.getGrade() << std::endl;
 		bob.decrementGrade();

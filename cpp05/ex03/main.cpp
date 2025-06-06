@@ -6,11 +6,14 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 13:29:05 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/06 08:45:20 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/06 16:26:06 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 
 void printSeparator(const std::string& testName) {
@@ -19,21 +22,15 @@ void printSeparator(const std::string& testName) {
 	std::cout << std::string(50, '=') << std::endl;
 }
 
-void testAssign() {
-
-	printSeparator("Assign test");
+void testPresidentialPardonForm() {
+	
+	printSeparator("Presidential Pardon Form");
 	
 	try {
-		Form form("Test", 20, 1);
-		Bureaucrat original("original", 25);
-		Bureaucrat assign("assign", 66);
-		std::cout << "Before assign : ";
-		std::cout << assign << std::endl;
-		assign = original;
-		std::cout << form << std::endl;
-		std::cout << "After assign : ";
-		std::cout << assign << std::endl;
-		assign.signForm(form);
+		PresidentialPardonForm form("first");
+		Bureaucrat riko("riko", 23);
+		riko.signForm(form);
+		riko.executeForm(form);
 	}
 	catch (const Bureaucrat::GradeTooHighE &e) {
 		std::cout << "Exception: " << e.what() << std::endl;
@@ -44,6 +41,29 @@ void testAssign() {
 	catch (const std::exception &e) {
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
+	
+}
+
+void testRobotomy() {
+
+	printSeparator("Test Robotomy");
+	
+	try {
+		RobotomyRequestForm form("first");
+		Bureaucrat riko("riko", 120);
+		riko.signForm(form);
+		riko.executeForm(form);
+	}
+	catch (const Bureaucrat::GradeTooHighE &e) {
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
+	catch (const Bureaucrat::GradeTooLowE &e) {
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
+	catch (const std::exception &e) {
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
+
 }
 
 
@@ -111,30 +131,20 @@ void basicTest() {
 	}
 }
 
-void testFormCreationAndSigning() {
+void testFormShrubbery() {
 	
-	printSeparator("Form Creation and Signing Test");
+	printSeparator("Form Shrubbery");
 	
 	try {
-		Form taxForm("Tax Return", 50, 25);
-		Bureaucrat alice("Alice", 30);
-		Bureaucrat bob("Bob", 70);
-		
-		std::cout << taxForm << std::endl;
-		std::cout << alice << std::endl;
-		std::cout << bob << std::endl;
-		
-		alice.signForm(taxForm); 
-		bob.signForm(taxForm); 
-		std::cout << taxForm << std::endl;
-
-		Form secretForm("Secret", 1, 1);
-		bob.signForm(secretForm);
-	}
-	catch (const Bureaucrat::GradeTooLowE &e) {
-		std::cout << "Exception: " << e.what() << std::endl;
+			ShrubberyCreationForm form("first");
+			Bureaucrat riko("riko", 144);
+			riko.signForm(form);
+			riko.executeForm(form);
 	}
 	catch (const Bureaucrat::GradeTooHighE &e) {
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
+	catch (const Bureaucrat::GradeTooLowE &e) {
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
 	catch (const std::exception &e) {
@@ -154,8 +164,9 @@ int main () {
 				<< "	1 - Basic test" << std::endl
 				<< "	2 - Test Catch Too Hight" << std::endl
 				<< "	3 - Test Catch Too Low" << std::endl
-				<< "	4 - Test Form Creation And Signing" << std::endl
-				<< "	5 - Test Assign" << std::endl
+				<< "	4 - Test Form Shrubbery" << std::endl
+				<< "	5 - Test Form Robotomy" << std::endl
+				<< "	6 - Test Presidential Pardon Form" << std::endl
 				<< "	X - exit" << RESET << std::endl << std::endl;
 		}
 		if (!(std::cin >> input))
@@ -170,9 +181,11 @@ int main () {
 		else if (input == "3")
 			testCatchTooLow();
 		else if (input == "4")
-			testFormCreationAndSigning();
+			testFormShrubbery();
 		else if (input == "5")
-			testAssign();
+			testRobotomy();
+		else if (input == "6")
+			testPresidentialPardonForm();
 		else if (input == "X" || input == "x")
 			return (0);
 		else

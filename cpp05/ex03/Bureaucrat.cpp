@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 14:01:35 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/06 08:28:08 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/06 15:05:53 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void Bureaucrat::decrementGrade() {
 	_grade++;
 }
 
-void Bureaucrat::signForm(Form &form) {
+void Bureaucrat::signForm(AForm &form) {
 	try {
 		form.beSigned(*this);
 		std::cout << _name << " signed " << form.getName() << std::endl;
@@ -67,6 +67,17 @@ void Bureaucrat::signForm(Form &form) {
 	}
 }
 
+void Bureaucrat::executeForm(const AForm& form) {
+	
+	try {
+		form.execute(*this);
+		std::cout << _name << " execute " << form.getName() << std::endl;
+	}
+	catch (const std::exception &e) {
+		std::cout << _name << " couldn't execute " << form.getName() 
+				  << " because " << e.what() << std::endl;
+	}
+}
 
 std::ostream& operator<<(std::ostream &os, const Bureaucrat &bureaucrat) {
 	os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
