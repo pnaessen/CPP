@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 15:33:50 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/06 11:52:16 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/06 15:08:16 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@
 			int getExecuteGrade() const;
 			
 			void beSigned(Bureaucrat &bureaucrat);
-			virtual void execute(Bureaucrat &executor);
+			virtual void execute(const Bureaucrat &executor) const;
 		
 			
-			class GradeTooHighExeption : public std::exception {
+			class GradeTooHighException : public std::exception {
 				public:
 					const char *what() const throw() {
 						return "Form grade too Hight";

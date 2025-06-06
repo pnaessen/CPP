@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 08:55:13 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/06 11:18:30 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/06 15:36:17 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,35 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 	
 }
 
-void ShrubberyCreationForm::execute(Bureaucrat const &executor) {
+void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
 	
 	if (!getIsSigned())
 		throw FormNotSignedException();
 	if (executor.getGrade() > getExecuteGrade())
-		throw GradeTooLowException();
+		throw std::out_of_range("Form grade is to Hight");
 	
 	std::string outFileName = _target + "_shrubbery";
 	std::ofstream outFile(outFileName.c_str());
 	if(outFile.is_open()) {
-		outFile << "    /\    /\        /\     /\      /\       /\      /\ ";
-  		outFile << "   /  \  /  \      /  \   /  \    /  \     /  \    /  \ ";
- 		outFile << "  /____\/____\    /____\ /____\  /____\   /____\  /____\ ";
-     	outFile << "	||    ||        ||     ||      ||       ||      || ";
-     	outFile << "	||    ||        ||     ||      ||       ||      ||	";
+		outFile << "       /\\      " << std::endl;
+		outFile << "      /  \\     " << std::endl;
+		outFile << "     /____\\    " << std::endl;
+		outFile << "        ||     " << std::endl;
+		outFile << "        ||     " << std::endl;
+		outFile << std::endl;
+		outFile << "    /\\    /\\   " << std::endl;
+		outFile << "   /  \\  /  \\  " << std::endl;
+		outFile << "  /____\\/____\\ " << std::endl;
+		outFile << "      ||       " << std::endl;
+		outFile << "      ||       " << std::endl;
+		outFile << std::endl;
+		outFile << "  /\\  /\\  /\\  " << std::endl;
+		outFile << " /  \\/  \\/  \\ " << std::endl;
+		outFile << "/____________\\" << std::endl;
+		outFile << "      ||       " << std::endl;
+		outFile << "      ||       " << std::endl;
+		outFile.close();
 	}
 	else
-		throw std::runtime_error("Error can't creat the Form");
+		throw std::runtime_error("Error can't create the file");
 }

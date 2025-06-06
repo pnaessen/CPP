@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 15:37:46 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/06 11:52:57 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/06 15:35:36 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 AForm::AForm(const std::string &name, int signGrade, int executeGrade)
 : _name(name), _isSigned(false), _signGrade(signGrade), _executeGrade(executeGrade) {
 	if (signGrade < 1 || executeGrade < 1)
-		throw GradeTooHighExeption();
+		throw GradeTooHighException();
 	if (signGrade > 150 || executeGrade > 150)
 		throw GradeTooLowException();
 	if (name.empty())
@@ -44,11 +44,12 @@ void AForm::beSigned(Bureaucrat &bureaucrat) {
 }
 
 
-void AForm::execute(Bureaucrat &executor) {
+void AForm::execute(const Bureaucrat &executor) const {
+	
 	if (!_isSigned)
 		throw FormNotSignedException();
 	if (executor.getGrade() > _executeGrade)
-		throw GradeTooLowException();
+		throw std::out_of_range("Form grade is to Hight");
 	
 }
 

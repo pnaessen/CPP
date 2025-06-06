@@ -12,7 +12,7 @@ DEPS := $(OBJ:.o=.d)
 
 HEADERS := Bureaucrat.hpp\
 		   AForm.hpp \
-		   ShrubberyCreationForm \
+		   ShrubberyCreationForm.hpp \
 
 CC := c++
 CFLAGS := -Wall -Wextra -Werror -std=c++98

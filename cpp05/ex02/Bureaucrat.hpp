@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 13:29:29 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/06 11:43:53 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/06 15:02:25 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@
 			void incrementGrade();
 			void decrementGrade();
 			void signForm(AForm &form);
-			void executeForm(AForm& const form);
+			void executeForm(const AForm& form);
 
 			class GradeTooHighE : public std::exception {
 				public:
