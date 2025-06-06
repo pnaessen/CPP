@@ -6,13 +6,14 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 13:29:05 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/06 16:02:44 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/06 16:26:06 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 
 void printSeparator(const std::string& testName) {
@@ -21,13 +22,35 @@ void printSeparator(const std::string& testName) {
 	std::cout << std::string(50, '=') << std::endl;
 }
 
+void testPresidentialPardonForm() {
+	
+	printSeparator("Presidential Pardon Form");
+	
+	try {
+		PresidentialPardonForm form("first");
+		Bureaucrat riko("riko", 23);
+		riko.signForm(form);
+		riko.executeForm(form);
+	}
+	catch (const Bureaucrat::GradeTooHighE &e) {
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
+	catch (const Bureaucrat::GradeTooLowE &e) {
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
+	catch (const std::exception &e) {
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
+	
+}
+
 void testRobotomy() {
 
 	printSeparator("Test Robotomy");
 	
 	try {
 		RobotomyRequestForm form("first");
-		Bureaucrat riko("riko", 44);
+		Bureaucrat riko("riko", 120);
 		riko.signForm(form);
 		riko.executeForm(form);
 	}
@@ -142,7 +165,8 @@ int main () {
 				<< "	2 - Test Catch Too Hight" << std::endl
 				<< "	3 - Test Catch Too Low" << std::endl
 				<< "	4 - Test Form Shrubbery" << std::endl
-				<< "	5 - Test Robotomy" << std::endl
+				<< "	5 - Test Form Robotomy" << std::endl
+				<< "	6 - Test Presidential Pardon Form" << std::endl
 				<< "	X - exit" << RESET << std::endl << std::endl;
 		}
 		if (!(std::cin >> input))
@@ -160,6 +184,8 @@ int main () {
 			testFormShrubbery();
 		else if (input == "5")
 			testRobotomy();
+		else if (input == "6")
+			testPresidentialPardonForm();
 		else if (input == "X" || input == "x")
 			return (0);
 		else

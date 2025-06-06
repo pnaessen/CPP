@@ -4,6 +4,8 @@ SRC := main.cpp \
 	   Bureaucrat.cpp\
 	   AForm.cpp \
 	   ShrubberyCreationForm.cpp \
+	   RobotomyRequestForm.cpp \
+	   PresidentialPardonForm.cpp \
 
 OBJ_DIR := .obj
 OBJ := $(SRC:.cpp=.o)
@@ -13,6 +15,8 @@ DEPS := $(OBJ:.o=.d)
 HEADERS := Bureaucrat.hpp\
 		   AForm.hpp \
 		   ShrubberyCreationForm.hpp \
+		   RobotomyRequestForm.hpp \
+		   PresidentialPardonForm.hpp \
 
 CC := c++
 CFLAGS := -Wall -Wextra -Werror -std=c++98
