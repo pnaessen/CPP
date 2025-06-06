@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 13:29:05 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/06 16:26:06 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/06 18:02:10 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 
 void printSeparator(const std::string& testName) {
@@ -21,6 +22,45 @@ void printSeparator(const std::string& testName) {
 	std::cout << "TEST: " << testName << std::endl;
 	std::cout << std::string(50, '=') << std::endl;
 }
+
+void testIntern() {
+	
+	printSeparator("Intern Test");
+	
+	try {
+		Intern intern;
+		
+		AForm* shrubForm = intern.makeForm("shrubbery creation", "garden");
+		if (shrubForm) {
+			std::cout << *shrubForm << std::endl;
+			
+			Bureaucrat boss("Boss", 1);
+			boss.signForm(*shrubForm);
+			boss.executeForm(*shrubForm);
+			
+			delete shrubForm;
+		}
+		
+		std::cout << std::endl;
+		
+		AForm* robotForm = intern.makeForm("robotomy request", "Bender");
+		if (robotForm) {
+			std::cout << *robotForm << std::endl;
+			delete robotForm;
+		}
+		
+		std::cout << std::endl;
+		
+		AForm* invalidForm = intern.makeForm("unknown form", "target");
+		if (invalidForm) {
+			delete invalidForm;
+		}
+		
+	} catch (const std::exception& e) {
+		std::cout << "Exception caught: " << e.what() << std::endl;
+	}
+}
+
 
 void testPresidentialPardonForm() {
 	
@@ -167,6 +207,7 @@ int main () {
 				<< "	4 - Test Form Shrubbery" << std::endl
 				<< "	5 - Test Form Robotomy" << std::endl
 				<< "	6 - Test Presidential Pardon Form" << std::endl
+				<< "	7 - Test Intern" << std::endl
 				<< "	X - exit" << RESET << std::endl << std::endl;
 		}
 		if (!(std::cin >> input))
@@ -186,6 +227,8 @@ int main () {
 			testRobotomy();
 		else if (input == "6")
 			testPresidentialPardonForm();
+		else if (input == "7")
+			testIntern();
 		else if (input == "X" || input == "x")
 			return (0);
 		else

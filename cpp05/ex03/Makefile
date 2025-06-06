@@ -6,6 +6,7 @@ SRC := main.cpp \
 	   ShrubberyCreationForm.cpp \
 	   RobotomyRequestForm.cpp \
 	   PresidentialPardonForm.cpp \
+	   Intern.cpp \
 
 OBJ_DIR := .obj
 OBJ := $(SRC:.cpp=.o)
@@ -17,6 +18,7 @@ HEADERS := Bureaucrat.hpp\
 		   ShrubberyCreationForm.hpp \
 		   RobotomyRequestForm.hpp \
 		   PresidentialPardonForm.hpp \
+		   Intern.hpp \
 
 CC := c++
 CFLAGS := -Wall -Wextra -Werror -std=c++98

@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 16:49:29 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/06 16:59:01 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/06 18:00:16 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+
+Intern::Intern() {
+	
+}
 
 Intern::~Intern() {
 	
