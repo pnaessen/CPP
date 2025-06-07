@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 13:29:05 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/06 18:02:10 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/07 14:11:20 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ void testIntern() {
 	
 	printSeparator("Intern Test");
 	
-	try {
 		Intern intern;
-		
 		AForm* shrubForm = intern.makeForm("shrubbery creation", "garden");
+	try {
+		
 		if (shrubForm) {
 			std::cout << *shrubForm << std::endl;
 			
-			Bureaucrat boss("Boss", 1);
+			Bureaucrat boss("Boos", 1);
 			boss.signForm(*shrubForm);
 			boss.executeForm(*shrubForm);
 			
@@ -56,7 +56,20 @@ void testIntern() {
 			delete invalidForm;
 		}
 		
-	} catch (const std::exception& e) {
+	} 
+	catch (const Bureaucrat::GradeTooHighE &e) {
+		std::cout << "Execption: " << e.what() << std::endl;
+		delete shrubForm;
+	}
+	catch ( const Bureaucrat::GradeTooLowE &e) {
+		std::cout << "Execption: " << e.what() << std::endl;
+		delete shrubForm;
+	}
+	catch (const Bureaucrat::NameIsEmpty &e) {
+		std::cout << "Execption: " << e.what() << std::endl;
+		delete shrubForm;
+	}
+	catch (const std::exception& e) {
 		std::cout << "Exception caught: " << e.what() << std::endl;
 	}
 }
@@ -194,7 +207,6 @@ void testFormShrubbery() {
 
 int main () {
 	
-
 	std::string input;
 	while (1)
 	{

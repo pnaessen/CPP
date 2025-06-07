@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 13:29:29 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/06 15:02:25 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/07 13:41:57 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,13 @@
 				public:
 					const char *what() const throw() {
 						return "Grade too low";
+					}
+			};
+
+			class NameIsEmpty : public std::exception {
+				public:
+					const char *what() const throw() {
+						return "Bureaucrat name cannot be empty";
 					}
 			};
 };

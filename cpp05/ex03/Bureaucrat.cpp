@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 14:01:35 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/06 15:05:53 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/07 13:42:27 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade
 	if (_grade > 150)
 		throw GradeTooLowE();
 	if (name.empty())
-		throw std::invalid_argument("Bureaucrat name cannot be empty");
+		throw NameIsEmpty();
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &obj) : _name(obj._name), _grade(obj._grade) {

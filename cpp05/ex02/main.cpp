@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 13:29:05 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/06 16:26:06 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/07 14:21:13 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,7 @@ void testFormShrubbery() {
 	
 	try {
 			ShrubberyCreationForm form("first");
-			Bureaucrat riko("riko", 144);
+			Bureaucrat riko("riko", 10);
 			riko.signForm(form);
 			riko.executeForm(form);
 	}
