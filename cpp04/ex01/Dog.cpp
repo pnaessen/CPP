@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:28:07 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/21 15:44:20 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/06/07 11:02:38 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ Dog::Dog(const Dog& obj) : Animal(obj) {
 }
 
 Dog& Dog::operator=(const Dog& obj) {
-	std::cout << "Dog copy assignment operator" << std::endl;
 	if(this != &obj) {
 		Animal::operator=(obj);
+		std::cout << "Dog copy assignment operator" << std::endl;
 		delete ideas;
 		ideas = new Brain(*(obj.ideas));
 	}

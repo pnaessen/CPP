@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:24:02 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/02 15:28:50 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/07 11:07:24 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
+void printSeparator(const std::string& testName) {
+	std::cout << "\n" << std::string(50, '=') << std::endl;
+	std::cout << "TEST: " << testName << std::endl;
+	std::cout << std::string(50, '=') << std::endl;
+}
 
 void testDeepCopy() {
 	
@@ -81,9 +86,10 @@ void testFunction() {
 	delete riko;
 }
 
+void testBasic() {
+	
+	printSeparator("Basic Test");
 
-int main()
-{
 	std::cout << "\n========== CONSTRUCTEURS ==========\n" << std::endl;
 
 	const Animal* meta = new Animal();
@@ -101,18 +107,15 @@ int main()
 			tab[i] = new Cat();
 	}
 	std::cout << std::endl;
-
-	testDeepCopy();
-	testOP();
-	testFunction();
 	
 	std::cout << "\n========== TEST FUNSTION MAIN ==========\n" << std::endl;
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
+	std::cout << meta->getType() << " " << std::endl;
 	i->makeSound();
 	j->makeSound();
 	meta->makeSound();
-	
+
 	std::cout << "\n========== DESTRUCTEURS MAIN ==========\n" << std::endl;
 	delete i;
 	delete j;
@@ -122,6 +125,38 @@ int main()
 
 	for(int i = 0; i < 6;i++) {
 		delete tab[i];
+	}
+}
+
+int main()
+{
+	std::string input;
+	while(1) {
+		if (!std::cin.eof()) {
+			std::cout << std::endl << RED << "PLEASE CHOOSE BETWEEN THESE TEST :" << std::endl
+			<< "	1 - Basic test" << std::endl
+			<< "	2 - Asign test" << std::endl
+			<< "	3 - Copie test" << std::endl
+			<< "	4 - Function test" << std::endl
+			<< "	X - exit" << RESET << std::endl << std::endl;
+		}
+		if (!(std::cin >> input))
+		{
+			std::cout << "Error, exit program" << std::endl;
+			return (1);
+		}
+		if (input == "1")
+			testBasic();
+		else if (input == "2")
+			testOP();
+		else if (input == "3")
+			testDeepCopy();
+		else if (input == "4")
+			testFunction();
+		else if (input == "X" || input == "x" )
+			return 0;
+		else
+			std::cout << "Please choose a valid test" << std::endl;
 	}
 	return 0;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:39:37 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/05/21 15:47:37 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/06/07 11:04:33 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ Cat::Cat(const Cat& obj) : Animal(obj) {
 }
 
 Cat& Cat::operator=(const Cat& obj) {
-	std::cout << "Cat copy assignment operator" << std::endl;
+	
 	if(this != &obj) {
 		Animal::operator=(obj);
+		std::cout << "Cat copy assignment operator" << std::endl;
 		delete ideas;
 		ideas = new Brain(*(obj.ideas));
 		}
