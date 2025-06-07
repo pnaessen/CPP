@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 11:25:25 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/02 14:24:54 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/07 10:43:14 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@ Animal::Animal() {
 	type = "GRUIK";
 }
 
-Animal::Animal(const Animal& obj) {
+Animal::Animal(const Animal& obj) : type(obj.type) {
 	std::cout << "Animal copy constructor operator" << std::endl;
-	*this = obj;
 }
 
 Animal::~Animal() {
@@ -27,9 +26,9 @@ Animal::~Animal() {
 }
 
 Animal& Animal::operator=(const Animal& obj) {
-	std::cout << "Animal copy assignment operator" << std::endl;
 	if(this != &obj)
 		type = obj.type;
+	std::cout << "Animal asign assignment operator" << std::endl;
 	return *this;
 }
 
