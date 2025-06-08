@@ -1,6 +1,7 @@
 NAME := Program
 
 SRC := main.cpp \
+	   AScalarConverter.cpp \
 
 OBJ_DIR := .obj
 OBJ := $(SRC:.cpp=.o)

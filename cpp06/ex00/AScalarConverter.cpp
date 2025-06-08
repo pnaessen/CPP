@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 16:20:55 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/08 17:07:17 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/08 17:33:14 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void AScalarConverter::printChar(double value) {
 
 void AScalarConverter::printFloat(double value) {
 
-	
+	std::cout << value << std:: endl;
 }
 
 void AScalarConverter::printInt(double value) {
@@ -45,28 +45,39 @@ void AScalarConverter::printDouble(double value) {
 }
 
 bool AScalarConverter::isChar(const std::string& str) {
-	
+	(void)str;
+	return true;
 }
 
 bool AScalarConverter::isInt(const std::string& str) {
-	
+		(void)str;
+
+	return false;
 }
 
 bool AScalarConverter::isFloat(const std::string& str) {
-	
+		(void)str;
+
+	return false;
 }
 
 void AScalarConverter::convert(std::string& convert) {
 	
+	double val;
+	
 	if(isChar(convert)) {
-		static_cast<double>(convert.c_str());
+		val = static_cast<double>(convert[0]);
 	}
 	else if(isFloat(convert)) {
-		static_cast<double>(convert.ftoi());
+		val = static_cast<double>(std::atof(convert.c_str()));
 	}
 	else if(isInt(convert)) { 
-		static_cast<double>(convert.stoi());
+		val = static_cast<double>(std::atoi(convert.c_str()));
 	}
 	else
-		static_cast<double>(convert);
+		val = std::atof(convert.c_str());
+
+	printChar(val);
+	printInt(val);
+	printDouble(val);
 }

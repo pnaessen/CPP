@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 15:44:02 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/08 16:52:37 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/08 17:27:11 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ class AScalarConverter {
 
 		static bool isChar(const std::string& str);
 		static bool isInt(const std::string& str);
-		static bool isDouble(const std::string& str);
 		static bool isFloat(const std::string & str);
 
 		static void printChar(double value);
