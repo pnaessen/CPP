@@ -6,12 +6,13 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 15:44:02 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/08 17:27:11 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/09 16:33:06 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 	#define INT_MIN -2147483648
 	#define INT_MAX 2147483647

@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 16:20:55 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/08 17:33:14 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/06/09 17:13:57 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void AScalarConverter::printFloat(double value) {
 
 void AScalarConverter::printInt(double value) {
 
+	 
 	if (value < INT_MIN || value > INT_MAX) {
 		std::cout << "int: overflow" << std::endl;
 	}
@@ -41,18 +42,45 @@ void AScalarConverter::printInt(double value) {
 }
 
 void AScalarConverter::printDouble(double value) {
-	std::cout << "double: " << value << std::endl;
+	std::cout << std::fixed << std::setprecision(0)  << "double: " << value << std::endl;
 }
 
 bool AScalarConverter::isChar(const std::string& str) {
-	(void)str;
+	
+	if (str.length() != 1)
+		return false;
+
+	char c = str[0];
+
+	if (std::isdigit(c))
+		return false;
+
+	if (c == '+' || c == '-')
+		return false;
+
 	return true;
 }
 
 bool AScalarConverter::isInt(const std::string& str) {
-		(void)str;
-
-	return false;
+	if (str.empty())
+		return false;
+	
+	size_t start = 0;
+	
+	if (str[0] == '+' || str[0] == '-')
+		start = 1;
+	
+	if (start >= str.length())
+		return false;
+	
+	for (size_t i = start; i < str.length(); ++i) {
+		if (!std::isdigit(str[i]))
+			return false;
+		if(i > 8)
+			return false;
+	}
+	
+	return true;
 }
 
 bool AScalarConverter::isFloat(const std::string& str) {

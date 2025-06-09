@@ -11,7 +11,7 @@ DEPS := $(OBJ:.o=.d)
 HEADERS := AScalarConverter.hpp\
 
 CC := c++
-CFLAGS := -Wall -Wextra -Werror -std=c++98
+CFLAGS := -Wall -Wextra -Werror -std=c++11
 CPPFLAGS := -MMD -MP
 
 all: $(NAME)
