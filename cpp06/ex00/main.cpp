@@ -3,28 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/08 16:19:55 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/09 17:18:46 by pnaessen         ###   ########lyon.fr   */
+/*   Created: 0025/06/08 16:19:55 by naessen           #+#    #+#             */
+/*   Updated: 2025/07/08 21:19:06 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "AScalarConverter.hpp"
+#include "ScalarConverter.hpp"
 
-
-int main(int argc, char **argv) {
-
-	if (argc != 2 ) {
-		std::cout << "Error: Bad syntax" << std::endl;
+int main(int argc, char** argv) {
+	if (argc != 2) {
+		std::cout << "Usage: " << argv[0] << " < >" << std::endl;
 		return 1;
 	}
-	std::string arg1(argv[1]);
-
-	AScalarConverter::convert(arg1);
+	
+	ScalarConverter::convert(argv[1]);
 	return 0;
 }
-
-
-//strtod
