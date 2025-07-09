@@ -6,7 +6,7 @@
 /*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 16:20:55 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/08 21:16:07 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/07/09 10:27:23 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,22 +132,21 @@ bool ScalarConverter::isFloatLiteral(const std::string& input) {
 }
 
 bool ScalarConverter::isDoubleLiteral(const std::string& input) {
+	
 	if (input.empty())
 		return false;
 	
 	if (input[input.length() - 1] == 'f')
 		return false;
 	
-	if (input.find('.') != std::string::npos)
-		return true;
+	std::stringstream ss(input);
+	double val;
 	
-	std::stringstream ss_long(input);
-	long long_val;
-	if ((ss_long >> long_val) && ss_long.eof()) {
-		return (long_val > INT_MAX || long_val < INT_MIN);
-	}
+	if (!(ss >> val) || !ss.eof())
+		return false;
 	
-	return false;
+	return (input.find('.') != std::string::npos) || 
+			(val > INT_MAX || val < INT_MIN);
 }
 
 bool ScalarConverter::isSpecialLiteral(const std::string& input) {
