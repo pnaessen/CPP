@@ -6,17 +6,18 @@
 /*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 23:00:34 by pn                #+#    #+#             */
-/*   Updated: 2025/07/09 23:02:05 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/07/10 10:07:21 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef A_HPP
 #define A_HPP
 
-	#include "Base.hpp"
+#include "Base.hpp"
 
-	class A {
-		
-	};
+class A : public Base {
+public:
+	A() {}
+};
 
 #endif
