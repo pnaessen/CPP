@@ -6,7 +6,7 @@
 /*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 22:57:35 by pn                #+#    #+#             */
-/*   Updated: 2025/07/10 10:10:26 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/07/10 10:15:08 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ Base::Base() {
 }
 
 Base* generate(void) {
-	srand(time(NULL));
 	int random = rand() % 3;
 	
 	switch (random) {

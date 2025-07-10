@@ -6,7 +6,7 @@
 /*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 22:57:31 by pn                #+#    #+#             */
-/*   Updated: 2025/07/10 10:04:04 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/07/10 10:16:22 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include "Base.hpp"
 
 int main() {
+	srand(time(NULL));
+
 	Base* obj1 = generate();
 	Base* obj2 = generate();
 	Base* obj3 = generate();
