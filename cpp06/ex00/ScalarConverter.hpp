@@ -13,19 +13,19 @@
 #ifndef SCALARCONVERTER_HPP
 #define SCALARCONVERTER_HPP
 
-#include <string>
-#include <iostream>
-#include <iomanip>
-#include <sstream>
-#include <climits>
-#include <cmath>
-#include <cctype>
+	#include <string>
+	#include <iostream>
+	#include <iomanip>
+	#include <sstream>
+	#include <climits>
+	#include <cmath>
+	#include <cctype>
 
 class ScalarConverter {
 private:
 	ScalarConverter();
-	ScalarConverter(const ScalarConverter& other);
-	ScalarConverter& operator=(const ScalarConverter& other);
+	ScalarConverter(const ScalarConverter& obj);
+	ScalarConverter& operator=(const ScalarConverter& obj);
 	~ScalarConverter();
 
 	enum Type {
