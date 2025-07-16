@@ -7,7 +7,7 @@ OBJ := $(SRC:.cpp=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(notdir $(OBJ)))
 DEPS := $(OBJ:.o=.d)
 
-HEADERS := Whatever.hpp\
+HEADERS := iter.hpp\
 
 CC := c++
 CFLAGS := -Wall -Wextra -Werror -std=c++98
