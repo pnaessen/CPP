@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 12:49:14 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/16 14:14:59 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/16 14:49:21 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,3 +71,7 @@ Array<T>::~Array() {
 	delete _array[];
 }
 
+template<typename T>
+unsigned int<T>& Array<T>::operator[](unsigned int &n) {
+	
+}
