@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 12:49:14 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/16 14:12:17 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/16 14:14:59 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,19 @@ Array<T>& Array<T>::operator=(const Array& obj) {
 	
 	if(this != &obj) {
 		delete _array[];
+		
+		_size = obj._size;
+		if(size <= 0) {
+			_array = NULL;
+		}
+		else {
+			_array = new T[obj._size];
+			for (unsigned int i = 0; i < n; i++) {
+				_array[i] = obj._array[i];
+			}
+		}
 	}
-	_size = obj._size;
-	_array = new T[obj._size];
-	for (unsigned int i = 0; i < n; i++) {
-		_array[i] = obj._array[i];
-	}
-	
+	return *this;
 }
 
 template<typename T>
