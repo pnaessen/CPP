@@ -8,7 +8,7 @@ OBJ := $(SRC:.cpp=.o)
 OBJ := $(addprefix $(OBJ_DIR)/, $(notdir $(OBJ)))
 DEPS := $(OBJ:.o=.d)
 
-HEADERS := ScalarConverter.hpp\
+HEADERS := test.hpp\
 
 CC := c++
 CFLAGS := -Wall -Wextra -Werror -std=c++98

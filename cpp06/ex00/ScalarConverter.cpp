@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 16:20:55 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/09 10:27:23 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/07/14 08:29:15 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,7 +201,7 @@ double ScalarConverter::parseValue(const std::string& input, Type type) {
 }
 
 bool ScalarConverter::isNanValue(double value) {
-	return value != value;
+	return (value != value);
 }
 
 bool ScalarConverter::isInfValue(double value) {

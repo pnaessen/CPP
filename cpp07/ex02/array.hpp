@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 10:10:41 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/17 08:12:40 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/17 08:27:10 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,6 @@
 		unsigned int size() const;
 	};
 	
+	#include "array.tpp"
+
 #endif

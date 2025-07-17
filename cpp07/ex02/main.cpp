@@ -6,12 +6,11 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 10:10:45 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/17 08:23:52 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/17 08:27:06 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "array.hpp"
-#include "array.tpp"
 
 int main() {
 	try {
