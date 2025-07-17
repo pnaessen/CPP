@@ -1,6 +1,7 @@
 NAME := Program
 
 SRC := main.cpp \
+#	   array.tpp
 
 OBJ_DIR := .obj
 OBJ := $(SRC:.cpp=.o)

@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 10:10:41 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/16 14:49:26 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/17 08:12:40 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 	#include <string>
 	#include <iostream>
+	#include <stdexcept>
 
 	template<typename T>
 	class Array {
@@ -29,7 +30,8 @@
 		~Array();
 		
 		Array& operator=(const Array& obj);
-		unsigned int& operator[](unsigned int &n);
+		T& operator[](unsigned int index);
+		const T& operator[](unsigned int index) const;
 		unsigned int size() const;
 	};
 	
