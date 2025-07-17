@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 12:49:14 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/16 14:49:21 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/17 07:47:45 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,15 @@ Array<T>::~Array() {
 }
 
 template<typename T>
-unsigned int<T>& Array<T>::operator[](unsigned int &n) {
+unsigned int& Array<T>::operator[](unsigned int &n) {
 	
+	if(n >= _size) {
+		throw std::out_of_range("Index out of range");
+	}
+	return _array[n];
+}
+
+template<typename T>
+unsigned int Array<T>::size() const {
+	return _size;
 }
