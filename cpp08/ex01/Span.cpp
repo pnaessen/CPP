@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 11:53:34 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/17 14:37:12 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/17 15:03:30 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ Span::~Span() {
 	
 }
 
+Span& Span::operator=(Span& obj) {
+
+}
+
 void Span::addNumber(unsigned int n) {
 	
 	if(_vec.size() <= _range) {
@@ -34,5 +38,20 @@ void Span::addNumber(unsigned int n) {
 }
 
 unsigned int Span::shortestSpan() {
+
+	if(_vec.size() <= 1) {
+		throw std::range_error("No range available");
+	}
+	std::sort(_vec.begin(), _vec.end());
 	
+}
+
+unsigned int Span::longestSpan() {
+	
+	if(_vec.size() <= 1) {
+		throw std::range_error("No range available");
+	}
+	std::sort(_vec.begin(), _vec.end());
+	unsigned int longest = (_vec.back() - _vec.front());
+	return longest;
 }
