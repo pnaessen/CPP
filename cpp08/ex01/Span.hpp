@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 11:53:47 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/21 13:57:32 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/21 14:47:26 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 			void addNumber(unsigned int n);
 			unsigned int shortestSpan();
 			unsigned int longestSpan();
-			void addMoreNumber(std::vector<int>& n);
+			void addMoreNumber(const std::vector<int>& n);
 	};
 
 #endif

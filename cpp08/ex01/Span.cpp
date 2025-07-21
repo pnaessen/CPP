@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 11:53:34 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/21 14:00:42 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/21 14:47:58 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,10 @@ unsigned int Span::longestSpan() {
 	return longest;
 }
 
-void Span::addMoreNumber(std::vector<int>& n) {
+void Span::addMoreNumber(const std::vector<int>& n) {
 	
-	
+	if(_vec.size() + n.size() > _range) {
+		throw std::out_of_range("Not enough space in Span");
+	}
+	_vec.insert(_vec.end(), n.begin(), n.end());
 }
