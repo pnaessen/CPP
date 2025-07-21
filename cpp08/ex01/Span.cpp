@@ -6,11 +6,12 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 11:53:34 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/21 09:11:33 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/21 14:00:42 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+#include <climits>
 
 Span::Span(unsigned int n) : _range(n) {
 	
@@ -48,8 +49,15 @@ unsigned int Span::shortestSpan() {
 	}
 	std::vector<int> _vecClone = _vec;
 	std::sort(_vecClone.begin(), _vecClone.end());
-	return 1;
 	
+	unsigned int shortest = UINT_MAX;
+	for(size_t i = 1; i < _vecClone.size(); ++i) {
+		unsigned int diff = _vecClone[i] - _vecClone[i - 1];
+		if (shortest > diff) {
+			shortest = diff;
+		}
+	}
+	return shortest;
 }
 
 unsigned int Span::longestSpan() {
@@ -62,4 +70,9 @@ unsigned int Span::longestSpan() {
 	int longest = _vecClone.back() - _vecClone.front();
 	
 	return longest;
+}
+
+void Span::addMoreNumber(std::vector<int>& n) {
+	
+	
 }
