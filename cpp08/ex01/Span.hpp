@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 11:53:47 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/21 14:47:26 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/22 08:49:52 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@
 			Span(unsigned int n);
 			Span(const Span& obj);
 			~Span();
-			Span& operator=(Span& obj);
+			Span& operator=(const Span& obj);
 			void addNumber(unsigned int n);
 			unsigned int shortestSpan();
 			unsigned int longestSpan();
-			void addMoreNumber(const std::vector<int>& n);
+			void addMoreNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 	};
 
 #endif

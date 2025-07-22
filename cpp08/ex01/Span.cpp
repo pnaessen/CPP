@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 11:53:34 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/21 14:47:58 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/22 08:49:47 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Span::~Span() {
 	
 }
 
-Span& Span::operator=(Span& obj) {
+Span& Span::operator=(const Span& obj) {
 	
 	if( this != &obj) {
 		_range = obj._range;
@@ -72,10 +72,13 @@ unsigned int Span::longestSpan() {
 	return longest;
 }
 
-void Span::addMoreNumber(const std::vector<int>& n) {
+void Span::addMoreNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
 	
-	if(_vec.size() + n.size() > _range) {
+	if (begin > end) {
+		throw std::invalid_argument("Invalid iterator range");
+	}
+	if(_vec.size() + std::distance(begin, end) > _range) {
 		throw std::out_of_range("Not enough space in Span");
 	}
-	_vec.insert(_vec.end(), n.begin(), n.end());
+	_vec.insert(_vec.end(), begin, end);
 }
