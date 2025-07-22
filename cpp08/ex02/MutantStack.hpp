@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 08:57:23 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/22 14:39:57 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/22 14:49:08 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 		public:
 
 			typedef typename std::stack<T>::container_type::iterator iterator;
+			typedef typename std::stack<T>::container_type::const_iterator const itc;
+
 
 			MutantStack();
 			MutantStack(const MutantStack& obj);
@@ -36,6 +38,9 @@
 			
 			iterator begin();
 			iterator end();
+			
+			const itc begin() const;
+			const itc end() const;
 	};
 
 	#include "MutantStack.tpp"
