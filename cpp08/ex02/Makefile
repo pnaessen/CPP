@@ -1,7 +1,7 @@
 NAME := Program
 
 SRC := main.cpp \
-	   MutantStack.cpp \
+	   
 
 OBJ_DIR := .obj
 OBJ := $(SRC:.cpp=.o)

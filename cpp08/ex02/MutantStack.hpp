@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 08:57:23 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/22 09:08:35 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/22 12:52:22 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,26 @@
 	#include <algorithm>
 	#include <string>
 	#include <exception>
-
+	#include <stack>
+	
 	template<typename T>
-	class MutantStack {
+	class MutantStack : public std::stack<T> {
 		
 		private:
 
 		public:
+
+			typedef typename std::stack<T>::container_type::iterator iterator;
+
 			MutantStack();
 			MutantStack(const MutantStack& obj);
 			~MutantStack();
 			MutantStack& operator=(const MutantStack& obj);
 			void push(int n);
-			T& top();
-			void pop();
-			T& size()
-			T& begin();
-			T& end();
+			iterator begin();
+			iterator end();
 	};
 
-
+	#include "MutantStack.tpp"
+	
 #endif
