@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 08:57:23 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/22 14:24:12 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/22 14:39:57 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 	class MutantStack : public std::stack<T> {
 		
 		private:
-			//std::stack<T> _mStack;
+		
 		public:
 
 			typedef typename std::stack<T>::container_type::iterator iterator;

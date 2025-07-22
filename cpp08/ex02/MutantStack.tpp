@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 08:57:25 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/22 14:24:55 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/22 14:31:32 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,24 @@ MutantStack<T>::~MutantStack() {
 	
 }
 
+template<typename T>
+MutantStack<T>& MutantStack<T>::operator=(const MutantStack& obj) {
+	
+	if(this != &obj) {
+		std::stack<T>::operator=(obj);
+	}
+
+	return *this;
+}
+
+template<typename T>
+typename MutantStack<T>::iterator MutantStack<T>::begin() {
+	
+	return this->c.begin();
+}
+
+template<typename T>
+typename MutantStack<T>::iterator MutantStack<T>::end() {
+	
+	return this->c.end();
+}
