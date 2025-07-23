@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 16:09:50 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/06 16:13:18 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/23 11:11:21 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 			PresidentialPardonForm &operator=(const PresidentialPardonForm &obj);
 			virtual ~PresidentialPardonForm();
 
-			void execute(Bureaucrat const &executor) const;
+			void executeForm() const;
 };
 
 

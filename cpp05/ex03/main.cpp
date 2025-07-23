@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 13:29:05 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/07 14:11:20 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/23 11:14:49 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void testIntern() {
 			
 			Bureaucrat boss("Boos", 1);
 			boss.signForm(*shrubForm);
-			boss.executeForm(*shrubForm);
+			boss.execute(*shrubForm);
 			
 			delete shrubForm;
 		}
@@ -83,7 +83,7 @@ void testPresidentialPardonForm() {
 		PresidentialPardonForm form("first");
 		Bureaucrat riko("riko", 23);
 		riko.signForm(form);
-		riko.executeForm(form);
+		riko.execute(form);
 	}
 	catch (const Bureaucrat::GradeTooHighE &e) {
 		std::cout << "Exception: " << e.what() << std::endl;
@@ -105,7 +105,7 @@ void testRobotomy() {
 		RobotomyRequestForm form("first");
 		Bureaucrat riko("riko", 120);
 		riko.signForm(form);
-		riko.executeForm(form);
+		riko.execute(form);
 	}
 	catch (const Bureaucrat::GradeTooHighE &e) {
 		std::cout << "Exception: " << e.what() << std::endl;
@@ -192,7 +192,7 @@ void testFormShrubbery() {
 			ShrubberyCreationForm form("first");
 			Bureaucrat riko("riko", 144);
 			riko.signForm(form);
-			riko.executeForm(form);
+			riko.execute(form);
 	}
 	catch (const Bureaucrat::GradeTooHighE &e) {
 		std::cout << "Exception: " << e.what() << std::endl;

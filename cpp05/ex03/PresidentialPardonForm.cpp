@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 16:13:34 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/06 16:17:22 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/23 11:11:10 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,8 @@ PresidentialPardonForm::~PresidentialPardonForm() {
 	
 }
 
-void PresidentialPardonForm::execute(const Bureaucrat &executor) const {
 
-	if (!getIsSigned())
-		throw FormNotSignedException();
-	if (executor.getGrade() > getExecuteGrade())
-		throw std::out_of_range("Form grade is to Hight");
+void PresidentialPardonForm::executeForm() const {
 
 	std::cout << _target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }

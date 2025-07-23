@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 15:33:50 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/06 16:57:02 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/23 11:10:09 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 			AForm(const AForm &obj);
 			AForm &operator=(const AForm &obj);
 			virtual ~AForm() = 0;
+			virtual void executeForm() const = 0;
+
 			
 			const std::string getName() const;
 			bool getIsSigned() const;

@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 08:55:13 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/06 15:36:17 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/23 11:12:10 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,9 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 	
 }
 
-void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
+void ShrubberyCreationForm::executeForm() const {
 	
-	if (!getIsSigned())
-		throw FormNotSignedException();
-	if (executor.getGrade() > getExecuteGrade())
-		throw std::out_of_range("Form grade is to Hight");
+
 	
 	std::string outFileName = _target + "_shrubbery";
 	std::ofstream outFile(outFileName.c_str());
