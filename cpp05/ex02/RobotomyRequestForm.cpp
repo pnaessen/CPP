@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 15:38:40 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/23 09:57:07 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/23 11:11:38 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void RobotomyRequestForm::executeForm() const {
 		
 	std::cout << "Makes some drilling noises." << std::endl;
 	
-	//srand(time(0));
 	if(rand() % 2 == 0) {
 		std::cout << _target << " has been robotomized successfully " << std::endl;
 	}
