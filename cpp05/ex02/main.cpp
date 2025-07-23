@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 13:29:05 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/07 14:21:13 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/23 09:58:25 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void testPresidentialPardonForm() {
 	
 	try {
 		PresidentialPardonForm form("first");
-		Bureaucrat riko("riko", 23);
+		Bureaucrat riko("riko", 1);
 		riko.signForm(form);
-		riko.executeForm(form);
+		riko.execute(form);
 	}
 	catch (const Bureaucrat::GradeTooHighE &e) {
 		std::cout << "Exception: " << e.what() << std::endl;
@@ -50,9 +50,9 @@ void testRobotomy() {
 	
 	try {
 		RobotomyRequestForm form("first");
-		Bureaucrat riko("riko", 120);
+		Bureaucrat riko("riko", 1);
 		riko.signForm(form);
-		riko.executeForm(form);
+		riko.execute(form);
 	}
 	catch (const Bureaucrat::GradeTooHighE &e) {
 		std::cout << "Exception: " << e.what() << std::endl;
@@ -139,7 +139,7 @@ void testFormShrubbery() {
 			ShrubberyCreationForm form("first");
 			Bureaucrat riko("riko", 10);
 			riko.signForm(form);
-			riko.executeForm(form);
+			riko.execute(form);
 	}
 	catch (const Bureaucrat::GradeTooHighE &e) {
 		std::cout << "Exception: " << e.what() << std::endl;

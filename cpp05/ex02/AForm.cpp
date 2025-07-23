@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 15:37:46 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/06 15:35:36 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/23 09:35:22 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,12 @@ void AForm::beSigned(Bureaucrat &bureaucrat) {
 
 void AForm::execute(const Bureaucrat &executor) const {
 	
-	if (!_isSigned)
+	if (!getIsSigned())
 		throw FormNotSignedException();
-	if (executor.getGrade() > _executeGrade)
+	if (executor.getGrade() > getExecuteGrade())
 		throw std::out_of_range("Form grade is to Hight");
 	
+	executeForm();
 }
 
 const std::string AForm::getName() const {

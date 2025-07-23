@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 14:01:35 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/06 15:05:53 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/23 09:34:55 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void Bureaucrat::signForm(AForm &form) {
 	}
 }
 
-void Bureaucrat::executeForm(const AForm& form) {
+void Bureaucrat::execute(const AForm& form) {
 	
 	try {
 		form.execute(*this);

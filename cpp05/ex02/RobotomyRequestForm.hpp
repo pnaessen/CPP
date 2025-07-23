@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 15:38:46 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/06 15:55:15 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/23 09:33:22 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 			RobotomyRequestForm &operator=(const RobotomyRequestForm &obj);
 			virtual ~RobotomyRequestForm();
 			
-			void execute(Bureaucrat const &executor) const;
+			void executeForm() const;
 			
 };
 

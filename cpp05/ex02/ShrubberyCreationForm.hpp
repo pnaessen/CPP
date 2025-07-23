@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 08:55:03 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/06 15:09:36 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/23 09:33:27 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 			ShrubberyCreationForm &operator=(const ShrubberyCreationForm &obj);
 			virtual ~ShrubberyCreationForm();
 
-			void execute(Bureaucrat const &executor) const;
+			void executeForm() const;
 
 };
 	
