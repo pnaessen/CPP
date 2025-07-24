@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:48:07 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/24 15:57:31 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/24 16:00:46 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@
 	class Bitcoin {
 		private :
 			std::map<std::string, double> _map;
-		public :
 			Bitcoin();
+		public :
+			Bitcoin(char *file);
 			Bitcoin(Bitcoin& obj);
 			~Bitcoin();
 
