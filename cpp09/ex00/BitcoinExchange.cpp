@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:48:12 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/25 11:12:15 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/25 11:58:10 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,10 @@ void Bitcoin::loadDB(std::string& filename) {
 			return ;
 		}
 		std::string key = line.substr(0, pos);
+		if(check_key(key)) {
+			std::cout << "Error bad input" << std::endl;
+			return ;
+		}
 		std::string value_str = line.substr(pos + 1);
 		
 		char *end;
@@ -77,4 +81,22 @@ Bitcoin::iterator Bitcoin::begin() {
 Bitcoin::iterator Bitcoin::end() {
 	
 	return (_map.end());
+}
+
+int Bitcoin::check_key(std::string key) {
+	
+	char *end;
+	double years = std::strtod(key.c_str(), &end);
+	if(*end != '-' || years < 1000 || years > 9999) {
+		return 1;
+	}
+	int month  = std::strtod(key.c_str() + 5, &end);
+	if(*end != '-' || month < 1 || month > 12) {
+		return 1;
+	}
+	int date = std::strtod(key.c_str() + 8, &end);
+	if(*end != '\0' || date < 0 || date > 31) {
+		return 1;
+	}
+	return 0;
 }

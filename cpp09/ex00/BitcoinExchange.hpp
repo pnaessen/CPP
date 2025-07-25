@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:48:07 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/25 11:09:56 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/25 11:21:37 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,11 @@
 			~Bitcoin();
 
 			Bitcoin& operator=(Bitcoin& obj);
-
-			void loadDB(std::string& filename);
 			iterator begin();
 			iterator end();
+
+			void loadDB(std::string& filename);
+			int check_key(std::string key);
 	};
 
 #endif
