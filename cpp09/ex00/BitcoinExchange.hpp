@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:48:07 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/24 16:00:46 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/25 11:09:56 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,25 @@
 	#include <iostream>
 	#include <string>
 	#include <map>
+	#include <fstream>
 
 	class Bitcoin {
 		private :
 			std::map<std::string, double> _map;
-			Bitcoin();
+			//Bitcoin(char *file);
 		public :
-			Bitcoin(char *file);
+
+				typedef std::map<std::string, double>::iterator iterator;
+
+			Bitcoin();
 			Bitcoin(Bitcoin& obj);
 			~Bitcoin();
 
 			Bitcoin& operator=(Bitcoin& obj);
+
+			void loadDB(std::string& filename);
+			iterator begin();
+			iterator end();
 	};
 
 #endif
