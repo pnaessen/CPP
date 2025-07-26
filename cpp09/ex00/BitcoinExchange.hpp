@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:48:07 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/25 11:21:37 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 13:13:33 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,10 @@
 			iterator begin();
 			iterator end();
 
-			void loadDB(std::string& filename);
-			int check_key(std::string key);
-	};
-
+			void loadDB();
+		};
+		
+		int check_key(std::string key);
+		int check_input(std::string filename);
 #endif
 

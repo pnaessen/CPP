@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:48:12 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/25 11:58:10 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 13:31:15 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ Bitcoin& Bitcoin::operator=(Bitcoin& obj) {
 	return *this;
 }
 
-void Bitcoin::loadDB(std::string& filename) {
+void Bitcoin::loadDB() {
 	
 	std::string line;
-	std::ifstream file(filename.c_str());
+	std::ifstream file("data.csv");
 	if(!file.is_open()) {
 		std::cout << "Error can't open the file" << std::endl;
 		return ;
@@ -83,20 +83,61 @@ Bitcoin::iterator Bitcoin::end() {
 	return (_map.end());
 }
 
-int Bitcoin::check_key(std::string key) {
+int check_key(std::string key) {
 	
 	char *end;
 	double years = std::strtod(key.c_str(), &end);
 	if(*end != '-' || years < 1000 || years > 9999) {
 		return 1;
 	}
+
 	int month  = std::strtod(key.c_str() + 5, &end);
 	if(*end != '-' || month < 1 || month > 12) {
 		return 1;
 	}
+
 	int date = std::strtod(key.c_str() + 8, &end);
 	if(*end != '\0' || date < 0 || date > 31) {
 		return 1;
+	}
+
+	return 0;
+}
+
+int check_input(std::string filename) {
+	
+	std::string line;
+	std::ifstream file(filename.c_str());
+	if(!file.is_open()) {
+		std::cout << "Error can't open the file" << std::endl;
+		return 1;
+	}
+	
+	std::getline(file, line);
+	while(std::getline(file, line)) {
+		
+		if(line.empty())
+			continue ;
+		
+		size_t pos = line.find("|");
+		if (pos == std::string::npos) {
+			return 1;
+		}
+		
+
+		std::string key = line.substr(0, pos - 1);
+		if(check_key(key)) {
+			return 1;
+		}
+		
+
+		std::string value_str = line.substr(pos + 2);
+		
+		char *end;
+		std::strtod(value_str.c_str(), &end);
+		if(value_str.c_str() == end || *end != '\0') {
+			return 1;
+		}
 	}
 	return 0;
 }
