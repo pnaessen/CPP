@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 13:29:29 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/23 09:35:05 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/31 09:01:01 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,16 +66,16 @@
 			void incrementGrade();
 			void decrementGrade();
 			void signForm(AForm &form);
-			void execute(const AForm& form);
+			void executeForm(const AForm& form);
 
-			class GradeTooHighE : public std::exception {
+			class GradeTooHighException : public std::exception {
 				public:
 					const char *what() const throw() {
 						return "Grade too high";
 					}
 			};
 
-			class GradeTooLowE : public std::exception {
+			class GradeTooLowException : public std::exception {
 				public:
 					const char *what() const throw() {
 						return "Grade too low";
