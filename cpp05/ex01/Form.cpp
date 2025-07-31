@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 15:37:46 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/06 08:27:58 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/31 08:28:02 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 Form::Form(const std::string &name, int signGrade, int executeGrade)
 : _name(name), _isSigned(false), _signGrade(signGrade), _executeGrade(executeGrade) {
 	if (signGrade < 1 || executeGrade < 1)
-		throw GradeTooHighE();
+		throw GradeTooHighException();
 	if (signGrade > 150 || executeGrade > 150)
-		throw GradeTooLowE();
+		throw GradeTooLowException();
 	if (name.empty())
 		throw std::invalid_argument("Form name cannot be empty");
 	_isSigned = false;
@@ -39,7 +39,7 @@ Form::~Form() {
 
 void Form::beSigned(Bureaucrat &bureaucrat) {
 	if (bureaucrat.getGrade() > _signGrade)
-		throw std::out_of_range("Form grade is to Hight");
+		throw GradeTooLowException();
 	_isSigned = true;
 }
 

@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 13:29:05 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/06/06 08:45:20 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/07/31 08:26:25 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ void testAssign() {
 		std::cout << assign << std::endl;
 		assign.signForm(form);
 	}
-	catch (const Bureaucrat::GradeTooHighE &e) {
+	catch (const Bureaucrat::GradeTooHighException &e) {
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
-	catch (const Bureaucrat::GradeTooLowE &e) {
+	catch (const Bureaucrat::GradeTooLowException &e) {
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
 	catch (const std::exception &e) {
@@ -56,10 +56,10 @@ void testCatchTooHight() {
 		riko.incrementGrade();
 		Bureaucrat alice("alice", 0);
 	} 
-	catch (const Bureaucrat::GradeTooHighE &e) {
+	catch (const Bureaucrat::GradeTooHighException &e) {
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
-	catch (const Bureaucrat::GradeTooLowE &e) {
+	catch (const Bureaucrat::GradeTooLowException &e) {
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
 	catch (const std::exception &e) {
@@ -76,10 +76,10 @@ void testCatchTooLow() {
 		riko.decrementGrade();
 		Bureaucrat alice("alice", 151);
 	} 
-	catch (const Bureaucrat::GradeTooHighE &e) {
+	catch (const Bureaucrat::GradeTooHighException &e) {
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
-	catch (const Bureaucrat::GradeTooLowE &e) {
+	catch (const Bureaucrat::GradeTooLowException &e) {
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
 	catch (const std::exception &e) {
@@ -100,10 +100,10 @@ void basicTest() {
 		bob.decrementGrade();
 		std::cout << "After decrementing, Grade: " << bob.getGrade() << std::endl;
 	}
-	catch (const Bureaucrat::GradeTooHighE &e) {
+	catch (const Bureaucrat::GradeTooHighException &e) {
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
-	catch (const Bureaucrat::GradeTooLowE &e) {
+	catch (const Bureaucrat::GradeTooLowException &e) {
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
 	catch (const std::exception &e) {
@@ -131,10 +131,10 @@ void testFormCreationAndSigning() {
 		Form secretForm("Secret", 1, 1);
 		bob.signForm(secretForm);
 	}
-	catch (const Bureaucrat::GradeTooLowE &e) {
+	catch (const Bureaucrat::GradeTooLowException &e) {
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
-	catch (const Bureaucrat::GradeTooHighE &e) {
+	catch (const Bureaucrat::GradeTooHighException &e) {
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
 	catch (const std::exception &e) {
