@@ -6,7 +6,7 @@
 /*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:47:53 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/08/02 14:20:52 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/08/03 10:28:42 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "BitcoinExchange.hpp"
 
 int main(int argc, char **argv) {
-	
+		
     if (argc != 2) {
         std::cout << "Error: could not open file." << std::endl;
         return 1;

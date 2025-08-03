@@ -6,7 +6,7 @@
 /*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:48:12 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/08/02 15:58:14 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/08/03 10:30:56 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ bool Bitcoin::loadDB(const std::string& filename) {
         }
         
         _exchangeRates[date] = rate;
+		//_exchangeRates.insert(std::pair<std::string, double>(date, rate));
     }
     
     return !_exchangeRates.empty();
