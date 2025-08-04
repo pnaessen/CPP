@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 21:21:37 by pn                #+#    #+#             */
-/*   Updated: 2025/08/03 21:44:01 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/08/04 08:59:19 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@ int main(int argc, char **argv)
 		return 1;
 	}
 
+	std::string expression = argv[1];
 	try
 	{
 		RPN test;
-		double result = test.;
+		double result = test.process(expression);
 		std::cout << result << std::endl;
 	}
 	catch (std::exception const & e)
