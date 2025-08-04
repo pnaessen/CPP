@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:48:07 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/08/03 10:28:35 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/08/04 08:06:11 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,23 @@
 
 	class Bitcoin {
 		private:
-  			  std::map<std::string, double> _exchangeRates;
+  			  std::map<std::string, double> _map;
 			  void processLine(const std::string& line) const;
     
 		public:
-    		  typedef std::map<std::string, double>::const_iterator const_iterator;
+    		typedef std::map<std::string, double>::const_iterator const_iterator;
     
-   		 Bitcoin();
-  		 Bitcoin(const Bitcoin& obj);
-  		 ~Bitcoin();
-   		 Bitcoin& operator=(const Bitcoin& obj);
+   			 Bitcoin();
+  			 Bitcoin(const Bitcoin& obj);
+  			 ~Bitcoin();
+   			 Bitcoin& operator=(const Bitcoin& obj);
+		
+    		 const_iterator begin() const ;
+   			 const_iterator end() const ;
     
-    	 const_iterator begin() const ;
-   		 const_iterator end() const ;
-    
-    bool loadDB(const std::string& filename);
-    double getExchangeRate(const std::string& date) const;
-    bool processInput(const std::string& filename) const;
+ 			bool loadDB(const std::string& filename);
+			double getExchangeRate(const std::string& date) const;
+			bool processInput(const std::string& filename) const;
 };
 
 int check_key(const std::string& key);

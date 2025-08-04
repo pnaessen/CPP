@@ -3,23 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:48:12 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/08/03 10:30:56 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/08/04 08:03:58 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
 Bitcoin::Bitcoin() {
-	/*theorie : je getline chaque ligne de fichiers apres je _map.inset() le result boucle sur tout le fichier 
-	*/
+
 }
 
-Bitcoin::Bitcoin(const Bitcoin& obj) {
+Bitcoin::Bitcoin(const Bitcoin& obj) : _map(obj._map) {
 
-	(void)obj;
 }
 
 Bitcoin::~Bitcoin() {
@@ -29,7 +27,7 @@ Bitcoin::~Bitcoin() {
 Bitcoin& Bitcoin::operator=(const Bitcoin& obj) {
 	
 	if(this != &obj) {
-		
+		_map = obj._map;
 	}
 	return *this;
 }
@@ -58,11 +56,11 @@ bool Bitcoin::loadDB(const std::string& filename) {
             continue; 
         }
         
-        std::string date = line.substr(0, pos);
+        std::string key = line.substr(0, pos);
         std::string valueStr = line.substr(pos + 1);
         
-        if (check_key(date) != 0) {
-            std::cout << "Error: bad date => " << date << std::endl;
+        if (check_key(key) != 0) {
+            std::cout << "Error: bad date => " << key << std::endl;
             continue;
         }
         
@@ -73,22 +71,21 @@ bool Bitcoin::loadDB(const std::string& filename) {
             continue;
         }
         
-        _exchangeRates[date] = rate;
-		//_exchangeRates.insert(std::pair<std::string, double>(date, rate));
+        _map[key] = rate;
+		//_map.insert(std::pair<std::string, double>(key, rate));
     }
-    
-    return !_exchangeRates.empty();
+    return !_map.empty();
 }
 
 double Bitcoin::getExchangeRate(const std::string& date) const {
 	
-    const_iterator it = _exchangeRates.lower_bound(date);
+    const_iterator it = _map.lower_bound(date);
     
-    if (it != _exchangeRates.end() && it->first == date) {
+    if (it != _map.end() && it->first == date) {
         return it->second;
     }
     
-    if (it != _exchangeRates.begin()) {
+    if (it != _map.begin()) {
         --it;
         return it->second;
     }
@@ -164,11 +161,11 @@ void Bitcoin::processLine(const std::string& line) const {
         return;
     }
     
-    std::string date = line.substr(0, pipePos);
+    std::string key = line.substr(0, pipePos);
     std::string valueStr = line.substr(pipePos + 3);
     
-    if (check_key(date) != 0) {
-        std::cout << "Error: bad date => " << date << std::endl;
+    if (check_key(key) != 0) {
+        std::cout << "Error: bad date => " << key << std::endl;
         return;
     }
     
@@ -190,21 +187,21 @@ void Bitcoin::processLine(const std::string& line) const {
         return;
     }
 	
-    double rate = getExchangeRate(date);
+    double rate = getExchangeRate(key);
     if (rate < 0) {
-        std::cout << "Error: no exchange rate available for " << date << std::endl;
+        std::cout << "Error: no exchange rate available for " << key << std::endl;
         return;
     }
     
-    std::cout << date << " => " << value << " = " << (value * rate) << std::endl;
+    std::cout << key << " => " << value << " = " << (value * rate) << std::endl;
 }
 
 
 Bitcoin::const_iterator Bitcoin::begin() const {
 	
-	return _exchangeRates.begin();
+	return _map.begin();
 }
 Bitcoin::const_iterator Bitcoin::end() const {
 	
-	return _exchangeRates.end();
+	return _map.end();
 }
