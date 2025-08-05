@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 21:21:41 by pn                #+#    #+#             */
-/*   Updated: 2025/08/05 11:10:09 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/08/05 11:14:01 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ double RPN::process(std::string& expression) {
 			throw ;
 		}
 	}
-	if(!_stack.empty()) {
+	if(_stack.empty()) {
 		throw std::runtime_error("Error: empty expression");
 	}
 	if(_stack.size() != 1) {
