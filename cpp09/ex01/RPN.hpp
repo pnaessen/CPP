@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 21:21:43 by pn                #+#    #+#             */
-/*   Updated: 2025/08/04 10:10:14 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/08/05 11:04:02 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,9 @@
 			bool isOperator(const std::string& token);
 			bool isNumber(const std::string& token);
 			double process(std::string& expression);
-			
+			double parseNumber(const std::string& token) const;
+			void processToken(const std::string& token);
+			double perform(const std::string& token, double a, double b);
 
 };
 
