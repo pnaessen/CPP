@@ -1,28 +1,24 @@
 NAME := Program
 
-SRC := main.cpp \
-	   Bureaucrat.cpp\
-	   AForm.cpp \
-	   ShrubberyCreationForm.cpp \
-	   RobotomyRequestForm.cpp \
-	   PresidentialPardonForm.cpp \
-	   Intern.cpp \
+SRC_DIR := srcs/
+OBJ_DIR := .obj/
+HEADERS_DIR := include/
 
-OBJ_DIR := .obj
-OBJ := $(SRC:.cpp=.o)
-OBJ := $(addprefix $(OBJ_DIR)/, $(notdir $(OBJ)))
+SRC := $(SRC_DIR)main.cpp \
+       $(SRC_DIR)Bureaucrat.cpp \
+	   $(SRC_DIR)ShrubberyCreationForm.cpp \
+	   $(SRC_DIR)RobotomyRequestForm.cpp \
+	   $(SRC_DIR)PresidentialPardonForm.cpp \
+	   $(SRC_DIR)AForm.cpp \
+	   $(SRC_DIR)Intern.cpp
+
+OBJ := $(SRC:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
 DEPS := $(OBJ:.o=.d)
-
-HEADERS := Bureaucrat.hpp\
-		   AForm.hpp \
-		   ShrubberyCreationForm.hpp \
-		   RobotomyRequestForm.hpp \
-		   PresidentialPardonForm.hpp \
-		   Intern.hpp \
 
 CC := c++
 CFLAGS := -Wall -Wextra -Werror -std=c++98
 CPPFLAGS := -MMD -MP
+INCLUDES := -I$(HEADERS_DIR)
 
 all: $(NAME)
 
@@ -30,9 +26,9 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $@
 	@echo "\033[32mCompilation complete: $@\033[0m"
 
-$(OBJ_DIR)/%.o: %.cpp $(HEADERS)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
 	@mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(CPPFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
 	@rm -rf $(OBJ_DIR)

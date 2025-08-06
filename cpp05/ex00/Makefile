@@ -1,18 +1,19 @@
 NAME := Program
 
-SRC := main.cpp \
-	   Bureaucrat.cpp\
+SRC_DIR := srcs/
+OBJ_DIR := .obj/
+HEADERS_DIR := include/
 
-OBJ_DIR := .obj
-OBJ := $(SRC:.cpp=.o)
-OBJ := $(addprefix $(OBJ_DIR)/, $(notdir $(OBJ)))
+SRC := $(SRC_DIR)main.cpp \
+       $(SRC_DIR)Bureaucrat.cpp
+
+OBJ := $(SRC:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
 DEPS := $(OBJ:.o=.d)
-
-HEADERS := Bureaucrat.hpp\
 
 CC := c++
 CFLAGS := -Wall -Wextra -Werror -std=c++98
 CPPFLAGS := -MMD -MP
+INCLUDES := -I$(HEADERS_DIR)
 
 all: $(NAME)
 
@@ -20,9 +21,9 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $@
 	@echo "\033[32mCompilation complete: $@\033[0m"
 
-$(OBJ_DIR)/%.o: %.cpp $(HEADERS)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
 	@mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(CPPFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
 	@rm -rf $(OBJ_DIR)
