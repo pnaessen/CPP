@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 13:29:29 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/08/06 10:01:32 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/08/08 13:32:34 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,23 +45,17 @@
 
 			class GradeTooHighException : public std::exception {
 				public:
-					const char *what() const throw() {
-						return "Grade too high";
-					}
+					const char *what() const throw();
 			};
 
 			class GradeTooLowException : public std::exception {
 				public:
-					const char *what() const throw() {
-						return "Grade too low";
-					}
+					const char *what() const throw();
 			};
 
 			class NameIsEmpty : public std::exception {
 				public:
-					const char *what() const throw() {
-						return "Bureaucrat name cannot be empty";
-					}
+					const char *what() const throw();
 			};
 };
 

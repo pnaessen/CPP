@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 14:01:35 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/31 08:42:04 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/08/08 13:24:40 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ void Bureaucrat::signForm(Form &form) {
 	catch (const std::exception &e) {
 		std::cout << _name << " couldn't sign " << form.getName() 
 				  << " because " << e.what() << std::endl;
-		//throw GradeTooLowException();
 	}
 }
 
@@ -74,3 +73,10 @@ std::ostream& operator<<(std::ostream &os, const Bureaucrat &bureaucrat) {
 	return os;
 }
 
+const char* Bureaucrat::GradeTooHighException::what() const throw () {
+	return "Grade is too high";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw () {
+	return "Grade is too low";
+}

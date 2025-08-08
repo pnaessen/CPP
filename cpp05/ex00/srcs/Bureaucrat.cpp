@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 14:01:35 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/31 08:22:15 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/08/07 09:09:24 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,12 @@ void Bureaucrat::decrementGrade() {
 std::ostream& operator<<(std::ostream &os, const Bureaucrat &bureaucrat) {
 	os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
 	return os;
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const throw () {
+	return "Grade is too hight";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw () {
+	return "Grade is too low";	
 }

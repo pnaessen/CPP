@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 15:37:46 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/31 08:28:02 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/08/08 13:22:07 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,12 @@ std::ostream& operator<<(std::ostream &os, const Form &form) {
 	   << ", sign grade: " << form.getSignGrade()
 	   << ", exec grade: " << form.getExecuteGrade() << ")";
 	return os;
+}
+
+const char* Form::GradeTooHighException::what() const throw () {
+	return "Grade is to hight";
+}
+
+const char* Form::GradeTooLowException::what() const throw () {
+	return "Grade is to low";
 }
