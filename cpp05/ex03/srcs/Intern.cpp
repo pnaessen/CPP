@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 16:49:29 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/08/06 10:14:40 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/08/18 08:34:16 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,8 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& target) 
 	
 	std::cout << "Intern cannot create " << formName << " form" << std::endl;
 	throw FormNotFoundException();
+}
+
+const char* Intern::FormNotFoundException::what() const throw () {
+	return "Form doesn't  exist";
 }

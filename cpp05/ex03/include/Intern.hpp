@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 16:27:56 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/08/06 10:14:44 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/08/18 08:34:20 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@
 			
 		class FormNotFoundException : public std::exception {
 			public:
-				const char *what() const throw() {
-					return "Form doesn't exist";
-				}
+				const char *what() const throw();
 		};
 
 	};
