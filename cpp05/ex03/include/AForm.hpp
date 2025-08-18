@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 15:33:50 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/23 11:10:09 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/08/18 08:30:52 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,23 +42,17 @@
 			
 			class GradeTooHighException : public std::exception {
 				public:
-					const char *what() const throw() {
-						return "Form grade too Hight";
-					}
+					const char *what() const throw();
 			};
 			
 			class GradeTooLowException : public std::exception {
 				public:
-					const char *what() const throw() {
-						return "Form grade too Low";
-					}
+					const char *what() const throw();
 			};
 			
 			class FormNotSignedException : public std::exception {
 				public :
-					const char *what() const throw() {
-						return "Form not sign";
-					}
+					const char *what() const throw();
 			};
 };
 
