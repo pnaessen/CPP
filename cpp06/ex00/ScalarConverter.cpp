@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/08 16:20:55 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/14 08:29:15 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/08/21 09:04:22 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,11 @@ void ScalarConverter::convert(const std::string& input) {
 	
 	std::cout << "float: ";
 	
+	float float_val = static_cast<float>(value);
 	if (isNanValue(value)) {
 		std::cout << "nanf" << std::endl;
 	} 
-	else if (isInfValue(value)) {
+	else if (std::isinf(float_val)) {
 		if (value > 0)
 			std::cout << "+inff" << std::endl;
 		else
@@ -92,13 +93,15 @@ ScalarConverter::Type ScalarConverter::detectType(const std::string& input) {
 
 bool ScalarConverter::isCharLiteral(const std::string& input) {
 	
-	if (input.length() != 3)
-		return false;
-	
-	if (input[0] != '\'' || input[2] != '\'')
-		return false;
-	
-	return std::isprint(input[1]);
+    if (input.length() == 3 && input[0] == '\'' && input[2] == '\'') {
+        return true;
+    }
+    
+    if (input.length() == 1) {
+        return true;
+    }
+    
+    return false;
 }
 
 bool ScalarConverter::isIntLiteral(const std::string& input) {
@@ -158,7 +161,12 @@ double ScalarConverter::parseValue(const std::string& input, Type type) {
 	
 	switch (type) {
 		case CHAR_LITERAL:
-			return static_cast<double>(input[1]);
+    	if (input.length() == 1) {
+        	return static_cast<double>(input[0]);
+    	}
+		 else {
+        	return static_cast<double>(input[1]);
+    	}
 		
 		case INT_LITERAL: {
 			std::stringstream ss(input);

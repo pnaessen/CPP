@@ -1,5 +1,11 @@
 {
 	"files.associations": {
+		"*.h": "c",
+		"*.hpp": "cpp",
+		"*.tpp": "cpp",
+		"*.ipp": "cpp",
+		"Makefile": "makefile",
+		"*.mk": "makefile",
 		"climits": "cpp",
 		"iomanip": "cpp",
 		"iostream": "cpp",
@@ -47,6 +53,8 @@
 		"iosfwd": "cpp",
 		"limits": "cpp",
 		"numbers": "cpp",
-		"typeinfo": "cpp"
+		"typeinfo": "cpp",
+		"ranges": "cpp",
+		"span": "cpp"
 	}
 }
