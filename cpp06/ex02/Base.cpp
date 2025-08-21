@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 22:57:35 by pn                #+#    #+#             */
-/*   Updated: 2025/07/10 10:15:08 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/08/21 10:17:40 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,17 @@ void identify(Base& p) {
 		(void)dynamic_cast<A&>(p);
 		std::cout << "A" << std::endl;
 		return;
-	} catch (std::bad_cast&) {}
+	} catch (std::exception&) {}
 	
 	try {
 		(void)dynamic_cast<B&>(p);
 		std::cout << "B" << std::endl;
 		return;
-	} catch (std::bad_cast&) {}
+	} catch (std::exception&) {}
 	
 	try {
 		(void)dynamic_cast<C&>(p);
 		std::cout << "C" << std::endl;
 		return;
-	} catch (std::bad_cast&) {}
+	} catch (std::exception&) {}
 }

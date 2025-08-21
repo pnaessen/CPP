@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 22:57:33 by pn                #+#    #+#             */
-/*   Updated: 2025/07/10 10:07:15 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/08/21 10:17:11 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 	#include <iostream>
 	#include <cstdlib>
 	#include <ctime>
-	#include <typeinfo>
 
 
 	class Base {
