@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 09:36:33 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/08/22 13:35:21 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/08/22 13:41:57 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ int main() {
 	list_v.push_front(22);
 	list_v.push_back(42);
 
+	const std::list<double> const_list = list_v;
+	
 	try {
-		std::list<double>::iterator it = easyfind(list_v, 42);
+		std::list<double>::const_iterator it = easyfind(const_list, 42);
 		std::cout << "Found: " << *it << std::endl;
 	}
 	catch (const std::exception& e) {
