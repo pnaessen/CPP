@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 09:37:16 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/17 11:02:28 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/08/22 13:29:22 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 	#include <string>
 	#include <exception>
 	#include <vector>
+	#include <list>
+	#include <stack>
 	#include <algorithm>
 	
 	
