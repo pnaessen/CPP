@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 13:59:08 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/16 10:08:00 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/08/25 08:57:35 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int main() {
 	::iter(array, 4, printChar);
 	std::cout << std::endl;
 	int tab [3] = {1, 2 ,3};
+	//const int tab_const [3] = {1, 2 ,3};
 	::iter(tab , 3, inc);
 	::iter(tab, 3, printInt);
 	std::cout << std::endl;
