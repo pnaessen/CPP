@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 08:57:25 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/25 11:10:50 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/08/26 08:49:23 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,31 @@ typename MutantStack<T>::itc MutantStack<T>::begin() const {
 }
 
 template<typename T>
-const typename MutantStack<T>::itc MutantStack<T>::end() const {
+ typename MutantStack<T>::itc MutantStack<T>::end() const {
 	
 	return this->c.end();
+}
+
+template<typename T>
+typename MutantStack<T>::riterator MutantStack<T>::rbegin() {
+	
+	return this->c.rbegin();
+}
+
+template<typename T>
+typename MutantStack<T>::riterator MutantStack<T>::rend() {
+
+	return this->c.rend();
+}
+
+template<typename T>
+typename MutantStack<T>::ritc MutantStack<T>::rbegin() const {
+	
+	return this->c.rbegin();
+}
+
+template<typename T>
+ typename MutantStack<T>::ritc MutantStack<T>::rend() const {
+	
+	return this->c.rend();
 }

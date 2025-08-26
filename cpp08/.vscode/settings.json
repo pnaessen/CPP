@@ -1,5 +1,11 @@
 {
 	"files.associations": {
+		"*.h": "c",
+		"*.hpp": "cpp",
+		"*.tpp": "cpp",
+		"*.ipp": "cpp",
+		"Makefile": "makefile",
+		"*.mk": "makefile",
 		"array": "cpp",
 		"deque": "cpp",
 		"string": "cpp",
@@ -46,6 +52,6 @@
 		"stdexcept": "cpp",
 		"streambuf": "cpp",
 		"typeinfo": "cpp",
-		"*.tpp": "cpp"
+		"list": "cpp"
 	}
 }
