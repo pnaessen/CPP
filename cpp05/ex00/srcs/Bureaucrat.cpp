@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 14:01:35 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/08/07 09:09:24 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/09/24 09:58:14 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,5 @@ const char* Bureaucrat::GradeTooHighException::what() const throw () {
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw () {
-	return "Grade is too low";	
+	return "Grade is too low";
 }

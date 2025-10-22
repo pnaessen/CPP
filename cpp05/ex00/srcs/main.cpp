@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 13:29:05 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/07/31 08:22:32 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/09/24 09:57:15 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ void printSeparator(const std::string& testName) {
 }
 
 void testCatchTooHight() {
-	
+
 	printSeparator("Catch Too High Exception");
-	
+
 	try {
 		Bureaucrat riko("riko", 1);
 		riko.incrementGrade();
 		Bureaucrat alice("alice", 0);
-	} 
+	}
 	catch (const Bureaucrat::GradeTooHighException &e) {
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
@@ -40,14 +40,14 @@ void testCatchTooHight() {
 }
 
 void testCatchTooLow() {
-	
+
 	printSeparator("Catch Too Low Exception");
-	
+
 	try {
 		Bureaucrat riko("Riko", 150);
 		riko.decrementGrade();
 		Bureaucrat alice("alice", 151);
-	} 
+	}
 	catch (const Bureaucrat::GradeTooHighException &e) {
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
@@ -61,9 +61,9 @@ void testCatchTooLow() {
 }
 
 void basicTest() {
-	
+
 	printSeparator("Basic Test");
-	
+
 	try {
 		Bureaucrat bob("Bob", 42);
 		std::cout << bob << std::endl;
@@ -84,7 +84,7 @@ void basicTest() {
 }
 
 int main () {
-	
+
 
 	std::string input;
 	while (1)
@@ -132,4 +132,3 @@ int main () {
 //     ├── std::overflow_error
 //     └── std::underflow_error
 
-	
