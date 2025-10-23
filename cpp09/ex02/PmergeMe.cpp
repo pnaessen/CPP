@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:43:46 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/10/23 12:14:43 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/10/23 12:59:28 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ PmergeMe::~PmergeMe() {
 
 }
 
-int PmergeMe::getData(int idx) {
+size_t PmergeMe::getData(size_t idx) {
+
+	if(_data.size() <= idx)
+		throw std::out_of_range("Index out of range");
 	return _data[idx];
 }
 
