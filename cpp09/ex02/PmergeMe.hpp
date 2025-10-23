@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:43:48 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/10/23 18:13:25 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/10/23 21:33:31 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 # include <vector>
 #include <climits>
 
-//TODO make tempate class for dequeu and vector 
+template <typename Container>
 class PmergeMe
 {
 	private:
-		std::vector<int> _data;
+		Container _data;
 		size_t _size;
 
 	public:
@@ -39,6 +39,9 @@ class PmergeMe
 
 };
 
-std::ostream&	operator<<(std::ostream& os, PmergeMe& merge);
+template <typename Container>
+std::ostream& operator<<(std::ostream& os, PmergeMe<Container>& merge);
+
+#include "PmergeMe.tpp"
 
 #endif /* PMERGEME_HPP */

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:43:43 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/10/23 18:12:43 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/10/23 21:35:18 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int main(int argc, char **argv) {
 		std::cerr << "Usage: " << argv[0] << " 20 9 16 4 8 1 5 17 [...] 32 24 11 13" << std::endl;
 		return 1;
 	}
-	
-	PmergeMe merge;
+
+	 PmergeMe<std::vector<int> > merge;
 
 	try
 	{

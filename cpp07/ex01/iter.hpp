@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 13:59:05 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/08/25 08:54:54 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/09/27 10:20:02 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ITER_HPP
-#define ITER_HPP 
+#define ITER_HPP
 
 	#include <string>
 	#include <iostream>
 
-	template <typename T >
-	
+	template <typename T>
+
 	void iter(T *array, int length, void(*f)(T &)) {
 		if(!array || length <= 0 || !f)
 			return ;
@@ -25,7 +25,7 @@
 			f(array[i]);
 		}
 	}
-	
+
 	template <typename T >
 	void iter(const T *array, int length, void(*f)(const T &)) {
 		if(!array || length <= 0 || !f )
@@ -34,5 +34,5 @@
 			f(array[i]);
 		}
 	}
-	
+
 #endif
