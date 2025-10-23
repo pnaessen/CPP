@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:43:48 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/10/22 18:14:49 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/10/23 12:14:50 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@
 # include <string>
 # include <algorithm>
 # include <vector>
+#include <climits>
+
 
 class PmergeMe
 {
 	private:
-		// Private members
+		std::vector<int> _data;
 
 	public:
 		PmergeMe(void);
@@ -29,10 +31,11 @@ class PmergeMe
 		~PmergeMe(void);
 
 		PmergeMe &	operator=(PmergeMe const& assign);
+		void processParsing(int argc, char **argv);
+		int getData(int idx);
 
-		
 };
 
-std::ostream&	operator<<(std::ostream& os, PmergeMe const& i);
+std::ostream&	operator<<(std::ostream& os, PmergeMe& i);
 
 #endif /* PMERGEME_HPP */
