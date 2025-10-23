@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:43:46 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/10/23 12:59:28 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/10/23 18:02:36 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,10 @@ PmergeMe::~PmergeMe() {
 
 }
 
+size_t PmergeMe::getSize() {
+	return _data.size();
+}
+
 size_t PmergeMe::getData(size_t idx) {
 
 	if(_data.size() <= idx)
@@ -40,9 +44,13 @@ size_t PmergeMe::getData(size_t idx) {
 	return _data[idx];
 }
 
-std::ostream& operator<<(std::ostream& os, PmergeMe& i) {
+std::ostream& operator<<(std::ostream& os, PmergeMe& merge) {
 
-	os << i.getData(0);
+	for (size_t i = 0; i < merge.getSize() ; i++)
+	{
+		os << merge.getData(i) << " ";
+	}
+
 	return os;
 }
 
@@ -75,4 +83,14 @@ void PmergeMe::processParsing(int argc, char** argv) {
 		}
 		_data.push_back(value);
 	}
+	_size = _data.size();
+}
+
+void PmergeMe::mergeInsert() {
+
+	if(_size <= 1) {
+		return ;
+	}
+
+
 }

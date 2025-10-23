@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:43:43 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/10/23 12:59:11 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/10/23 18:12:43 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,19 @@
 
 int main(int argc, char **argv) {
 
+	if(argc < 2) {
+		std::cerr << "Usage: " << argv[0] << " 20 9 16 4 8 1 5 17 [...] 32 24 11 13" << std::endl;
+		return 1;
+	}
+	
 	PmergeMe merge;
 
 	try
 	{
 		merge.processParsing(argc, argv);
-		std::cout << merge << std::endl;
+		std::cout << "Before: " << merge << std::endl;
+		merge.mergeInsert();
+		std::cout << "After: " << merge << std::endl;
 	}
 	catch (std::exception & e)
 	{
