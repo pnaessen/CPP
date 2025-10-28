@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
+/*   PmergeMe.tpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:43:46 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/10/28 19:00:52 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/10/28 20:39:16 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,36 @@ void PmergeMe<Container>::processParsing(int argc, char** argv) {
 	_size = _data.size();
 }
 
-template <typename Container>
-void PmergeMe<Container>::mergeInsert() {
-	if (_size <= 1)
-		return;
+void mergeInsertSort(std::vector<std::vector<int> >& groups) {
+
+	if (groups.size() <= 1)
+        return;
+
+    std::vector<int> leftover;
+    if (groups.size() % 2 != 0) {
+        leftover = groups.back();
+        groups.pop_back();
+    }
+
+    std::vector<std::vector<int> > newGroups;
+    for (size_t i = 0; i < groups.size(); i += 2) {
+        if (groups[i].front() < groups[i + 1].front()) {
+            groups[i + 1].insert(groups[i + 1].end(), groups[i].begin(), groups[i].end());
+            newGroups.push_back(groups[i + 1]);
+        }
+		else {
+            groups[i].insert(groups[i].end(), groups[i + 1].begin(), groups[i + 1].end());
+            newGroups.push_back(groups[i]);
+        }
+    }
+
+    mergeInsertSort(newGroups);
+
+    //then insert
+
+    groups = newGroups;
 }
+
 
 
 void createInitialPairs(std::vector<int>& input, std::vector<std::vector<int> >& groups) {
@@ -107,5 +132,6 @@ void createInitialPairs(std::vector<int>& input, std::vector<std::vector<int> >&
         }
         groups.push_back(pair);
     }
+	// do something with the last
 }
 
