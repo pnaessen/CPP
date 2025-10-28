@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PmergeMe.tpp                                       :+:      :+:    :+:   */
+/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:43:46 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/10/23 21:40:05 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/10/28 19:00:52 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,29 @@ template <typename Container>
 void PmergeMe<Container>::mergeInsert() {
 	if (_size <= 1)
 		return;
+}
+
+
+void createInitialPairs(std::vector<int>& input, std::vector<std::vector<int> >& groups) {
+
+    bool hasOddElement = (input.size() % 2 != 0);
+    int tomThumb = -1;
+
+    if (hasOddElement) {
+        tomThumb = input.back();
+        input.pop_back();
+    }
+
+    for (size_t i = 0; i < input.size(); i += 2) {
+        std::vector<int> pair;
+        if (input[i] > input[i + 1]) {
+            pair.push_back(input[i]);
+            pair.push_back(input[i + 1]);
+        } else {
+            pair.push_back(input[i + 1]);
+            pair.push_back(input[i]);
+        }
+        groups.push_back(pair);
+    }
 }
 
