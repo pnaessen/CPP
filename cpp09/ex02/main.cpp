@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:43:43 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/10/30 10:45:36 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/10/30 16:10:57 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,13 @@ int main(int argc, char **argv) {
 		merge.processParsing(argc, argv);
 		std::cout << "Before: " << merge << std::endl;
 		merge.createInitialPairs(groups);
-		std::cout << "after createInitialPairs\n" << std::endl;
-		printVdeV(groups);
+		//std::cout << "after createInitialPairs\n" << std::endl;
+		//printVdeV(groups);
 		// std::cout << "After: " << merge << std::endl;
 		std::cout << "Call merge insert sort\n" << std::endl;
 		mergeInsertSort(groups);
+		//printVdeV(groups);
+
 	}
 	catch (std::exception & e)
 	{

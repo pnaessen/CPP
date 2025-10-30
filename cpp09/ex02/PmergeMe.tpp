@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:43:46 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/10/30 10:55:08 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/10/30 16:15:06 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,36 @@ void PmergeMe<Container>::processParsing(int argc, char** argv) {
 	_size = _data.size();
 }
 
+void unPairTheVector(std::vector<std::vector<int> >& groups) {
+
+    if (groups.empty())
+       return;
+
+    std::vector<std::vector<int> > result;
+    for (size_t i = 0; i < groups.size(); ++i) {
+        const std::vector<int>& g = groups[i];
+        if (g.empty())
+            continue;
+        if (g.size() == 1) {
+            result.push_back(g);
+            continue;
+        }
+
+        size_t half = g.size() / 2;
+        std::vector<int> first(g.begin(), g.begin() + half);
+        std::vector<int> second(g.begin() + half, g.end());
+        result.push_back(first);
+        result.push_back(second);
+    }
+
+    groups.swap(result);
+	// creat pend with b1 b2 b3 aka groups[i % 2 == 0]
+	printVdeV(groups);
+
+}
+
 void mergeInsertSort(std::vector<std::vector<int> >& groups) {
 
-	std::cout << "==============================S" << std::endl;
-	std::cout << "Print groups\n" << std::endl;
-	printVdeV(groups);
-	std::cout << "==============================E" << std::endl;
 	if (groups.size() <= 1)
         return;
 
@@ -107,17 +131,18 @@ void mergeInsertSort(std::vector<std::vector<int> >& groups) {
     }
 
 
-	std::cout << "==============================S" << std::endl;
-	std::cout << "print newgroups\n" << std::endl;
-	printVdeV(newGroups);
-	std::cout << "==============================E" << std::endl;
+	//std::cout << "==============================S" << std::endl;
+	//std::cout << "print newgroups\n" << std::endl;
+	//printVdeV(newGroups);
+	//std::cout << "==============================E" << std::endl;
     mergeInsertSort(newGroups);
 
+	unPairTheVector(newGroups);
+	//use lower_bound
     //then insert
+	//do un truc avec lefthover
 
     groups = newGroups;
-	std::cout << "print groups end recu" << std::endl;
-	printVdeV(groups);
 }
 
 
