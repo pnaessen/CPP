@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:43:48 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/10/23 21:33:31 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/10/30 10:41:37 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,13 @@ class PmergeMe
 		void processParsing(int argc, char **argv);
 		size_t getData(size_t idx);
 		size_t getSize();
-		void mergeInsert();
+		void createInitialPairs(std::vector<std::vector<int> >& groups);
 
 };
 
 template <typename Container>
 std::ostream& operator<<(std::ostream& os, PmergeMe<Container>& merge);
+void printVdeV(std::vector<std::vector<int> >& groups);
 
 #include "PmergeMe.tpp"
 

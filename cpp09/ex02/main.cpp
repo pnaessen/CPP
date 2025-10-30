@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:43:43 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/10/23 21:35:18 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/10/30 10:45:36 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,19 @@ int main(int argc, char **argv) {
 		return 1;
 	}
 
-	 PmergeMe<std::vector<int> > merge;
+	std::vector<std::vector<int> > groups;
+	PmergeMe<std::vector<int> > merge;
 
 	try
 	{
 		merge.processParsing(argc, argv);
 		std::cout << "Before: " << merge << std::endl;
-		merge.mergeInsert();
-		std::cout << "After: " << merge << std::endl;
+		merge.createInitialPairs(groups);
+		std::cout << "after createInitialPairs\n" << std::endl;
+		printVdeV(groups);
+		// std::cout << "After: " << merge << std::endl;
+		std::cout << "Call merge insert sort\n" << std::endl;
+		mergeInsertSort(groups);
 	}
 	catch (std::exception & e)
 	{
@@ -36,3 +41,5 @@ int main(int argc, char **argv) {
 	//std::lower_bound
 	return 0;
 }
+
+//./PmergeMe 20 9 16 4 8 1 5 17

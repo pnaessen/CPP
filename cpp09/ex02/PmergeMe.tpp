@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.tpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:43:46 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/10/28 20:39:16 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/10/30 10:55:08 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,10 @@ void PmergeMe<Container>::processParsing(int argc, char** argv) {
 
 void mergeInsertSort(std::vector<std::vector<int> >& groups) {
 
+	std::cout << "==============================S" << std::endl;
+	std::cout << "Print groups\n" << std::endl;
+	printVdeV(groups);
+	std::cout << "==============================E" << std::endl;
 	if (groups.size() <= 1)
         return;
 
@@ -92,46 +96,64 @@ void mergeInsertSort(std::vector<std::vector<int> >& groups) {
 
     std::vector<std::vector<int> > newGroups;
     for (size_t i = 0; i < groups.size(); i += 2) {
-        if (groups[i].front() < groups[i + 1].front()) {
-            groups[i + 1].insert(groups[i + 1].end(), groups[i].begin(), groups[i].end());
-            newGroups.push_back(groups[i + 1]);
-        }
-		else {
+        if (groups[i].back() < groups[i + 1].back()) {
             groups[i].insert(groups[i].end(), groups[i + 1].begin(), groups[i + 1].end());
             newGroups.push_back(groups[i]);
         }
+		else {
+            groups[i + 1].insert(groups[i + 1].end(), groups[i].begin(), groups[i].end());
+            newGroups.push_back(groups[i + 1]);
+        }
     }
 
+
+	std::cout << "==============================S" << std::endl;
+	std::cout << "print newgroups\n" << std::endl;
+	printVdeV(newGroups);
+	std::cout << "==============================E" << std::endl;
     mergeInsertSort(newGroups);
 
     //then insert
 
     groups = newGroups;
+	std::cout << "print groups end recu" << std::endl;
+	printVdeV(groups);
 }
 
 
+template<typename Container>
+void PmergeMe<Container>::createInitialPairs(std::vector<std::vector<int> >& groups) {
 
-void createInitialPairs(std::vector<int>& input, std::vector<std::vector<int> >& groups) {
-
-    bool hasOddElement = (input.size() % 2 != 0);
+    bool hasOddElement = (_data.size() % 2 != 0);
     int tomThumb = -1;
 
     if (hasOddElement) {
-        tomThumb = input.back();
-        input.pop_back();
+        tomThumb = _data.back();
+        _data.pop_back();
     }
 
-    for (size_t i = 0; i < input.size(); i += 2) {
+    for (size_t i = 0; i < _data.size(); i += 2) {
         std::vector<int> pair;
-        if (input[i] > input[i + 1]) {
-            pair.push_back(input[i]);
-            pair.push_back(input[i + 1]);
+        if (_data[i] > _data[i + 1]) {
+            pair.push_back(_data[i + 1]);
+            pair.push_back(_data[i]);
         } else {
-            pair.push_back(input[i + 1]);
-            pair.push_back(input[i]);
+            pair.push_back(_data[i]);
+            pair.push_back(_data[i + 1]);
         }
         groups.push_back(pair);
     }
 	// do something with the last
 }
 
+void printVdeV(std::vector<std::vector<int> >& groups) {
+
+	for(size_t i = 0; i <= groups.size() - 1; i++) {
+
+		std::cout << "groups [" << i << "]: ";
+		for(size_t j = 0; j < groups[i].size(); j++) {
+			std::cout << groups[i][j] << " ";
+		}
+		std::cout << std::endl;
+	}
+}

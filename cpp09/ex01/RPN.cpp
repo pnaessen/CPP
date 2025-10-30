@@ -6,26 +6,26 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 21:21:41 by pn                #+#    #+#             */
-/*   Updated: 2025/08/05 11:14:01 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/10/29 14:31:36 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
 RPN::RPN() {
-	/*theorie : check si bien 2 number check si op pop les 2 elem calculate push le result check si number op number */
+
 }
 
 RPN::RPN(const RPN& copy) :_stack(copy._stack) {
-	
+
 }
 
 RPN::~RPN() {
-	
+
 }
 
 RPN& RPN::operator=(const RPN& assign) {
-	
+
 	if(this != &assign) {
 		_stack = assign._stack;
 	}
@@ -33,7 +33,7 @@ RPN& RPN::operator=(const RPN& assign) {
 }
 
 bool RPN::isNumber(const std::string& token) {
-	
+
 	if(token.empty())
 		return false;
 	char *end;
@@ -42,12 +42,12 @@ bool RPN::isNumber(const std::string& token) {
 }
 
 bool RPN::isOperator(const std::string& token) {
-	
+
 	return (token == "+" || token == "-" || token == "*" || token == "/");
 }
 
 double RPN::process(std::string& expression) {
-	
+
 	std::istringstream iss(expression);
     std::string token;
 
@@ -74,10 +74,10 @@ double RPN::process(std::string& expression) {
 }
 
 double RPN::parseNumber(const std::string& token) const {
-	
+
 	char *end;
 	double value = std::strtod(token.c_str(), &end);
-	if(token.c_str() == end || *end != '\0') {
+	if(token.c_str() == end || *end != '\0' || value >= 10 || value < 0) {
 		throw std::runtime_error("Error: invalide number"); // need to change the throw
 	}
 	return value;
