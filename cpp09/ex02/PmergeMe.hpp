@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:43:48 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/10/30 10:41:37 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/10/30 16:22:38 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,15 @@
 # include <algorithm>
 # include <vector>
 #include <climits>
+
+    #define KRESET "\033[0m"
+    #define KBOLD  "\033[1m"
+    #define KBLUE  "\033[34m"
+    #define KCYAN  "\033[36m"
+    #define KMAG   "\033[35m"
+    #define KGRN   "\033[32m"
+    #define KYEL   "\033[33m"
+
 
 template <typename Container>
 class PmergeMe
@@ -41,8 +50,7 @@ class PmergeMe
 
 template <typename Container>
 std::ostream& operator<<(std::ostream& os, PmergeMe<Container>& merge);
-void printVdeV(std::vector<std::vector<int> >& groups);
-
+void printVdeV(const std::vector<std::vector<int> >& groups);
 #include "PmergeMe.tpp"
 
 #endif /* PMERGEME_HPP */

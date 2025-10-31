@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:43:46 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/10/30 16:15:06 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/10/30 16:24:27 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,14 +171,32 @@ void PmergeMe<Container>::createInitialPairs(std::vector<std::vector<int> >& gro
 	// do something with the last
 }
 
-void printVdeV(std::vector<std::vector<int> >& groups) {
+// void printVdeV(std::vector<std::vector<int> >& groups) {
 
-	for(size_t i = 0; i <= groups.size() - 1; i++) {
+// 	for(size_t i = 0; i <= groups.size() - 1; i++) {
 
-		std::cout << "groups [" << i << "]: ";
-		for(size_t j = 0; j < groups[i].size(); j++) {
-			std::cout << groups[i][j] << " ";
-		}
-		std::cout << std::endl;
-	}
+// 		std::cout << "groups [" << i << "]: ";
+// 		for(size_t j = 0; j < groups[i].size(); j++) {
+// 			std::cout << groups[i][j] << " ";
+// 		}
+// 		std::cout << std::endl;
+// 	}
+// }
+
+void printVdeV(const std::vector<std::vector<int> >& groups) {
+
+    std::cout << KBOLD << KBLUE << "Vector of vectors (" << groups.size() << " groups)" << KRESET << std::endl;
+    for (size_t i = 0; i < groups.size(); ++i) {
+        const std::vector<int>& g = groups[i];
+        std::cout << KCYAN << "group[" << i << "]" << KRESET
+                  << " " << KYEL << "size=" << g.size() << KRESET << " : ";
+
+        for (size_t j = 0; j < g.size(); ++j) {
+            const char* col = (j % 2 == 0) ? KGRN : KMAG;
+            std::cout << col << g[j] << KRESET;
+            if (j + 1 < g.size())
+                std::cout << " ";
+        }
+        std::cout << std::endl;
+    }
 }
