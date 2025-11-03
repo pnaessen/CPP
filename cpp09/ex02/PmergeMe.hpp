@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:43:48 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/10/30 16:22:38 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/11/03 15:16:17 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
     #define KBLUE  "\033[34m"
     #define KCYAN  "\033[36m"
     #define KMAG   "\033[35m"
+	#define KRED   "\033[37m"
     #define KGRN   "\033[32m"
     #define KYEL   "\033[33m"
 
@@ -51,6 +52,7 @@ class PmergeMe
 template <typename Container>
 std::ostream& operator<<(std::ostream& os, PmergeMe<Container>& merge);
 void printVdeV(const std::vector<std::vector<int> >& groups);
+void debugPendMain(const std::vector<std::vector<int> >& pend,const std::vector<std::vector<int> >& mainVec);
 #include "PmergeMe.tpp"
 
 #endif /* PMERGEME_HPP */

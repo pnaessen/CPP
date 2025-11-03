@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:43:46 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/11/03 14:58:42 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/11/03 16:32:48 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,12 @@ void unPairTheVector(std::vector<std::vector<int> >& groups) {
     if (groups.empty())
        return;
 
+    // std::vector<int> leftover;
+    // if (groups.size() % 2 != 0) {
+    //     leftover = groups.back();
+    //     groups.pop_back();
+    // }
+
     std::vector<std::vector<int> > result;
     for (size_t i = 0; i < groups.size(); ++i) {
         const std::vector<int>& g = groups[i];
@@ -113,10 +119,13 @@ void unPairTheVector(std::vector<std::vector<int> >& groups) {
             main.push_back(groups[i]);
     }
 
+    printVdeV(groups);
     for (size_t i = 0; i < pend.size(); i++) {
        std::vector<std::vector<int> >::iterator it = std::lower_bound(main.begin(), main.end(), pend[i]);
        main.insert(it, pend[i]);
     }
+
+    debugPendMain(pend, main);
     groups = main;
 }
 
@@ -125,7 +134,7 @@ void mergeInsertSort(std::vector<std::vector<int> >& groups) {
 	if (groups.size() <= 1)
         return;
 
-    printVdeV(groups);
+    //printVdeV(groups);
     std::vector<int> leftover;
     if (groups.size() % 2 != 0) {
         leftover = groups.back();
@@ -146,9 +155,10 @@ void mergeInsertSort(std::vector<std::vector<int> >& groups) {
 
 
     mergeInsertSort(newGroups);
-    newGroups.push_back(leftover);
-    printVdeV(newGroups);
-	unPairTheVector(newGroups);
+    if (leftover.size() == newGroups.size())
+        newGroups.push_back(leftover);
+  //printVdeV(newGroups);
+    unPairTheVector(newGroups);
 
     groups = newGroups;
 }
@@ -207,4 +217,11 @@ void printVdeV(const std::vector<std::vector<int> >& groups) {
         }
         std::cout << std::endl;
     }
+}
+
+void debugPendMain(const std::vector<std::vector<int> >& pend,const std::vector<std::vector<int> >& mainVec) {
+    std::cout << KBOLD << KRED << "---- DEBUG pend (" << pend.size() << ") ----" << KRESET << std::endl;
+    printVdeV(pend);
+    std::cout << KBOLD << KRED << "---- DEBUG main (" << mainVec.size() << ") ----" << KRESET << std::endl;
+    printVdeV(mainVec);
 }
