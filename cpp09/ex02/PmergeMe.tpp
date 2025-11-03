@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:43:46 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/10/30 16:24:27 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/11/03 14:58:42 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,9 +102,22 @@ void unPairTheVector(std::vector<std::vector<int> >& groups) {
     }
 
     groups.swap(result);
-	// creat pend with b1 b2 b3 aka groups[i % 2 == 0]
-	printVdeV(groups);
+    std::vector<std::vector <int> >  pend;
+    std::vector<std::vector <int> >  main;
+    for(size_t i = 0; i < groups.size(); i++) {
 
+        if(i % 2 == 0 && i > 0) {
+            pend.push_back(groups[i]);
+        }
+        else
+            main.push_back(groups[i]);
+    }
+
+    for (size_t i = 0; i < pend.size(); i++) {
+       std::vector<std::vector<int> >::iterator it = std::lower_bound(main.begin(), main.end(), pend[i]);
+       main.insert(it, pend[i]);
+    }
+    groups = main;
 }
 
 void mergeInsertSort(std::vector<std::vector<int> >& groups) {
@@ -112,6 +125,7 @@ void mergeInsertSort(std::vector<std::vector<int> >& groups) {
 	if (groups.size() <= 1)
         return;
 
+    printVdeV(groups);
     std::vector<int> leftover;
     if (groups.size() % 2 != 0) {
         leftover = groups.back();
@@ -131,16 +145,10 @@ void mergeInsertSort(std::vector<std::vector<int> >& groups) {
     }
 
 
-	//std::cout << "==============================S" << std::endl;
-	//std::cout << "print newgroups\n" << std::endl;
-	//printVdeV(newGroups);
-	//std::cout << "==============================E" << std::endl;
     mergeInsertSort(newGroups);
-
+    newGroups.push_back(leftover);
+    printVdeV(newGroups);
 	unPairTheVector(newGroups);
-	//use lower_bound
-    //then insert
-	//do un truc avec lefthover
 
     groups = newGroups;
 }
