@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:43:48 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/11/03 15:16:17 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/11/03 19:27:39 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,9 @@ class PmergeMe
 		size_t getSize();
 		void createInitialPairs(std::vector<std::vector<int> >& groups);
 
-};
+	};
 
+	void unPairTheVector(std::vector<std::vector<int> >& groups, std::vector<int>& tomThumb);
 template <typename Container>
 std::ostream& operator<<(std::ostream& os, PmergeMe<Container>& merge);
 void printVdeV(const std::vector<std::vector<int> >& groups);

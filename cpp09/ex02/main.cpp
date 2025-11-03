@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:43:43 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/11/03 13:18:36 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/11/03 21:18:00 by pn               ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main(int argc, char **argv) {
 		return 1;
 	}
 
+
 	std::vector<std::vector<int> > groups;
 	PmergeMe<std::vector<int> > merge;
 
@@ -27,13 +28,11 @@ int main(int argc, char **argv) {
 		merge.processParsing(argc, argv);
 		std::cout << "Before: " << merge << std::endl;
 		merge.createInitialPairs(groups);
-		//std::cout << "after createInitialPairs\n" << std::endl;
+
+		std::cout << "After merge insert sort\n" << std::endl;
 		//printVdeV(groups);
-		// std::cout << "After: " << merge << std::endl;
-		std::cout << "Call merge insert sort\n" << std::endl;
-		mergeInsertSort(groups);
-		unPairTheVector(groups);
-		printVdeV(groups);
+		std::cout << merge << std::endl;
+
 	}
 	catch (std::exception & e)
 	{
