@@ -79,9 +79,21 @@ void PmergeMe<Container>::processParsing(int argc, char** argv) {
 	_size = _data.size();
 }
 
-void unPairTheVector(std::vector<std::vector<int> >& groups, std::vector<int>& tomThumb) {
+void unPairTheVector(std::vector<std::vector<int> >& groups) {
     if (groups.empty())
        return;
+
+    bool allSizeOne = true;
+    for (size_t i = 0; i < groups.size(); ++i) {
+        if (groups[i].size() > 1) {
+            allSizeOne = false;
+            break;
+        }
+    }
+    if (allSizeOne) {
+        std::cout << KBOLD << KYEL << "\n=== UNPAIR COMPLETE (all size 1) ===" << KRESET << std::endl;
+        return;
+    }
 
     std::cout << KBOLD << KYEL << "\n=== UNPAIR PHASE ===" << KRESET << std::endl;
     std::cout << "Input groups:" << std::endl;
@@ -129,25 +141,14 @@ void unPairTheVector(std::vector<std::vector<int> >& groups, std::vector<int>& t
         main.insert(it, pend[i]);
     }
 
-    if (!tomThumb.empty()) {
-        std::cout << KBOLD << KMAG << "\nInserting Tom Thumb: ";
-        for (size_t i = 0; i < tomThumb.size(); ++i) {
-            std::cout << tomThumb[i] << " ";
-        }
-        std::cout << KRESET << std::endl;
-
-        std::vector<std::vector<int> >::iterator it =
-            std::lower_bound(main.begin(), main.end(), tomThumb);
-        main.insert(it, tomThumb);
-    }
-
     std::cout << "\nAfter insertion:" << std::endl;
     debugPendMain(pend, main);
 
     groups = main;
+    unPairTheVector(groups);
 }
 
-void mergeInsertSort(std::vector<std::vector<int> >& groups, std::vector<int>& tomThumb) {
+void mergeInsertSort(std::vector<std::vector<int> >& groups) {
 	if (groups.size() <= 1)
         return;
 
@@ -180,15 +181,30 @@ void mergeInsertSort(std::vector<std::vector<int> >& groups, std::vector<int>& t
     std::cout << "\nAfter merging pairs:" << std::endl;
     printVdeV(newGroups);
 
-    mergeInsertSort(newGroups, tomThumb);
-
-    if (!leftover.empty()) {
-        std::cout << KBOLD << KRED << "\nRe-inserting leftover into result" << KRESET << std::endl;
-        newGroups.push_back(leftover);
-    }
+    mergeInsertSort(newGroups);
 
     groups = newGroups;
-    unPairTheVector(groups, tomThumb);
+    unPairTheVector(groups);
+
+    if (!leftover.empty()) {
+        std::cout << KBOLD << KRED << "\nRe-inserting leftover after unpair" << KRESET << std::endl;
+
+        if (leftover.size() > 1) {
+            std::vector<std::vector<int> > leftoverGroups;
+            leftoverGroups.push_back(leftover);
+            unPairTheVector(leftoverGroups);
+
+            for (size_t i = 0; i < leftoverGroups.size(); ++i) {
+                std::vector<std::vector<int> >::iterator it =
+                    std::lower_bound(groups.begin(), groups.end(), leftoverGroups[i]);
+                groups.insert(it, leftoverGroups[i]);
+            }
+        } else {
+            std::vector<std::vector<int> >::iterator it =
+                std::lower_bound(groups.begin(), groups.end(), leftover);
+            groups.insert(it, leftover);
+        }
+    }
 }
 
 template<typename Container>
@@ -220,11 +236,20 @@ void PmergeMe<Container>::createInitialPairs(std::vector<std::vector<int> >& gro
 
     printVdeV(groups);
 
-    mergeInsertSort(groups, tomThumb);
-    std::vector<int> test;
-    unPairTheVector(groups, test);
+    mergeInsertSort(groups);
 
-    // unPairTheVector(groups, test); // ptdr ca marche mais bon
+    if (!tomThumb.empty()) {
+        std::cout << KBOLD << KMAG << "\n=== FINAL TOM THUMB INSERTION ===" << KRESET << std::endl;
+        std::cout << "Inserting Tom Thumb: " << tomThumb[0] << std::endl;
+
+        std::vector<std::vector<int> >::iterator it =
+            std::lower_bound(groups.begin(), groups.end(), tomThumb);
+        groups.insert(it, tomThumb);
+
+        std::cout << "After Tom Thumb insertion:" << std::endl;
+        printVdeV(groups);
+    }
+
     _data.clear();
     for(size_t i = 0; i < groups.size(); i++) {
         _data.insert(_data.end(), groups[i].begin(), groups[i].end());
