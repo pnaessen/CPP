@@ -188,6 +188,7 @@ void mergeInsertSort(std::vector<std::vector<int> >& groups, std::vector<int>& t
     }
 
     groups = newGroups;
+    unPairTheVector(groups, tomThumb);
 }
 
 template<typename Container>
@@ -220,10 +221,10 @@ void PmergeMe<Container>::createInitialPairs(std::vector<std::vector<int> >& gro
     printVdeV(groups);
 
     mergeInsertSort(groups, tomThumb);
-    unPairTheVector(groups, tomThumb);
     std::vector<int> test;
-    unPairTheVector(groups, test); // ptdr ca marche mais bon
-	unPairTheVector(groups, test);
+    unPairTheVector(groups, test);
+
+    // unPairTheVector(groups, test); // ptdr ca marche mais bon
     _data.clear();
     for(size_t i = 0; i < groups.size(); i++) {
         _data.insert(_data.end(), groups[i].begin(), groups[i].end());
