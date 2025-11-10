@@ -13,16 +13,17 @@
 #include "PmergeMe.hpp"
 
 template <typename Container>
-PmergeMe<Container>::PmergeMe() : _data(), _size(0) {}
+PmergeMe<Container>::PmergeMe() : _data(), _size(0), _jacob() {}
 
 template <typename Container>
-PmergeMe<Container>::PmergeMe(PmergeMe const& copy) : _data(copy._data), _size(copy._size) {}
+PmergeMe<Container>::PmergeMe(PmergeMe const& copy) : _data(copy._data), _size(copy._size), _jacob(copy._jacob) {}
 
 template <typename Container>
 PmergeMe<Container>& PmergeMe<Container>::operator=(PmergeMe const& assign) {
 	if (this != &assign) {
 		_data = assign._data;
 		_size = assign._size;
+        _jacob = assign._jacob;
 	}
 	return *this;
 }
@@ -77,6 +78,12 @@ void PmergeMe<Container>::processParsing(int argc, char** argv) {
 		_data.push_back(value);
 	}
 	_size = _data.size();
+
+    _jacob.push_back(0);
+    _jacob.push_back(1);
+    for(size_t i = 2; i < _size && i < 33; i++) {
+        _jacob.push_back(_jacob[i - 1] + 2 * _jacob[i - 2]);
+    }
 }
 
 void unPairTheVector(std::vector<std::vector<int> >& groups) {
@@ -97,7 +104,7 @@ void unPairTheVector(std::vector<std::vector<int> >& groups) {
 
     std::cout << KBOLD << KYEL << "\n=== UNPAIR PHASE ===" << KRESET << std::endl;
     std::cout << "Input groups:" << std::endl;
-    printVdeV(groups);
+    //printVdeV(groups);
 
     std::vector<std::vector<int> > result;
     for (size_t i = 0; i < groups.size(); ++i) {
@@ -119,7 +126,7 @@ void unPairTheVector(std::vector<std::vector<int> >& groups) {
     groups.swap(result);
 
     std::cout << "\nAfter unpairing:" << std::endl;
-    printVdeV(groups);
+    //printVdeV(groups);
 
     std::vector<std::vector<int> > pend;
     std::vector<std::vector<int> > main;
@@ -133,7 +140,7 @@ void unPairTheVector(std::vector<std::vector<int> >& groups) {
     }
 
     std::cout << "\nBefore insertion:" << std::endl;
-    debugPendMain(pend, main);
+    //debugPendMain(pend, main);
 
     for (size_t i = 0; i < pend.size(); i++) {
         std::vector<std::vector<int> >::iterator it =
@@ -142,7 +149,7 @@ void unPairTheVector(std::vector<std::vector<int> >& groups) {
     }
 
     std::cout << "\nAfter insertion:" << std::endl;
-    debugPendMain(pend, main);
+    //debugPendMain(pend, main);
 
     groups = main;
     unPairTheVector(groups);
@@ -154,7 +161,7 @@ void mergeInsertSort(std::vector<std::vector<int> >& groups) {
 
     std::cout << KBOLD << KGRN << "\n=== MERGE-INSERT SORT ===" << KRESET << std::endl;
     std::cout << "Input size: " << groups.size() << std::endl;
-    printVdeV(groups);
+    //printVdeV(groups);
 
     std::vector<int> leftover;
     if (groups.size() % 2 != 0) {
@@ -179,7 +186,7 @@ void mergeInsertSort(std::vector<std::vector<int> >& groups) {
     }
 
     std::cout << "\nAfter merging pairs:" << std::endl;
-    printVdeV(newGroups);
+    //printVdeV(newGroups);
 
     mergeInsertSort(newGroups);
 
@@ -234,7 +241,7 @@ void PmergeMe<Container>::createInitialPairs(std::vector<std::vector<int> >& gro
         groups.push_back(pair);
     }
 
-    printVdeV(groups);
+    //printVdeV(groups);
 
     mergeInsertSort(groups);
 
@@ -247,7 +254,7 @@ void PmergeMe<Container>::createInitialPairs(std::vector<std::vector<int> >& gro
         groups.insert(it, tomThumb);
 
         std::cout << "After Tom Thumb insertion:" << std::endl;
-        printVdeV(groups);
+        //printVdeV(groups);
     }
 
     _data.clear();
@@ -275,9 +282,9 @@ void printVdeV(const std::vector<std::vector<int> >& groups) {
 
 void debugPendMain(const std::vector<std::vector<int> >& pend, const std::vector<std::vector<int> >& mainVec) {
     std::cout << KBOLD << KRED << "---- DEBUG pend (" << pend.size() << ") ----" << KRESET << std::endl;
-    printVdeV(pend);
+    //printVdeV(pend);
     std::cout << KBOLD << KRED << "---- DEBUG main (" << mainVec.size() << ") ----" << KRESET << std::endl;
-    printVdeV(mainVec);
+   // printVdeV(mainVec);
 }
 
 template<typename Container>

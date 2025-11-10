@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:43:48 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/11/10 09:36:27 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/11/10 09:49:29 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class PmergeMe
 	private:
 		Container _data;
 		size_t _size;
+		std::vector<int> _jacob;
 
 	public:
 		PmergeMe(void);
