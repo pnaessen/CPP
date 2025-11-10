@@ -279,3 +279,14 @@ void debugPendMain(const std::vector<std::vector<int> >& pend, const std::vector
     std::cout << KBOLD << KRED << "---- DEBUG main (" << mainVec.size() << ") ----" << KRESET << std::endl;
     printVdeV(mainVec);
 }
+
+template<typename Container>
+bool PmergeMe<Container>::checkSorted() {
+
+    for (size_t i = 0; i < _data.size() - 1; i++)
+    {
+        if(_data[i] > _data[i + 1])
+            return false;
+        }
+    return true;
+}

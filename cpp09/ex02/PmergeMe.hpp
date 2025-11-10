@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:43:48 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/11/03 19:27:39 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/11/10 09:36:27 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <algorithm>
 # include <vector>
 #include <climits>
+#include <ctime>
+#include <sys/time.h>
 
     #define KRESET "\033[0m"
     #define KBOLD  "\033[1m"
@@ -46,6 +48,7 @@ class PmergeMe
 		size_t getData(size_t idx);
 		size_t getSize();
 		void createInitialPairs(std::vector<std::vector<int> >& groups);
+		bool checkSorted();
 
 	};
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:43:43 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/11/03 21:18:00 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/11/10 09:38:12 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int main(int argc, char **argv) {
 		return 1;
 	}
 
-
+    struct timeval start, end;
+    gettimeofday(&start, NULL);
 	std::vector<std::vector<int> > groups;
 	PmergeMe<std::vector<int> > merge;
 
@@ -29,10 +30,13 @@ int main(int argc, char **argv) {
 		std::cout << "Before: " << merge << std::endl;
 		merge.createInitialPairs(groups);
 
-		std::cout << "After merge insert sort\n" << std::endl;
-		//printVdeV(groups);
-		std::cout << merge << std::endl;
-
+		if(merge.checkSorted()) {
+			std::cout << "After merge insert sort\n" << std::endl;
+			std::cout << merge << std::endl;
+		}
+		gettimeofday(&end, NULL);
+        double duration = (end.tv_sec - start.tv_sec) + (end.tv_usec - start.tv_usec) / 1e6;
+        std::cout << "Operation took " << duration << " seconds." << std::endl;
 	}
 	catch (std::exception & e)
 	{
