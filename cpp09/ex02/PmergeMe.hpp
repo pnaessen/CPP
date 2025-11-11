@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:43:48 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/11/10 09:49:29 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/11/11 17:55:42 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 #include <climits>
 #include <ctime>
 #include <sys/time.h>
+#include <deque>
+
 
     #define KRESET "\033[0m"
     #define KBOLD  "\033[1m"

@@ -98,12 +98,12 @@ void unPairTheVector(std::vector<std::vector<int> >& groups) {
         }
     }
     if (allSizeOne) {
-        std::cout << KBOLD << KYEL << "\n=== UNPAIR COMPLETE (all size 1) ===" << KRESET << std::endl;
+        // std::cout << KBOLD << KYEL << "\n=== UNPAIR COMPLETE (all size 1) ===" << KRESET << std::endl;
         return;
     }
 
-    std::cout << KBOLD << KYEL << "\n=== UNPAIR PHASE ===" << KRESET << std::endl;
-    std::cout << "Input groups:" << std::endl;
+    // std::cout << KBOLD << KYEL << "\n=== UNPAIR PHASE ===" << KRESET << std::endl;
+    // std::cout << "Input groups:" << std::endl;
     //printVdeV(groups);
 
     std::vector<std::vector<int> > result;
@@ -125,7 +125,7 @@ void unPairTheVector(std::vector<std::vector<int> >& groups) {
 
     groups.swap(result);
 
-    std::cout << "\nAfter unpairing:" << std::endl;
+    //std::cout << "\nAfter unpairing:" << std::endl;
     //printVdeV(groups);
 
     std::vector<std::vector<int> > pend;
@@ -139,7 +139,7 @@ void unPairTheVector(std::vector<std::vector<int> >& groups) {
         }
     }
 
-    std::cout << "\nBefore insertion:" << std::endl;
+   // std::cout << "\nBefore insertion:" << std::endl;
     //debugPendMain(pend, main);
 
     for (size_t i = 0; i < pend.size(); i++) {
@@ -148,7 +148,7 @@ void unPairTheVector(std::vector<std::vector<int> >& groups) {
         main.insert(it, pend[i]);
     }
 
-    std::cout << "\nAfter insertion:" << std::endl;
+   // std::cout << "\nAfter insertion:" << std::endl;
     //debugPendMain(pend, main);
 
     groups = main;
@@ -159,8 +159,8 @@ void mergeInsertSort(std::vector<std::vector<int> >& groups) {
 	if (groups.size() <= 1)
         return;
 
-    std::cout << KBOLD << KGRN << "\n=== MERGE-INSERT SORT ===" << KRESET << std::endl;
-    std::cout << "Input size: " << groups.size() << std::endl;
+    // std::cout << KBOLD << KGRN << "\n=== MERGE-INSERT SORT ===" << KRESET << std::endl;
+    // std::cout << "Input size: " << groups.size() << std::endl;
     //printVdeV(groups);
 
     std::vector<int> leftover;
@@ -185,7 +185,7 @@ void mergeInsertSort(std::vector<std::vector<int> >& groups) {
         }
     }
 
-    std::cout << "\nAfter merging pairs:" << std::endl;
+   // std::cout << "\nAfter merging pairs:" << std::endl;
     //printVdeV(newGroups);
 
     mergeInsertSort(newGroups);
@@ -228,7 +228,7 @@ void PmergeMe<Container>::createInitialPairs(std::vector<std::vector<int> >& gro
         std::cout << KBOLD << KMAG << "Tom Thumb extracted: " << tomThumb[0] << KRESET << std::endl;
     }
 
-    std::cout << KBOLD << KCYAN << "\n=== INITIAL PAIRING ===" << KRESET << std::endl;
+    //std::cout << KBOLD << KCYAN << "\n=== INITIAL PAIRING ===" << KRESET << std::endl;
     for (size_t i = 0; i < _data.size(); i += 2) {
         std::vector<int> pair;
         if (_data[i] > _data[i + 1]) {
