@@ -13,17 +13,16 @@
 #include "PmergeMe.hpp"
 
 template <typename Container>
-PmergeMe<Container>::PmergeMe() : _data(), _size(0), _jacob() {}
+PmergeMe<Container>::PmergeMe() : _data(), _size(0) {}
 
 template <typename Container>
-PmergeMe<Container>::PmergeMe(PmergeMe const& copy) : _data(copy._data), _size(copy._size), _jacob(copy._jacob) {}
+PmergeMe<Container>::PmergeMe(PmergeMe const& copy) : _data(copy._data), _size(copy._size)  {}
 
 template <typename Container>
 PmergeMe<Container>& PmergeMe<Container>::operator=(PmergeMe const& assign) {
 	if (this != &assign) {
 		_data = assign._data;
 		_size = assign._size;
-        _jacob = assign._jacob;
 	}
 	return *this;
 }
@@ -60,7 +59,7 @@ static bool parsePositiveInt(const char *token, int& outValue) {
 	if (end == token || *end != '\0') {
 		return false;
 	}
-	if (val > INT_MAX || val == 0) {
+	if (val > INT_MAX) {
 		return false;
 	}
 	outValue = val;
@@ -79,11 +78,6 @@ void PmergeMe<Container>::processParsing(int argc, char** argv) {
 	}
 	_size = _data.size();
 
-    _jacob.push_back(0);
-    _jacob.push_back(1);
-    for(size_t i = 2; i < _size && i < 33; i++) {
-        _jacob.push_back(_jacob[i - 1] + 2 * _jacob[i - 2]);
-    }
 }
 
 void unPairTheVector(std::vector<std::vector<int> >& groups) {
@@ -98,13 +92,8 @@ void unPairTheVector(std::vector<std::vector<int> >& groups) {
         }
     }
     if (allSizeOne) {
-        // std::cout << KBOLD << KYEL << "\n=== UNPAIR COMPLETE (all size 1) ===" << KRESET << std::endl;
         return;
     }
-
-    // std::cout << KBOLD << KYEL << "\n=== UNPAIR PHASE ===" << KRESET << std::endl;
-    // std::cout << "Input groups:" << std::endl;
-    //printVdeV(groups);
 
     std::vector<std::vector<int> > result;
     for (size_t i = 0; i < groups.size(); ++i) {
@@ -125,9 +114,6 @@ void unPairTheVector(std::vector<std::vector<int> >& groups) {
 
     groups.swap(result);
 
-    //std::cout << "\nAfter unpairing:" << std::endl;
-    //printVdeV(groups);
-
     std::vector<std::vector<int> > pend;
     std::vector<std::vector<int> > main;
 
@@ -139,17 +125,37 @@ void unPairTheVector(std::vector<std::vector<int> >& groups) {
         }
     }
 
-   // std::cout << "\nBefore insertion:" << std::endl;
-    //debugPendMain(pend, main);
 
-    for (size_t i = 0; i < pend.size(); i++) {
-        std::vector<std::vector<int> >::iterator it =
-            std::lower_bound(main.begin(), main.end(), pend[i]);
-        main.insert(it, pend[i]);
+    std::vector<size_t> jacobIndices;
+
+    if (!pend.empty())
+        jacobIndices.push_back(0);
+
+    size_t prevJacob = 1;
+    size_t currJacob = 3;
+
+    while (jacobIndices.size() < pend.size()) {
+        size_t right = currJacob;
+        if (right > pend.size())
+            right = pend.size();
+
+        for (size_t i = right; i > prevJacob; --i) {
+            jacobIndices.push_back(i - 1);
+        }
+
+        size_t nextJacob = currJacob + 2 * prevJacob;
+        prevJacob = currJacob;
+        currJacob = nextJacob;
     }
 
-   // std::cout << "\nAfter insertion:" << std::endl;
-    //debugPendMain(pend, main);
+    for (size_t i = 0; i < jacobIndices.size(); i++) {
+        size_t idx = jacobIndices[i];
+
+        std::vector<int> itemToInsert = pend[idx];
+        std::vector<std::vector<int> >::iterator it =
+            std::lower_bound(main.begin(), main.end(), itemToInsert);
+        main.insert(it, itemToInsert);
+    }
 
     groups = main;
     unPairTheVector(groups);
