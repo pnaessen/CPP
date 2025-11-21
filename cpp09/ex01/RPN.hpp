@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 21:21:43 by pn                #+#    #+#             */
-/*   Updated: 2025/08/05 11:04:02 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/11/21 11:04:38 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 	#include <stdexcept>
 	#include <algorithm>
 	#include <fstream>
+	#include <limits.h>
 
 
 
@@ -40,7 +41,7 @@
 			RPN & operator=(const RPN &assign);
 
 			// Getters / Setters
-			
+
 
 			// Methods
 			bool isOperator(const std::string& token);

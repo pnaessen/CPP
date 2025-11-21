@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 21:21:41 by pn                #+#    #+#             */
-/*   Updated: 2025/10/29 14:31:36 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/11/21 11:08:19 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ void RPN::processToken(const std::string& token) {
 		double a = _stack.top();
 		_stack.pop();
 		double result = perform(token, a, b);
+		if(result > INT_MAX)
+			throw std::runtime_error("Error: overflow detect");
 		_stack.push(result);
 	}
 	else
@@ -117,7 +119,7 @@ double RPN::perform(const std::string& token, double a, double b) {
 		if(b == 0.0) {
 			throw std::runtime_error("Error : divition by 0");
 		}
-		return (b / a);
+		return (a / b);
 	}
 	else
 		throw std::runtime_error("Error: unknown operator");
