@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 21:21:37 by pn                #+#    #+#             */
-/*   Updated: 2025/08/04 08:59:19 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/11/21 13:07:36 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 	try
 	{
 		RPN test;
-		double result = test.process(expression);
+		int result = test.process(expression);
 		std::cout << result << std::endl;
 	}
 	catch (std::exception const & e)
