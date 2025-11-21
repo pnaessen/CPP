@@ -54,8 +54,13 @@ static bool parsePositiveInt(const char *token, int& outValue) {
 	if (!token || *token == '\0') {
 		return false;
 	}
+
+    if(std::strchr(token, '.')) {
+        return false;
+    }
+
 	char *end = NULL;
-	unsigned int val = strtod(token, &end);
+	double val = strtod(token, &end);
 	if (end == token || *end != '\0') {
 		return false;
 	}

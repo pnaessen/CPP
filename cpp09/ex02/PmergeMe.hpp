@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pn <pn@student.42lyon.fr>                  +#+  +:+       +#+        */
+/*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:43:48 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/11/20 16:16:03 by pn               ###   ########lyon.fr   */
+/*   Updated: 2025/11/21 09:38:17 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #include <ctime>
 #include <sys/time.h>
 #include <deque>
+#include <cstring>
 
 
     #define KRESET "\033[0m"
