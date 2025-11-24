@@ -81,7 +81,7 @@ void PmergeMe::run(int argc, char **argv) {
 
 
 	gettimeofday(&endVec, NULL);
-	double timeVec = (endVec.tv_sec - startVec.tv_sec) + (endVec.tv_usec - startVec.tv_usec) / 1000000.0;
+	double timeVec = (endVec.tv_sec - startVec.tv_sec) * 1000000.0 + (endVec.tv_usec - startVec.tv_usec);
 
 	struct timeval startDeq, endDeq;
 	gettimeofday(&startDeq, NULL);
@@ -90,7 +90,7 @@ void PmergeMe::run(int argc, char **argv) {
 	_createPairsDeque(deqGroups);
 
 	gettimeofday(&endDeq, NULL);
-	double timeDeq = (endDeq.tv_sec - startDeq.tv_sec) + (endDeq.tv_usec - startDeq.tv_usec) / 1000000.0;
+	double timeDeq = (endDeq.tv_sec - startDeq.tv_sec) * 1000000.0 + (endDeq.tv_usec - startDeq.tv_usec);
 
 	std::cout << "------------------------" << std::endl;
 	std::cout << "After:  ";
@@ -100,10 +100,10 @@ void PmergeMe::run(int argc, char **argv) {
 	std::cout << std::endl << std::endl;
 
 	std::cout << "Time to process a range of " << _vector.size()
-			  << " elements with std::vector : " << std::fixed << std::setprecision(5) << timeVec << " s" << std::endl;
+			  << " elements with std::vector : " << std::fixed << std::setprecision(5) << timeVec << " us" << std::endl;
 
 	std::cout << "Time to process a range of " << _deque.size()
-			  << " elements with std::deque  : " << std::fixed << std::setprecision(5) << timeDeq << " s" << std::endl;
+			  << " elements with std::deque  : " << std::fixed << std::setprecision(5) << timeDeq << " us" << std::endl;
 }
 
 
