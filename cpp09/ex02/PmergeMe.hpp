@@ -6,7 +6,7 @@
 /*   By: pnaessen <pnaessen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 17:43:48 by pnaessen          #+#    #+#             */
-/*   Updated: 2025/11/21 09:38:17 by pnaessen         ###   ########lyon.fr   */
+/*   Updated: 2025/11/24 09:16:50 by pnaessen         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 #include <sys/time.h>
 #include <deque>
 #include <cstring>
+#include <iomanip>
 
 
     #define KRESET "\033[0m"
@@ -34,32 +35,31 @@
     #define KYEL   "\033[33m"
 
 
-template <typename Container>
 class PmergeMe
 {
 	private:
-		Container _data;
-		size_t _size;
+		std::vector<int> _vector;
+		std::deque<int>  _deque;
+
+		//  Gestion VECTOR
+		void _sortVector(std::vector<std::vector<int> >& groups);
+		void _unPairVector(std::vector<std::vector<int> >& groups);
+		void _createPairsVector(std::vector<std::vector<int> >& groups);
+
+		//  Gestion DEQUE
+		void _sortDeque(std::deque<std::deque<int> >& groups);
+		void _unPairDeque(std::deque<std::deque<int> >& groups);
+		void _createPairsDeque(std::deque<std::deque<int> >& groups);
 
 	public:
-		PmergeMe(void);
+		PmergeMe();
 		PmergeMe(PmergeMe const& copy);
-		~PmergeMe(void);
+		~PmergeMe();
 
-		PmergeMe &	operator=(PmergeMe const& assign);
-		void processParsing(int argc, char **argv);
-		size_t getData(size_t idx);
-		size_t getSize();
-		void createInitialPairs(std::vector<std::vector<int> >& groups);
-		bool checkSorted();
+		PmergeMe & operator=(PmergeMe const& assign);
 
-	};
+		void run(int argc, char **argv);
+};
 
-	void unPairTheVector(std::vector<std::vector<int> >& groups, std::vector<int>& tomThumb);
-template <typename Container>
-std::ostream& operator<<(std::ostream& os, PmergeMe<Container>& merge);
-void printVdeV(const std::vector<std::vector<int> >& groups);
-void debugPendMain(const std::vector<std::vector<int> >& pend,const std::vector<std::vector<int> >& mainVec);
-#include "PmergeMe.tpp"
 
 #endif /* PMERGEME_HPP */

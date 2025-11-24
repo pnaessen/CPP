@@ -1,6 +1,7 @@
 NAME := PmergeMe
 
-SRC := main.cpp 
+SRC := main.cpp \
+		PmergeMe.cpp
 
 OBJ_DIR := .obj
 OBJ := $(SRC:.cpp=.o)
